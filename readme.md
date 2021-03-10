@@ -21,7 +21,9 @@
 ## Authors
 
    - João Gomes - 1200365
-
+   - Gustavo Reis - 1200360
+   
+    
 
 
     
