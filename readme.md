@@ -16,7 +16,11 @@
 
 ## Requisitos e regras de negocio 
     - 
-       
+
+   
+## Authors
+
+   - João Gomes - 1200365
 
 
 
