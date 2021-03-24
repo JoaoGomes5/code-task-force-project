@@ -43,8 +43,8 @@
     - Unidade - unit - String
     - Versão - version - String
     - Estado (ativo ou inativo) - status - boolean
-    - Operações - Operations - ArrayList Operations 
-    - Componentes - Components - ArrayList Components
+    - Operações - operations - ArrayList  
+    - Componentes - components - ArrayList 
 
 ## Operação - Operation
     - Ordem - order - integer
@@ -54,7 +54,7 @@
     - Tempo (em segundos) - executionTime - integer
     - Quantidade Hora (campo de cálculo para informação de quantidade que  será produzida por hora) - quantityPerHour - integer
     - Instruções técnicas - instructions - String
-    - Componentes - Components - ArrayList Components
+    - Componentes - components - ArrayList 
 
 ## Componente - Component
     - Referencia - reference - String
@@ -78,7 +78,7 @@
 
 ## Questões para professores
     - Os tipos das operações da maquina e da operação, criamos um atributo tipo ou defenimos o tipo pelo nome? 
-    
+    - A alternativa é do  tipo peça ou do tipo compenente?
 
 # Authors
    - João Gomes - 1200365
