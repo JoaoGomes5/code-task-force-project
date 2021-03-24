@@ -78,7 +78,7 @@
 
 ## Questões para professores
     - Os tipos das operações da maquina e da operação, criamos um atributo tipo ou defenimos o tipo pelo nome? 
-
+    
 
 # Authors
    - João Gomes - 1200365
