@@ -1,14 +1,41 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package code.task.forge.project.classes;
 
-/**
- *
- * @author Ricardo Santos
- */
+import java.util.*;
+
+
 public class Operation {
+   /**
+    * Ordem
+    */
+    private int order;
+    /**
+     * Nome
+     */
+    private String name;
+    /**
+     * Máquina
+     */
+    private Machine machine;
+    /**
+     * Mão de obra
+     */
+    private int operatorsNeeded;
+    /**
+     * Tempo (em segundos)
+     */
+    private int executionTime;
+    /**
+     * Quantidade Hora
+     */
+    private int quantityPerHour;
+    /**
+     * Instruções técnicas
+     */
+    private String instructions;
+    /**
+     * Componentes
+     */
+    private ArrayList<Component> components;
     
 }
