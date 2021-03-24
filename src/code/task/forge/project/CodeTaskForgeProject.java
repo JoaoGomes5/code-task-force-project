@@ -7,7 +7,7 @@ package code.task.forge.project;
 
 /**
  *
- * @author João Gomes
+ * @author Code Task Force Team
  */
 public class CodeTaskForgeProject {
 
@@ -15,7 +15,7 @@ public class CodeTaskForgeProject {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+
     }
     
 }
