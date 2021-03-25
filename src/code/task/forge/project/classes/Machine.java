@@ -31,3 +31,4 @@ public class Machine {
      */
     private boolean state;
 }
+
