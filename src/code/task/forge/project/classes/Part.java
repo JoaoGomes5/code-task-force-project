@@ -49,55 +49,114 @@ public class Part {
     private ArrayList<Component> components;
 
     /**
-     * @return the reference
+     * Método construtor vazio
+     */
+    public Part() {
+
+    }
+
+    /**
+     * Método construtor que permite criar uma peça
+     *
+     * @param reference referencia
+     * @param designation designação
+     * @param commercialDesignation designação comercial
+     * @param batchSize quantidade Lote
+     * @param unit unidade
+     * @param version versão
+     * @param status estado
+     * @param operations operações
+     * @param components componentes
+     *
+     */
+    public Part(
+            String reference,
+            String designation,
+            String commercialDesignation,
+            int batchSize,
+            String unit,
+            String version,
+            boolean status,
+            ArrayList<Operation> operations,
+            ArrayList<Component> components
+
+    ) {
+
+        this.reference = reference;
+        this.designation = designation;
+        this.commercialDesignation = commercialDesignation;
+        this.batchSize = batchSize;
+        this.unit = unit;
+        this.version = version;
+        this.status = status;
+        this.operations = operations;
+        this.components = components;
+    }
+
+
+
+
+
+
+
+    /**
+     * Método que premite obter a referência
+     * @return Retorna a referência
      */
     public String getReference() {
         return reference;
     }
 
     /**
-     * @param reference the reference to set
+     * Método que premite definir a referência
+     * @param reference Referência
      */
     public void setReference(String reference) {
         this.reference = reference;
     }
 
     /**
-     * @return the designation
+     * Método que premite obter a designação
+     * @return Retorna a designação
      */
     public String getDesignation() {
         return designation;
     }
 
     /**
-     * @param designation the designation to set
+     *  Método que premite definir a designação
+     * @param designation Designação
      */
     public void setDesignation(String designation) {
         this.designation = designation;
     }
 
     /**
-     * @return the commercialDesignation
+     * Método que premite obter a designação comercial
+     * @return Retorna a designação comercial
      */
     public String getCommercialDesignation() {
         return commercialDesignation;
     }
 
     /**
-     * @param commercialDesignation the commercialDesignation to set
+     * Método que premite definir a designação comercial
+     * @param commercialDesignation Designação comercial
      */
     public void setCommercialDesignation(String commercialDesignation) {
         this.commercialDesignation = commercialDesignation;
     }
 
     /**
-     * @return the batchSize
+     * Método que premite obter a quantidade lote
+     * @return Retorna a quantidade lote
      */
     public int getBatchSize() {
         return batchSize;
     }
 
     /**
+     * Método que premite definir a quantidade lote
      * @param batchSize the batchSize to set
      */
     public void setBatchSize(int batchSize) {
@@ -105,62 +164,71 @@ public class Part {
     }
 
     /**
-     * @return the unit
+     * Método que premite obter a unidade
+     * @return Retorna a unidade
      */
     public String getUnit() {
         return unit;
     }
 
     /**
-     * @param unit the unit to set
+     * Método que premite definir a unidade
+     * @param unit unidade
      */
     public void setUnit(String unit) {
         this.unit = unit;
     }
 
     /**
-     * @return the version
+     * Método que premite obter a versão
+     * @return Retorna a versão
      */
     public String getVersion() {
         return version;
     }
 
     /**
-     * @param version the version to set
+     * Método que premite definir a versão
+     * @param version versão
      */
     public void setVersion(String version) {
         this.version = version;
     }
 
     /**
-     * @return the status
+     * Método que premite obter o estado
+     * @return Retorna o estado
      */
     public boolean isStatus() {
         return status;
     }
 
     /**
-     * @param status the status to set
+     * Método que premite definir o estado
+     * @param status Estado
      */
     public void setStatus(boolean status) {
         this.status = status;
     }
 
     /**
-     * @return the operations
+     * Método que premite obter as operacões
+     * @return Retorna as operações
      */
     public ArrayList<Operation> getOperations() {
         return operations;
     }
 
     /**
-     * @param operations the operations to set
+     * Método que premite definir as operações
+     * @param operations Operações
      */
     public void setOperations(ArrayList<Operation> operations) {
         this.operations = operations;
     }
 
     /**
+     * Método que premite obter os componentes
      * @return the components
      */
     public ArrayList<Component> getComponents() {
@@ -168,7 +236,8 @@ public class Part {
     }
 
     /**
-     * @param components the components to set
+     * Método que premite definir os componentes
+     * @param components Componentes
      */
     public void setComponents(ArrayList<Component> components) {
         this.components = components;
