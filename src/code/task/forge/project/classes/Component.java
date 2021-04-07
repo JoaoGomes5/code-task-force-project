@@ -23,11 +23,118 @@ public class Component {
      */
 
         public Component(String reference, String commercialDesignation, String version, float quantityNeeded, String measureUnit, Component alternative){
-            this.reference = reference;
-            this.commercialDesignation = commercialDesignation;
-            this.version = version;
-            this.quantityNeeded = quantityNeeded;
-            this.measureUnit = measureUnit;
-            this.alternative = alternative;
+            this.setReference(reference);
+            this.setCommercialDesignation(commercialDesignation);
+            this.setVersion(version);
+            this.setQuantityNeeded(quantityNeeded);
+            this.setMeasureUnit(measureUnit);
+            this.setAlternative(alternative);
         }
+
+    /**
+     * O get devolve a Referência do Componente
+     *
+     * @return - Referência do Componente
+     */
+    public String getReference() {
+        return reference;
+    }
+
+    /**
+     * Define a Referência do Componente
+     *
+     * @param reference
+     */
+    public void setReference(String reference) {
+        this.reference = reference;
+    }
+
+    /**
+     * O get devolve a Designação Comercial do Componente
+     *
+     * @return - Designação Comercial do Componente
+     */
+    public String getCommercialDesignation() {
+        return commercialDesignation;
+    }
+
+    /**
+     * Define a Designação Comercial do Componente
+     *
+     * @param commercialDesignation
+     */
+    public void setCommercialDesignation(String commercialDesignation) {
+        this.commercialDesignation = commercialDesignation;
+    }
+
+    /**
+     * O get devolve a Versão do Componente
+     *
+     * @return - Versão do Componente
+     */
+    public String getVersion() {
+        return version;
+    }
+
+    /**
+     * Define a versão do Componente
+     *
+     * @param version
+     */
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    /**
+     * O get devolve a Quantidade Necessária do Componente
+     *
+     * @return - Quantidade do Componente
+     */
+    public float getQuantityNeeded() {
+        return quantityNeeded;
+    }
+
+    /**
+     * Define a Quantidade Necessária do Componente
+     * @param quantityNeeded
+     */
+    public void setQuantityNeeded(float quantityNeeded) {
+        this.quantityNeeded = quantityNeeded;
+    }
+
+    /**
+     * O get devolve a Unidade de Medida do Componente
+     *
+     * @return - Unidade de Medida do Componente
+     */
+    public String getMeasureUnit() {
+        return measureUnit;
+    }
+
+    /**
+     * Define a Unidade de Medida do Componente
+     *
+     * @param measureUnit
+     */
+    public void setMeasureUnit(String measureUnit) {
+        this.measureUnit = measureUnit;
+    }
+
+    /**
+     * O get devolve Componente Alternativo para produzir peça caso o componente recomendado esteja esgotado
+     *
+     * @return - Componente Alternativo
+     */
+    public Component getAlternative() {
+        return alternative;
+    }
+
+    /**
+     * Define um Componente Alternativo ao Componente que constitui a peça
+     *
+     * @param alternative
+     */
+    public void setAlternative(Component alternative) {
+        this.alternative = alternative;
+    }
 }
