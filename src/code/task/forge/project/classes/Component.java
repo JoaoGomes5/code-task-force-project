@@ -2,6 +2,7 @@ package code.task.forge.project.classes;
 
 /**
  * Classe que recebe os dados dos componentes
+ *
  */
 public class Component {
     private String reference;
@@ -31,6 +32,9 @@ public class Component {
             this.setAlternative(alternative);
         }
 
+        public Component()
+        {}
+
     /**
      * O get devolve a Referência do Componente
      *
@@ -43,7 +47,7 @@ public class Component {
     /**
      * Define a Referência do Componente
      *
-     * @param reference
+     * @param reference - Referência do Componente
      */
     public void setReference(String reference) {
         this.reference = reference;
@@ -61,7 +65,7 @@ public class Component {
     /**
      * Define a Designação Comercial do Componente
      *
-     * @param commercialDesignation
+     * @param commercialDesignation - Designação Comercial do Componente
      */
     public void setCommercialDesignation(String commercialDesignation) {
         this.commercialDesignation = commercialDesignation;
@@ -79,7 +83,7 @@ public class Component {
     /**
      * Define a versão do Componente
      *
-     * @param version
+     * @param version - Versão do Componente
      */
     public void setVersion(String version) {
         this.version = version;
@@ -96,7 +100,7 @@ public class Component {
 
     /**
      * Define a Quantidade Necessária do Componente
-     * @param quantityNeeded
+     * @param quantityNeeded - Quantidade necessária do Componente para produzir a Peça
      */
     public void setQuantityNeeded(float quantityNeeded) {
         this.quantityNeeded = quantityNeeded;
@@ -114,7 +118,7 @@ public class Component {
     /**
      * Define a Unidade de Medida do Componente
      *
-     * @param measureUnit
+     * @param measureUnit - Unidade de Medida do Componente
      */
     public void setMeasureUnit(String measureUnit) {
         this.measureUnit = measureUnit;
@@ -132,7 +136,7 @@ public class Component {
     /**
      * Define um Componente Alternativo ao Componente que constitui a peça
      *
-     * @param alternative
+     * @param alternative - Componente Alternativo para produzir a peça
      */
     public void setAlternative(Component alternative) {
         this.alternative = alternative;
