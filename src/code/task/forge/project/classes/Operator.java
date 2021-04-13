@@ -48,7 +48,7 @@ public class Operator {
     }
 
     /**
-     *Método que premite obter o Código do Operador
+     *Método que permite obter o Código do Operador
      * @return Retorna o código do operador
      */
     public String getCode() {
@@ -56,7 +56,7 @@ public class Operator {
     }
 
     /**
-     *Método que premite definir o Código do Operador
+     *Método que permite definir o Código do Operador
      * @param code codigo do operador
      */
     public void setCode(String code) {
@@ -64,7 +64,7 @@ public class Operator {
     }
 
     /**
-     *Método que premite obter o Nome do Operador
+     *Método que permite obter o Nome do Operador
      * @return Retorna o nome do operador
      */
     public String getName() {
@@ -72,7 +72,7 @@ public class Operator {
     }
 
     /**
-     *Método que premite Definir o Nome do Operador
+     *Método que permite Definir o Nome do Operador
      * @param name Nome do Operador
      */
     public void setName(String name) {
@@ -80,7 +80,7 @@ public class Operator {
     }
 
     /**
-     * Método que premite obter o Horario do Operador
+     * Método que permite obter o Horario do Operador
      * @return Retorna o Horário de trabalho do operador
      */
     public int[] getSchedule() {
@@ -88,7 +88,7 @@ public class Operator {
     }
 
     /**
-     *Método que premite Definir o Horario do Operador
+     *Método que permite Definir o Horario do Operador
      * @param schedule Horario Do Operador
      */
     public void setSchedule(int[] schedule) {
@@ -96,7 +96,7 @@ public class Operator {
     }
 
     /**
-     *Método que premite obter o estado do Operador
+     *Método que permite obter o estado do Operador
      * @return Retorna o estado do operador
      */
     public boolean isState() {
@@ -104,7 +104,7 @@ public class Operator {
     }
 
     /**
-     *Método que premite Definir o estado do Operador
+     *Método que permite Definir o estado do Operador
      * @param state Estado do operador (Ativo/Inativo)
      */
     public void setState(boolean state) {
