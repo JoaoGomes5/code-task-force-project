@@ -43,8 +43,8 @@
     - Unidade - unit - String
     - Versão - version - String
     - Estado (ativo ou inativo) - status - boolean
-    - Operações - operations - ArrayList  
-    - Componentes - components - ArrayList 
+    - Operações - operations - ArrayList<Operation> 
+    - Componentes - components - ArrayList<Component>
 
 ## Operação - Operation
     - Ordem - order - integer
@@ -54,7 +54,7 @@
     - Tempo (em segundos) - executionTime - integer
     - Quantidade Hora (campo de cálculo para informação de quantidade que  será produzida por hora) - quantityPerHour - integer
     - Instruções técnicas - instructions - String
-    - Componentes - components - ArrayList 
+    - Componentes - components - ArrayList<Component>
 
 ## Componente - Component
     - Referencia - reference - String
