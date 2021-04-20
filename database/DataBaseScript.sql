@@ -17,18 +17,6 @@ CREATE TABLE Part (
     --falta atributo operations que se relaciona com a tabela Operation
     --falta atributo components que se relaciona com a tabela Component
 );
-
-CREATE TABLE Operation (
-                           id INTEGER IDENTITY(1,1) CONSTRAINT pk_operation_id PRIMARY KEY,
-                           name VARCHAR CONSTRAINT nn_operation_name NOT NULL,
-                           machine VARCHAR CONSTRAINT fk_operation_machine REFERENCES ,
-                           operators_needed INTEGER CONSTRAINT nn_operation_operators_needed NOT NULL,
-                           execution_time INTEGER CONSTRAINT nn_operation_execution_time NOT NULL,
-                           quantity_per_hour INTEGER CONSTRAINT nn_operation_quantity_per_hour NOT NULL,
-                           instructions VARCHAR CONSTRAINT nn_operation_instructions NOT NULL,
-    --falta atributo components que se relaciona com a tabela Component
-);
-
 CREATE TABLE Machine (
                          id INTEGER IDENTITY(1,1) CONSTRAINT pk_machine_id PRIMARY KEY ,
                          code VARCHAR CONSTRAINT nn_machine_code NOT NULL,
@@ -36,6 +24,18 @@ CREATE TABLE Machine (
                          status VARCHAR CONSTRAINT nn_machine_status NOT NULL
 
 );
+CREATE TABLE Operation (
+                           id                INTEGER IDENTITY(1,1) CONSTRAINT pk_operation_id PRIMARY KEY,
+                           name              VARCHAR               CONSTRAINT nn_operation_name NOT NULL,
+                           machine           INTEGER               CONSTRAINT fk_operation_machine REFERENCES Machine(id),
+                           operators_needed  INTEGER               CONSTRAINT nn_operation_operators_needed NOT NULL,
+                           execution_time    INTEGER               CONSTRAINT nn_operation_execution_time NOT NULL,
+                           quantity_per_hour INTEGER               CONSTRAINT nn_operation_quantity_per_hour NOT NULL,
+                           instructions      VARCHAR               CONSTRAINT nn_operation_instructions NOT NULL,
+    --falta atributo components que se relaciona com a tabela Component
+);
+
+
 
 CREATE TABLE Component (
                            id INTEGER IDENTITY(1,1) CONSTRAINT pk_component_id PRIMARY KEY,
