@@ -19,15 +19,16 @@ CREATE TABLE Part (
 );
 CREATE TABLE Machine (
                          id INTEGER IDENTITY(1,1) CONSTRAINT pk_machine_id PRIMARY KEY ,
-                         code VARCHAR CONSTRAINT nn_machine_code NOT NULL,
+                         name VARCHAR(50) CONSTRAINT nn_machine_name NOT NULL,
+                         code VARCHAR(50) CONSTRAINT nn_machine_code NOT NULL,
     --schedule DO TIPO ARRAY CONSTRAINT nn_machine_schedule NOT NULL,
                          status VARCHAR CONSTRAINT nn_machine_status NOT NULL
 
 );
 CREATE TABLE Operation (
-                           id                INTEGER IDENTITY(1,1) CONSTRAINT pk_operation_id PRIMARY KEY,
+                           id                INTEGER IDENTITY(1,1) CONSTRAINT pk_operation_id PRIMARY KEY ,
                            name              VARCHAR               CONSTRAINT nn_operation_name NOT NULL,
-                           machine           INTEGER               CONSTRAINT fk_operation_machine REFERENCES Machine(id),
+                           machine           INTEGER               CONSTRAINT fk_operation_machine REFERENCES Machine(id) NOT NULL,
                            operators_needed  INTEGER               CONSTRAINT nn_operation_operators_needed NOT NULL,
                            execution_time    INTEGER               CONSTRAINT nn_operation_execution_time NOT NULL,
                            quantity_per_hour INTEGER               CONSTRAINT nn_operation_quantity_per_hour NOT NULL,
