@@ -10,11 +10,56 @@ public class MenuOptions {
     static BufferedReader reader =
             new BufferedReader(new InputStreamReader(System.in));
 
-    public static void createOrder() {
-
-
+    public static void createClient() throws IOException {
+        System.out.println("Intruduza o NIF");
+        String clientNif = reader.readLine();
+        System.out.println("Intruduza o nome");
+        String clienteName = reader.readLine();
+        System.out.println("Intruduza a morada");
+        String clientAddress = reader.readLine();
+        System.out.println("Intruduza o código postal");
+        String clientPostalCode = reader.readLine();
+        System.out.println("Intruduza a localidade");
+        String clientLocality = reader.readLine();
+        System.out.println("Intruduza o país");
+        String clientCoutry = reader.readLine();
+        System.out.println("Intruduza a Cotacto");
+        String clientContact = reader.readLine();
+        System.out.println("Intruduza o tipo de contacto");
+        String clientContactType = reader.readLine();
+        System.out.println("Intruduza alguma observação");
+        String clientObservation = reader.readLine();
+        System.out.println("Intruduza uma nota do cliente");
+        String clientAnnotation = reader.readLine();
     }
 
+    public static void createOrder() throws IOException {
+        System.out.println("Intruduza o NIF do cliente");
+        String orderClientNif = reader.readLine();
+        System.out.println("Intruduza o morada de faturação");
+        String orderBillingAddress = reader.readLine();
+        System.out.println("Intruduza a morada de entrega");
+        String orderDeliveryAddress = reader.readLine();
+        System.out.println("Intruduza o numero de documento");
+        String orderDocumentNumber = reader.readLine();
+        System.out.println("Intruduza o estado da encomenda");
+        String orderState = reader.readLine();
+        System.out.println("Intruduza o desconto da encomenda");
+        String orderDiscount = reader.readLine();
+        System.out.println("Intruduza o valor total da encomenda");
+        String orderTotalValue = reader.readLine();
+
+        System.out.println("Intruduza linhas");
+        String clientContactType = reader.readLine();
+    }
+
+public static void alterDocumentNumber() throws IOException {
+        System.out.println("Intruduza o numero de documento da encomenda");
+        String alterOrderDocumentNumber = reader.readLine();
+        if (orderDocumentNumber.equals(alterOrderDocumentNumber)){
+            getState.equals(sim)
+        }
+}
     public static void createProduct() {
 
 
