@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class OperationHandler {
 
-    ArrayList<Operation> operations = new ArrayList();
+    ArrayList<Operation> operations = new ArrayList<Operation>();
     
     
     static BufferedReader reader =
