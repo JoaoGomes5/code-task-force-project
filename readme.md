@@ -76,6 +76,13 @@
     - Horário de trabalho - schedule - (pausas, horario por dia)
     - Estado - state - boolean (quando fazermos o display do estado colocar Ativo ou Inativo)
 
+## Client - Cliente
+    -  
+    - 
+    - 
+    - 
+
+
 ## Questões para professores
     - Os tipos das operações da maquina e da operação, criamos um atributo tipo ou defenimos o tipo pelo nome? 
     - A alternativa é do  tipo peça ou do tipo compenente?
