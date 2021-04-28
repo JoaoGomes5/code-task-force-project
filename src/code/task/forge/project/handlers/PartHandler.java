@@ -12,7 +12,7 @@ public class PartHandler {
 
     public static ArrayList<Part> parts = new ArrayList<Part>();
 
-    public static void createPart() throws IOException {
+    public static Part createPart() throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.io));
 
         System.out.println("Introduza a referência");
@@ -38,7 +38,7 @@ public class PartHandler {
             default:
                 throw new IllegalStateException("Valor invalido: " + option);
         }
-
+        
 
         Part part = new Part(
                 reference,
@@ -50,7 +50,8 @@ public class PartHandler {
         );
 
         parts.add(part);
-
+        
+        return part;
 
     }
 
