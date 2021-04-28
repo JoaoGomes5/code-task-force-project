@@ -14,13 +14,10 @@ public class MachineHandler {
 
     static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-<<<<<<< HEAD
-    public static Machine CreateMachine() throws IOException {
-=======
     public static ArrayList<Machine> machines = new ArrayList<Machine>();
 
     public static Machine createMachine() throws IOException {
->>>>>>> master
+
         System.out.println("Introduza o código da Máquina");
 
         String machineCode = reader.readLine();
