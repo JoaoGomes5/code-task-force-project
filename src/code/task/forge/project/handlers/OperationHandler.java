@@ -48,6 +48,7 @@ public class OperationHandler {
         }
         
 
+        
         Operation operation = new Operation(operationOrder, operationName, machine, operationOperatorsNeeded, operationExecutionTime, operationQuantityPerHour, operationInstructions, component);
 
         operations.add(operation);

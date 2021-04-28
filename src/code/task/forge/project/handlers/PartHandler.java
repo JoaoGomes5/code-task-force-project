@@ -2,6 +2,9 @@ package code.task.forge.project.handlers;
 
 
 import code.task.forge.project.classes.Part;
+import code.task.forge.project.classes.Operation;
+import code.task.forge.project.classes.Component;
+
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -38,6 +41,10 @@ public class PartHandler {
             default:
                 throw new IllegalStateException("Valor invalido: " + option);
         }
+        
+        Operation operation = OperationHandler.createOperation();
+        Component component = ComponentHandler.createComponent();
+        
 
 
         Part part = new Part(
