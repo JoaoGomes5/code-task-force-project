@@ -22,30 +22,12 @@ public class Client{
      */
     private ArrayList<Address> address;
 
-    /**
-     *Codigo postal do cliente
-     */
-    private String postalCode;
-
-    /**
-     *localidade do cliente
-     */
-    private String locality;
-
-    /**
-     *País do cliente
-     */
-    private String country;
 
     /**
      *contacto do cliente
      */
-    private String contact;
+    private ArrayList<Contact> contact;
 
-    /**
-     *observação do cliente
-     */
-    private String observation;
     /**
      *Nota do cliente
      */
@@ -59,13 +41,12 @@ public class Client{
     }
 
 
-    public Client(String nif, String name, ArrayList<Address> address, String postalCode, String locality,
-                  String country, String contact, String observation, String annotation){
+    public Client(String nif, String name, ArrayList<Address> address, ArrayList <Contact> contact, String annotation){
         this.nif = nif;
         this.name = name;
         this.address = address;
         this.contact = contact;
-        this.observation = observation;
+        this.contact = contact;
         this.annotation = annotation;
     }
     
@@ -124,94 +105,23 @@ public class Client{
         this.address = address;
     }
 
-    /**
-     * devolve codigo postal
-     *
-     * @return codigo postal
-     */
-    public String getPostalCode() {
-        return postalCode;
-    }
 
     /**
-     * define o codigo postal
-     *
-     * @param postalCode codigo postal
-     */
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
-    }
-
-    /**
-     * devolve a localidade
-     *
-     * @return localidade
-     */
-    public String getLocality() {
-        return locality;
-    }
-
-    /**
-     * define localidade
-     *
-     * @param locality localidade
-     */
-    public void setLocality(String locality) {
-        this.locality = locality;
-    }
-
-    /**
-     * devolve o país
-     *
-     * @return país
-     */
-    public String getCountry() {
-        return country;
-    }
-
-    /**
-     * define o país
-     *
-     * @param country país
-     */
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    /**
-     * devolve contacto
+     * devolve Array contacto
      *
      * @return contacto
      */
-    public String getContact() {
-        return contact;
+    public ArrayList<Contact> getPostalCode() {
+        return this.contact;
     }
 
     /**
-     * define contacto
+     * define Array contacto
      *
      * @param contact contacto
      */
-    public void setContact(String contact) {
+    public void setContact(ArrayList contact) {
         this.contact = contact;
-    }
-
-    /**
-     * devolve observação
-     *
-     * @return observação
-     */
-    public String getObservation() {
-        return observation;
-    }
-
-    /**
-     * define observação
-     *
-     * @param observation observação
-     */
-    public void setObservation(String observation) {
-        this.observation = observation;
     }
 
     /**
