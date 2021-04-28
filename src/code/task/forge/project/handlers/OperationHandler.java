@@ -27,11 +27,9 @@ public class OperationHandler {
         String operationName = reader.readLine();
         
               
-        try {
-            Machine machine = MachineHandler.CreateMachine();
-        } catch (Exception e) {
-            System.out.println("Erro: " +  e.getMessage());
-        }
+        
+            Machine machine = MachineHandler.createMachine();
+    
             
         System.out.println("Introduza a quantidade de operadores necessários para a operação!");
         int operationOperatorsNeeded = reader.read();
@@ -41,14 +39,11 @@ public class OperationHandler {
         int operationQuantityPerHour = reader.read();
         System.out.println("Introduza as instruções técnicas da operação!");
         String operationInstructions = reader.readLine();
-        try {
-            Component component = ComponentHandler.createComponent();
-        } catch (Exception e) {
-            System.out.println("Erro: " + e.getMessage());
-        }
         
+            ArrayList<Component> component;
+            ComponentHandler.createComponent();
 
-        Operation operation = new Operation(operationOrder, operationName, machine, operationOperatorsNeeded, operationExecutionTime, operationQuantityPerHour, operationInstructions, component);
+        Operation operation = new Operation(operationOrder, operationName, machine , operationOperatorsNeeded, operationExecutionTime, operationQuantityPerHour, operationInstructions, component);
 
         operations.add(operation);
 
