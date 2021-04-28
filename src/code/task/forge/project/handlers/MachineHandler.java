@@ -12,7 +12,7 @@ public class MachineHandler {
 
     static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-    public static void CreateMachine() throws IOException {
+    public static Machine CreateMachine() throws IOException {
         System.out.println("Introduza o código da Máquina");
 
         String machineCode = reader.readLine();
@@ -47,7 +47,8 @@ public class MachineHandler {
                 throw new IllegalStateException("Valor introduzido não aceitável");
 
         }
-    Machine machine = new Machine(machineCode,machineName, machineSchedule,machineState);
+    Machine machine = new Machine(machineCode,machineName, machineSchedule, machineState);
+        return machine;
     }
 
 }
