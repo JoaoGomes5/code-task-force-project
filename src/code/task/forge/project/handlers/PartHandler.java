@@ -29,11 +29,15 @@ public class PartHandler {
         System.out.println("1- Ativo /n2- Inativo");
         int option = reader.read();
 
-        boolean state = switch (option) {
-            case 1 -> true;
-            case 2 -> false;
-            default -> throw new IllegalStateException("Valor invalido: " + option);
-        };
+        boolean state;
+        switch (option) {
+            case 1 : 
+                state = true;
+            case 2 : 
+                state= false;
+            default:
+                throw new IllegalStateException("Valor invalido: " + option);
+        }
 
 
         Part part = new Part(
