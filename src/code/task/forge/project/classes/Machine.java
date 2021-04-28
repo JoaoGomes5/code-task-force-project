@@ -10,7 +10,8 @@ package code.task.forge.project.classes;
  * @author Gustavo
  */
 public class Machine {
-    
+
+
     /**
      * Código da Máquina
      */
@@ -24,7 +25,7 @@ public class Machine {
     /**
      * Horário de Trabalho da Máquina
      */
-    private int [] schedule = new int [7];
+    private int [] schedule = new int [5];
     
     /**
      * Estado da Máquina (ligada/desligada)
