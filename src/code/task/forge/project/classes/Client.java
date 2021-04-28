@@ -69,22 +69,7 @@ public class Client{
         this.observation = observation;
         this.annotation = annotation;
     }
-
-
-    /*
-    /**
-     * O get devolve a Referência do Componente
-     *
-     * @return - Referência do Componente
-
-
-
-
-     * Define a Referência do Componente
-     *
-     * @param reference - Referência do Componente
-     */
-     */
+    
 
     /**
      * Devolve o nif do cliente
