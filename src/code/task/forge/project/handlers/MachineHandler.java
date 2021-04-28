@@ -12,7 +12,7 @@ public class MachineHandler {
 
     static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-    public Machine CreateMachine() throws IOException {
+    public static Machine CreateMachine() throws IOException {
         System.out.println("Introduza o código da Máquina");
 
         String machineCode = reader.readLine();
