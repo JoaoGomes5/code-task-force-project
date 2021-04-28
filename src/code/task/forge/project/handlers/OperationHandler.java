@@ -20,13 +20,19 @@ public class OperationHandler {
      *
      * @throws IOException
      */
-    public Operation createOperation() throws IOException {
+    public static Operation createOperation() throws IOException {
         System.out.println("Intruduza a ordem da operação!");
         int operationOrder = reader.read();
         System.out.println("Introduza a identificação da operação!");
         String operationName = reader.readLine();
-        Machine machine = MachineHandler.CreateMachine();
-
+        
+              
+        try {
+            Machine machine = MachineHandler.CreateMachine();
+        } catch (Exception e) {
+            System.out.println("Erro: " +  e.getMessage());
+        }
+            
         System.out.println("Introduza a quantidade de operadores necessários para a operação!");
         int operationOperatorsNeeded = reader.read();
         System.out.println("Introduza o tempo em segundos da operação!");
@@ -35,7 +41,12 @@ public class OperationHandler {
         int operationQuantityPerHour = reader.read();
         System.out.println("Introduza as instruções técnicas da operação!");
         String operationInstructions = reader.readLine();
-        Component component = ComponentHandler.createComponent();
+        try {
+            Component component = ComponentHandler.createComponent();
+        } catch (Exception e) {
+            System.out.println("Erro: " + e.getMessage());
+        }
+        
 
         Operation operation = new Operation(operationOrder, operationName, machine, operationOperatorsNeeded, operationExecutionTime, operationQuantityPerHour, operationInstructions, component);
 

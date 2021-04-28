@@ -11,7 +11,7 @@ public class ComponentHandler {
 
     public static ArrayList<Component> components = new ArrayList<Component>();
 
-    public static void createComponent () throws IOException {
+    public static Component createComponent () throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         System.out.println("Introduza a Referência do Componente");
@@ -30,6 +30,8 @@ public class ComponentHandler {
         Component component = new Component(reference, commercialDesignation, version, stockQuantity, measureUnit, alternative);
 
         components.add(component);
+
+        return component;
     }
 
 }

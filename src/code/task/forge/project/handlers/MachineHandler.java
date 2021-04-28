@@ -15,7 +15,8 @@ public class MachineHandler {
     static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
     public static ArrayList<Machine> machines = new ArrayList<Machine>();
-    public Machine CreateMachine() throws IOException {
+
+    public static Machine createMachine() throws IOException {
         System.out.println("Introduza o código da Máquina");
 
         String machineCode = reader.readLine();
