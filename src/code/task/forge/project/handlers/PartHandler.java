@@ -13,7 +13,7 @@ public class PartHandler {
     public static ArrayList<Part> parts = new ArrayList<Part>();
 
     public static void createPart() throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.io));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         System.out.println("Introduza a referência");
             String reference = reader.readLine();
