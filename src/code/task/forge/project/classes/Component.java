@@ -8,9 +8,9 @@ public class Component {
     private String reference;
     private String commercialDesignation;
     private String version;
-    private float quantityNeeded;
+    private float stockQuantity;
     private String measureUnit;
-    private Component alternative;
+    private String alternative;
 
     /**
      * Recebe os dados dos Componentes
@@ -18,16 +18,16 @@ public class Component {
      * @param reference - Referência do componente
      * @param commercialDesignation - Designação Comercial do componente
      * @param version - Versão do componente
-     * @param quantityNeeded - Quantidade do componente necessária p/construir a peça
+     * @param stockQuantity - Quantidade do componente necessária p/construir a peça
      * @param measureUnit - Unidade de medida do componente
      * @param alternative - Componente alternativo em caso de rutura de stock
      */
 
-        public Component(String reference, String commercialDesignation, String version, float quantityNeeded, String measureUnit, Component alternative){
+        public Component(String reference, String commercialDesignation, String version, float stockQuantity, String measureUnit, String alternative){
             this.setReference(reference);
             this.setCommercialDesignation(commercialDesignation);
             this.setVersion(version);
-            this.setQuantityNeeded(quantityNeeded);
+            this.setStockQuantity(stockQuantity);
             this.setMeasureUnit(measureUnit);
             this.setAlternative(alternative);
         }
@@ -90,20 +90,20 @@ public class Component {
     }
 
     /**
-     * O get devolve a Quantidade Necessária do Componente
+     * O get devolve a Quantidade em Stock do Componente
      *
-     * @return - Quantidade do Componente
+     * @return - Quantidade em Stock do Componente
      */
-    public float getQuantityNeeded() {
-        return quantityNeeded;
+    public float getStockQuantity() {
+        return stockQuantity;
     }
 
     /**
-     * Define a Quantidade Necessária do Componente
-     * @param quantityNeeded - Quantidade necessária do Componente para produzir a Peça
+     * Define a Quantidade em stock do Componente
+     * @param stockQuantity - Quantidade em stock do Componente
      */
-    public void setQuantityNeeded(float quantityNeeded) {
-        this.quantityNeeded = quantityNeeded;
+    public void setStockQuantity(float stockQuantity) {
+        this.stockQuantity = stockQuantity;
     }
 
     /**
@@ -129,7 +129,7 @@ public class Component {
      *
      * @return - Componente Alternativo
      */
-    public Component getAlternative() {
+    public String getAlternative() {
         return alternative;
     }
 
@@ -138,7 +138,7 @@ public class Component {
      *
      * @param alternative - Componente Alternativo para produzir a peça
      */
-    public void setAlternative(Component alternative) {
+    public void setAlternative(String alternative) {
         this.alternative = alternative;
     }
 }
