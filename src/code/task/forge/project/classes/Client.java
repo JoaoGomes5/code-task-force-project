@@ -1,5 +1,7 @@
 package code.task.forge.project.classes;
 
+import java.util.ArrayList;
+
 /**
  * Class Cliente
  */
@@ -18,7 +20,7 @@ public class Client{
     /**
      *morada do cliente
      */
-    private String address;
+    private ArrayList<Address> address;
 
     /**
      *Codigo postal do cliente
@@ -57,14 +59,11 @@ public class Client{
     }
 
 
-    public Client(String nif, String name, String address, String postalCode, String locality,
+    public Client(String nif, String name, ArrayList<Address> address, String postalCode, String locality,
                   String country, String contact, String observation, String annotation){
         this.nif = nif;
         this.name = name;
         this.address = address;
-        this.postalCode = postalCode;
-        this.locality = locality;
-        this.country = country;
         this.contact = contact;
         this.observation = observation;
         this.annotation = annotation;
@@ -108,20 +107,20 @@ public class Client{
     }
 
     /**
-     * devolve a morada do cliente
+     * devolve o array morada do cliente
      *
      * @return devolve a morada
      */
-    public String getAddress() {
-        return address;
+    public ArrayList<Address> getAddress() {
+        return this.address;
     }
 
     /**
-     * define a morada do cliente
+     * define o array morada do cliente
      *
      * @param address morada do cliente
      */
-    public void setAddress(String address) {
+    public void setAddress(ArrayList address) {
         this.address = address;
     }
 
