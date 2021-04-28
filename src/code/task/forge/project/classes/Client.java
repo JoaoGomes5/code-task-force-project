@@ -35,8 +35,14 @@ public class Client{
 
     /**
      *Método construtor vazio
+     * @param clientNif
+     * @param clientName
+     * @param address
+     * @param contact
+     * @param clientAnnotation
      */
-    public Client() {
+
+    public Client(String clientNif, String clientName, Address address, Contact contact, String clientAnnotation) {
 
     }
 
@@ -45,7 +51,6 @@ public class Client{
         this.nif = nif;
         this.name = name;
         this.address = address;
-        this.contact = contact;
         this.contact = contact;
         this.annotation = annotation;
     }
