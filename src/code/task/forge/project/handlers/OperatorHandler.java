@@ -14,9 +14,9 @@ public class OperatorHandler {
     static BufferedReader reader =
             new BufferedReader(new InputStreamReader(System.in));
 
-  public static ArrayList<Operator> operators = new ArrayList<Operator>();
-    
-    public static void createOperator() throws IOException {
+    public static ArrayList<Operator> operators = new ArrayList<Operator>();
+
+    public static Operator createOperator() throws IOException {
         System.out.println("Introduza o codigo do operador");
         String operatorCode = reader.readLine();
         System.out.println("Introduza o nome do operador");
@@ -51,7 +51,8 @@ public class OperatorHandler {
         }
 
         Operator operator = new Operator(operatorCode, operatorName, operatorSchedule, operatorState);
+
+        return operator;
     }
 
-    
 }
