@@ -43,7 +43,7 @@ public class PartHandler {
         }
         
         Operation operation = OperationHandler.createOperation();
-        Component component = ComponentHandler.createComponent();
+        
         
 
 
@@ -55,10 +55,13 @@ public class PartHandler {
                 version,
                 state
         );
-
+       
         parts.add(part);
 
 
     }
+    
+    
+    
 
 }

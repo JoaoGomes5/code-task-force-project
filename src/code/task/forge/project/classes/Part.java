@@ -242,5 +242,14 @@ public class Part {
     public void setComponents(ArrayList<Component> components) {
         this.components = components;
     }
+    
+    public void addOperation(Operation operation) {
+        if(this.operations == null) {
+           this.operations = new ArrayList<Operation>();
+        }
+        
+        
+        this.operations.add(operation);
+    }
 
 }
