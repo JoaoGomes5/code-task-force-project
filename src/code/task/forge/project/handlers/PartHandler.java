@@ -3,7 +3,6 @@ package code.task.forge.project.handlers;
 
 import code.task.forge.project.classes.Part;
 import code.task.forge.project.classes.Operation;
-import code.task.forge.project.classes.Component;
 
 
 import java.io.BufferedReader;
@@ -15,13 +14,17 @@ public class PartHandler {
 
     public static ArrayList<Part> parts = new ArrayList<Part>();
 
-    public static void createPart() throws IOException {
+
+    public static Part createPart() throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
 
         System.out.println("Introduza a referência");
             String reference = reader.readLine();
         System.out.println("Introduza a designação");
             String designation = reader.readLine();
+        System.out.println("Introduza a designação comercial");
+            String commercialDesignation = reader.readLine();
         System.out.println("Introduza a designação comercial");
             int batchSize = reader.read();
         System.out.println("Introduza a unidade");
@@ -36,28 +39,40 @@ public class PartHandler {
         switch (option) {
             case 1 : 
                 state = true;
+                break;
             case 2 : 
-                state= false;
+                state = false;
+                break;
             default:
                 throw new IllegalStateException("Valor invalido: " + option);
         }
         
-        Operation operation = OperationHandler.createOperation();
-        
-        
+        System.out.println("Introduza o numero de operações");
+        int operationsQuantity = reader.read();
+
+        ArrayList<Operation> operations = new ArrayList<Operation>();
+
+        for(int i = 0; i < operationsQuantity; i++) {
+            System.out.println("Operação nº " + i);
+            Operation operation = OperationHandler.createOperation();
+            operations.add(operation);
+        }
 
 
         Part part = new Part(
                 reference,
                 designation,
+                commercialDesignation,
                 batchSize,
                 unit,
                 version,
-                state
+                state,
+                operations
         );
        
         parts.add(part);
-
+        
+        return part;
 
     }
     
