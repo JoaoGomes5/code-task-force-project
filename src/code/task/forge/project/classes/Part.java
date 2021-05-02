@@ -73,8 +73,7 @@ public class Part {
             String unit,
             String version,
             boolean status,
-            ArrayList<Operation> operations,
-
+            ArrayList<Operation> operations
     ) {
 
         this.reference = reference;
@@ -220,7 +219,7 @@ public class Part {
     public void setOperations(ArrayList<Operation> operations) {
         this.operations = operations;
     }
-
-
+    
+ 
 
 }

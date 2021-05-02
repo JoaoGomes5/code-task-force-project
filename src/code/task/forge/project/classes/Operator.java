@@ -18,7 +18,7 @@ public class Operator {
     /**
      *Array do Horario
      */
-    private int[] schedule;
+    private int[] schedule = new int[5];
 
     /**
      *Estado do operador Ativo ou Inativo

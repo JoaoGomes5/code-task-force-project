@@ -44,7 +44,6 @@
     - Versão - version - String
     - Estado (ativo ou inativo) - status - boolean
     - Operações - operations - ArrayList<Operation> 
-    - Componentes - components - ArrayList<Component>
 
 ## Operação - Operation
     - Ordem - order - integer

@@ -1,18 +1,22 @@
 package code.task.forge.project.handlers;
 
+import code.task.forge.project.classes.Component;
 import code.task.forge.project.classes.Machine;
 
 import javax.sound.midi.Soundbank;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 
 public class MachineHandler {
 
     static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-    public static void CreateMachine() throws IOException {
+    public static ArrayList<Machine> machines = new ArrayList<Machine>();
+
+    public static Machine createMachine() throws IOException {
         System.out.println("Introduza o código da Máquina");
 
         String machineCode = reader.readLine();
@@ -47,7 +51,9 @@ public class MachineHandler {
                 throw new IllegalStateException("Valor introduzido não aceitável");
 
         }
-    Machine machine = new Machine(machineCode,machineName, machineSchedule,machineState);
+    Machine machine = new Machine(machineCode,machineName, machineSchedule, machineState);
+        machines.add(machine);
+        return machine;
     }
 
 }
