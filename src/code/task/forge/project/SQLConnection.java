@@ -21,7 +21,7 @@ public class SQLConnection {
         return connect;
     }
 
-    public static void name() throws SQLException {
+    public static void all2you() throws SQLException {
 
         Connection con = getDatabaseConnection();
         Statement st = con.createStatement();
