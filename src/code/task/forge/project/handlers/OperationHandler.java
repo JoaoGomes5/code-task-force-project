@@ -21,7 +21,7 @@ public class OperationHandler {
      * @throws IOException
      */
     public static Operation createOperation() throws IOException {
-        System.out.println("Intruduza a ordem da operação!");
+        System.out.println("Introduza a ordem da operação!");
         int operationOrder = reader.read();
         System.out.println("Introduza a identificação da operação!");
         String operationName = reader.readLine();

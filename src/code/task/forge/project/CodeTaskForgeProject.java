@@ -7,6 +7,10 @@ package code.task.forge.project;
 
 import java.sql.SQLException;
 
+import code.task.forge.project.classes.Menu;
+
+import java.io.IOException;
+
 /**
  *
  * @author Code Task Force Team
@@ -16,10 +20,11 @@ public class CodeTaskForgeProject {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws SQLException {
+
+    public static void main(String[] args) throws SQLException, IOException {
 
         SQLConnection.all2you();
-
+        Menu Menu = new Menu();
+        Menu.Menu();
     }
-    
 }
