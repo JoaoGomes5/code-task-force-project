@@ -43,10 +43,7 @@ public class Part {
      */
     private ArrayList<Operation> operations;
 
-    /**
-     * Componentes
-     */
-    private ArrayList<Component> components;
+   
 
     /**
      * Método construtor vazio
@@ -66,7 +63,6 @@ public class Part {
      * @param version versão
      * @param status estado
      * @param operations operações
-     * @param components componentes
      *
      */
     public Part(
@@ -78,7 +74,6 @@ public class Part {
             String version,
             boolean status,
             ArrayList<Operation> operations,
-            ArrayList<Component> components
 
     ) {
 
@@ -90,7 +85,6 @@ public class Part {
         this.version = version;
         this.status = status;
         this.operations = operations;
-        this.components = components;
     }
 
 
@@ -227,20 +221,6 @@ public class Part {
         this.operations = operations;
     }
 
-    /**
-     * Método que premite obter os componentes
-     * @return the components
-     */
-    public ArrayList<Component> getComponents() {
-        return components;
-    }
 
-    /**
-     * Método que premite definir os componentes
-     * @param components Componentes
-     */
-    public void setComponents(ArrayList<Component> components) {
-        this.components = components;
-    }
 
 }
