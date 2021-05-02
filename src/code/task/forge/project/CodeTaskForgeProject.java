@@ -18,7 +18,7 @@ public class CodeTaskForgeProject {
      */
     public static void main(String[] args) throws SQLException {
 
-        SQLConnection.name();
+        SQLConnection.all2you();
 
     }
     
