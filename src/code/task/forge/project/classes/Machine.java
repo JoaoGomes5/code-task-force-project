@@ -25,7 +25,7 @@ public class Machine {
     /**
      * Horário de Trabalho da Máquina
      */
-    private int [] schedule = new int [5];
+    private String [][] schedule = new String [2][5];
     
     /**
      * Estado da Máquina (ligada/desligada)
@@ -47,11 +47,32 @@ public class Machine {
      * @param state Estado da Máquina (Ligada/Desligada)
      */
     
-    public Machine(String code, String name, int [] schedule, boolean state) {
+    public Machine(String code, String name, String [][] schedule, boolean state) {
         this.code = code;
         this.name = name;
         this.schedule = schedule;
         this.state = state;
+    }
+
+    private String printBoolean(){
+        if(this.state==true){
+            return "ativo";
+        }else{
+            return "inativo";
+        }
+    }
+
+    private String printArray(){
+        String print=null;
+        for(int i=0;i<this.schedule.length;i++){
+            print = print.concat("\nNa "+ this.schedule[i][i]+ "a máquina trabalhou "+ this.schedule[i+1][i] + " horas;");
+        }
+        return print;
+    }
+
+    @Override
+    public String toString(){
+        return "Esta Máquina tem o código "+getCode()+ "e o nome " + getName() + "e o seu estado é " + printBoolean() + "e o registo de horas de trabalho foi "+printArray();
     }
     
     /**
@@ -90,7 +111,7 @@ public class Machine {
      * Método que permite obter o Horário de Trabalho da Máquina
      * @return Retorna o Horário de Trabalho da Máquina
      */
-    public int[] getSchedule() {
+    public String[][] getSchedule() {
         return schedule;
     }
 
@@ -99,7 +120,7 @@ public class Machine {
      * @param schedule Horário de Trabalho da Máquina
      */
     
-    public void setSchedule(int[] schedule) {
+    public void setSchedule(String[][] schedule) {
         this.schedule = schedule;
     }
 

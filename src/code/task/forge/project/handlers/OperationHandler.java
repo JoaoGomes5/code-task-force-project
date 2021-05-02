@@ -2,7 +2,6 @@ package code.task.forge.project.handlers;
 
 import code.task.forge.project.classes.Machine;
 import code.task.forge.project.classes.Operation;
-//import com.sun.javafx.scene.control.skin.VirtualFlow;
 import code.task.forge.project.classes.Component;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -28,8 +27,12 @@ public class OperationHandler {
 
 
         
-            Machine machine = MachineHandler.createMachine();
-    
+        Machine  machine = null;
+        try {
+            machine = MachineHandler.createMachine();
+        } catch (Exception e) {
+            System.out.println("Erro: " +  e.getMessage());
+        }
             
         System.out.println("Introduza a quantidade de operadores necessários para a operação!");
         int operationOperatorsNeeded = reader.read();
@@ -39,15 +42,11 @@ public class OperationHandler {
         int operationQuantityPerHour = reader.read();
         System.out.println("Introduza as instruções técnicas da operação!");
         String operationInstructions = reader.readLine();
-        System.out.println("Introduza o número de Componentes utilizados");
-        int operationComponentQuantity = reader.read();
-
-        ArrayList<Component> components = new ArrayList<Component>();
-
-        for(int i = 0; i < operationComponentQuantity; i++) {
-            System.out.println("Componente nº " + i);
-            Component component = ComponentHandler.createComponent();
-            components.add(component);
+        Component component = null;
+        try {
+            component = ComponentHandler.createComponent();
+        } catch (Exception e) {
+            System.out.println("Erro: " + e.getMessage());
         }
 
 

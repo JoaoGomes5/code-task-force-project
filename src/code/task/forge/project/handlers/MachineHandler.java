@@ -2,6 +2,7 @@ package code.task.forge.project.handlers;
 
 import code.task.forge.project.classes.Component;
 import code.task.forge.project.classes.Machine;
+import code.task.forge.project.utils.WriteToFile;
 
 import javax.sound.midi.Soundbank;
 import java.io.BufferedReader;
@@ -16,7 +17,13 @@ public class MachineHandler {
 
     public static ArrayList<Machine> machines = new ArrayList<Machine>();
 
+    public static void createMachineFromMenu() throws IOException {
+        Machine m = createMachine();
+    }
+
+
     public static Machine createMachine() throws IOException {
+
         System.out.println("Introduza o código da Máquina");
 
         String machineCode = reader.readLine();
@@ -27,14 +34,14 @@ public class MachineHandler {
 
         System.out.println("Introduza o horário da máquina");
 
-        int [] machineSchedule = new int [5];
+        String [][] machineSchedule = new String [2][5];
         String [] daysOfWeek = new String[]{"segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira"};
 
-        for (int i=0; i<=machineSchedule.length; i++)
-            for (int j=0; i<=daysOfWeek.length; j++) {
-                System.out.println("Qual o horário da " + daysOfWeek[i] + " ?");
-                machineSchedule[j] = reader.read();
-            }
+        for(int i = 0;i< daysOfWeek.length;i++){
+            System.out.println("Qual o horário da " + daysOfWeek[i] + " ?");
+            machineSchedule[0][i] = daysOfWeek[i];
+            machineSchedule[1][i] = reader.readLine();
+        }
 
         System.out.println("Introduza o estado da máquina");
         System.out.println("1-Ativo / 2-Inativo");
@@ -54,6 +61,12 @@ public class MachineHandler {
     Machine machine = new Machine(machineCode,machineName, machineSchedule, machineState);
         machines.add(machine);
         return machine;
+    }
+
+    public static void printMachines(){
+        for(Machine m : machines){
+            WriteToFile.printToFile("Machine", m.toString());
+        }
     }
 
 }
