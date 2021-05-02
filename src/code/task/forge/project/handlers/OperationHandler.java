@@ -2,7 +2,6 @@ package code.task.forge.project.handlers;
 
 import code.task.forge.project.classes.Machine;
 import code.task.forge.project.classes.Operation;
-import com.sun.javafx.scene.control.skin.VirtualFlow;
 import code.task.forge.project.classes.Component;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -21,14 +20,14 @@ public class OperationHandler {
      * @throws IOException
      */
     public static Operation createOperation() throws IOException {
-        System.out.println("Intruduza a ordem da operação!");
+        System.out.println("Introduza a ordem da operação!");
         int operationOrder = reader.read();
         System.out.println("Introduza a identificação da operação!");
         String operationName = reader.readLine();
         
-              
+        Machine  machine = null;
         try {
-            Machine machine = MachineHandler.CreateMachine();
+            machine = MachineHandler.createMachine();
         } catch (Exception e) {
             System.out.println("Erro: " +  e.getMessage());
         }
@@ -41,8 +40,9 @@ public class OperationHandler {
         int operationQuantityPerHour = reader.read();
         System.out.println("Introduza as instruções técnicas da operação!");
         String operationInstructions = reader.readLine();
+        Component component = null;
         try {
-            Component component = ComponentHandler.createComponent();
+            component = ComponentHandler.createComponent();
         } catch (Exception e) {
             System.out.println("Erro: " + e.getMessage());
         }

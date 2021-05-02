@@ -5,6 +5,7 @@
  */
 package code.task.forge.project;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 /**
@@ -16,10 +17,10 @@ public class CodeTaskForgeProject {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException, IOException {
 
         SQLConnection.name();
-
+        Menu.Menu();
     }
     
 }
