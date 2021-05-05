@@ -20,13 +20,13 @@ public class Client{
     /**
      *morada do cliente
      */
-    private ArrayList<Address> address;
+    private ArrayList<Address> addresses ;
 
 
     /**
      *contacto do cliente
      */
-    private ArrayList<Contact> contact;
+    private ArrayList<Contact> contacts;
 
     /**
      *Nota do cliente
@@ -35,23 +35,19 @@ public class Client{
 
     /**
      *Método construtor vazio
-     * @param clientNif
-     * @param clientName
-     * @param address
-     * @param contact
-     * @param clientAnnotation
+     * 
      */
 
-    public Client(String clientNif, String clientName, Address address, Contact contact, String clientAnnotation) {
+    public Client() {
 
     }
 
 
-    public Client(String nif, String name, ArrayList<Address> address, ArrayList <Contact> contact, String annotation){
+    public Client(String nif, String name, ArrayList<Address> addresses , ArrayList<Contact> contacts, String annotation){
         this.nif = nif;
         this.name = name;
-        this.address = address;
-        this.contact = contact;
+        this.addresses  = addresses ;
+        this.contacts = contacts;
         this.annotation = annotation;
     }
     
@@ -97,36 +93,37 @@ public class Client{
      *
      * @return devolve a morada
      */
-    public ArrayList<Address> getAddress() {
-        return this.address;
+    public ArrayList<Address> getAddresses () {
+        return this.addresses ;
     }
 
     /**
      * define o array morada do cliente
      *
-     * @param address morada do cliente
+     * @param addresses  morada do cliente
      */
-    public void setAddress(ArrayList address) {
-        this.address = address;
+    public void setAddresses (ArrayList<Address> addresses) {
+        this.addresses  = addresses ;
     }
 
 
     /**
      * devolve Array contacto
      *
-     * @return contacto
+     * @return contactos
      */
-    public ArrayList<Contact> getPostalCode() {
-        return this.contact;
+    public ArrayList<Contact> getContacts() {
+        return this.contacts;
     }
 
     /**
-     * define Array contacto
+     * define Array contactos
      *
-     * @param contact contacto
+     * @param contacts
+     * @param contact contactos
      */
-    public void setContact(ArrayList contact) {
-        this.contact = contact;
+    public void setContacts(ArrayList<Contact> contacts) {
+        this.contacts = contacts;
     }
 
     /**

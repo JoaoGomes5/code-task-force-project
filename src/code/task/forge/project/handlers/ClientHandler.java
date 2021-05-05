@@ -3,8 +3,7 @@ package code.task.forge.project.handlers;
 import code.task.forge.project.classes.Address;
 import code.task.forge.project.classes.Client;
 import code.task.forge.project.classes.Contact;
-import code.task.forge.project.handlers.AddressHandler;
-import code.task.forge.project.handlers.ContactHandler;
+import code.task.forge.project.classes.Operation;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -19,7 +18,7 @@ public class ClientHandler {
 
     public static ArrayList<Client> clients = new ArrayList<Client>();
 
-    public static Client createClient() throws IOException {
+    public static void createClient() throws IOException {
         System.out.println("Introduza o NIF");
         String clientNif = reader.readLine();
 
@@ -32,12 +31,23 @@ public class ClientHandler {
 
         System.out.println("Introduza uma nota do cliente");
         String clientAnnotation = reader.readLine();
+        
+    //      System.out.println("Introduza o numero de operações");
+    // int operationsQuantity = reader.read();
+
+    // ArrayList<Address> addresses = new ArrayList<>();
+
+    // for(int i = 0; i < operationsQuantity; i++) {
+    //     System.out.println("Operação nº " + i);
+    //     Address address = .createOperation();
+    //     addresses.add(operation);
+    // }
 
 
-        Client client = new Client(clientNif, clientName, address, contact,clientAnnotation);
+    // Client client = new Client(clientNif, clientName, address, contact,clientAnnotation);
 
 
-        return client;
+    // return client;
     }
 
 }

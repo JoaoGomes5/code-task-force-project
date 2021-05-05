@@ -13,6 +13,7 @@
     - Usar gitHub como repositorio remoto
     - Contacto entre a equipa 
     - SCRUM 
+    - Todas as classes teem um handler responsavel pelas atividades da classe
     - O controlo de código fonte deve ser feito com recurso ao Git flow, usando as seguintes nomenclaturas: 
         • Branch name: (feat/fix)-(task_number)-description
           o feat-002-create-classe-xpto
@@ -31,21 +32,38 @@
     - As máquinas e os operadores terão de guardar a informação do seu horário de trabalho 
     e do seu estado (ativo ou inativo).
       
+# Menu 
 
+ - Menu composto pelas seguintes funcionalidades:
+    - Gestão de Clientes
+    - Gestão de Encomendas
+    - Fichas técnicas
+    - Configurações
+    - Sair
 
 # Classes
 
-## Peça/Produto - Part
+## Article - Artigo
     - Referencia - reference - String
-    - Designação - designation - String 
     - Designação comercial - commercialDesignation - String
+    - Versão - version - String
+
+
+## Peça/Produto - Part extends Article 
+    - Designação - designation - String 
     - Quantidade Lote (é a quantidade que será desenvolvida para vez que a peça é produzida) - batchSize - integer
     - Unidade - unit - String
-    - Versão - version - String
     - Estado (ativo ou inativo) - status - boolean
     - Operações - operations - ArrayList<Operation> 
 
-## Operação - Operation
+
+## Componente - Component extends Article 
+    - Quantidade - quantityNeeded - float
+    - Unidade - measureUnit - String - (A quantidade utiliza para construir o componente) 
+    - Alternativa - alternative - Part - (caso não exista stock da peça a ser construída pode ser usada a sua alternativa)
+
+## Operação - Operation 
+    - Código - code - String
     - Ordem - order - integer
     - Nome - name - String
     - Máquina - Machine - Machine
@@ -54,14 +72,8 @@
     - Quantidade Hora (campo de cálculo para informação de quantidade que  será produzida por hora) - quantityPerHour - integer
     - Instruções técnicas - instructions - String
     - Componentes - components - ArrayList<Component>
-
-## Componente - Component
-    - Referencia - reference - String
-    - Designação comercial - commercialDesignation - String
-    - Versão - version - String
-    - Quantidade - quantityNeeded - float
-    - Unidade - measureUnit - String - (A quantidade utiliza para construir o componente) 
-    - Alternativa - alternative - Part - (caso não exista stock da peça a ser construída pode ser usada a sua alternativa)
+    - Descrição - description - String
+    - Tipo - type - String
 
 ## Máquina - Machine
     - Codigo - code - String
@@ -76,16 +88,24 @@
     - Estado - state - boolean (quando fazermos o display do estado colocar Ativo ou Inativo)
 
 ## Client - Cliente
-    -  
-    - 
-    - 
-    - 
+    - NIF - nif - String
+    - Nome - name - String
+    - Moradas (Podemos guardar a morada principal e moradas alternativas) - addresses - ArrayList<Address>
+    - Contactos (podemos guardar o contacto principal e contactos alternativos) - contacts - ArrayList<Contact>
+    - Notas - annotation - String
 
+## Address - Norada
+    - Morada - address - String
+    - Código postal - postalCode - String
+    - Localidade - locality - String
+    - País - country - String
 
-## Questões para professores
-    - Os tipos das operações da maquina e da operação, criamos um atributo tipo ou defenimos o tipo pelo nome? 
-    - A alternativa é do  tipo peça ou do tipo compenente?
+## Contact - Contacto
+    - Contacto - contact - String
+    - Tipo contacto (e-mail, telefone, telemóvel, etc..) - contactType - String
+    - Observações - observations - String 
 
+## 
 # Authors
    - João Gomes - 1200365
    - Gustavo Reis - 1200360
