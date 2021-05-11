@@ -33,8 +33,7 @@
     e do seu estado (ativo ou inativo).
       
 # Menu 
-
- - Menu composto pelas seguintes funcionalidades:
+ - Menu composto pelas seguintes funcionalidades:   
     - Gestão de Clientes
     - Gestão de Encomendas
     - Fichas técnicas
