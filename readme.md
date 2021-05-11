@@ -105,7 +105,29 @@
     - Tipo contacto (e-mail, telefone, telemóvel, etc..) - contactType - String
     - Observações - observations - String 
 
-## 
+## Order - Encomenda
+    - Informação do cliente 
+        (possibilidade de preencher os dados do cliente) 
+        (possibilidade de escolher por NIF)
+    - Morada de faturação - 
+    - Morada de entrega - 
+    - Nº de documento - documentNumber - int
+    - Data de documento - date - Date
+    - Estado - state - String
+    - Desconto (em % e/ou valor) - descount - String
+    - Valor Total - total - Int
+    - Linhas - lines - ArrayList<Line> 
+       
+
+## Line - Linha da fatura da encomenda
+    - Referência - reference - String
+    - Descrição - description - String
+    - Versão - version - String
+    - Quantidade - quatity - Int
+    - Unidade - unit - String
+    - Preço unitário - unitPrice - String
+    - Valor Total - String
+
 # Authors
    - João Gomes - 1200365
    - Gustavo Reis - 1200360
