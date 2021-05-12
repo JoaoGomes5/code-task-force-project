@@ -1,22 +1,16 @@
 package code.task.forge.project.classes;
 import java.util.*;
 
-public class Part {
+public class Part extends Article {
 
-    /**
-     * Referencia
-     */
-    private String reference;
+   
 
     /**
      * Designação
      */
     private String designation;
 
-    /**
-     * Designação comercial
-     */
-    private String commercialDesignation;
+    
 
     /**
      * Quantidade Lote
@@ -29,14 +23,11 @@ public class Part {
     private String unit;
 
     /**
-     * Versão
-     */
-    private String version;
-
-    /**
      * Estado
      */
     private boolean status;
+
+    
 
     /**
      * Operações
@@ -55,58 +46,32 @@ public class Part {
     /**
      * Método construtor que permite criar uma peça
      *
-     * @param reference referencia
      * @param designation designação
-     * @param commercialDesignation designação comercial
      * @param batchSize quantidade Lote
      * @param unit unidade
-     * @param version versão
      * @param status estado
      * @param operations operações
      *
      */
     public Part(
             String reference,
-            String designation,
             String commercialDesignation,
+            String version,
+            String designation,
             int batchSize,
             String unit,
-            String version,
             boolean status,
             ArrayList<Operation> operations
     ) {
-
-        this.reference = reference;
+        super(reference, commercialDesignation, version);
         this.designation = designation;
-        this.commercialDesignation = commercialDesignation;
         this.batchSize = batchSize;
         this.unit = unit;
-        this.version = version;
         this.status = status;
         this.operations = operations;
     }
 
 
-
-
-
-
-
-    /**
-     * Método que premite obter a referência
-     * @return Retorna a referência
-     */
-    public String getReference() {
-        return reference;
-    }
-
-    /**
-     * Método que premite definir a referência
-     * @param reference Referência
-     */
-    public void setReference(String reference) {
-        this.reference = reference;
-    }
 
     /**
      * Método que premite obter a designação
@@ -122,22 +87,6 @@ public class Part {
      */
     public void setDesignation(String designation) {
         this.designation = designation;
-    }
-
-    /**
-     * Método que premite obter a designação comercial
-     * @return Retorna a designação comercial
-     */
-    public String getCommercialDesignation() {
-        return commercialDesignation;
-    }
-
-    /**
-     * Método que premite definir a designação comercial
-     * @param commercialDesignation Designação comercial
-     */
-    public void setCommercialDesignation(String commercialDesignation) {
-        this.commercialDesignation = commercialDesignation;
     }
 
     /**
@@ -170,22 +119,6 @@ public class Part {
      */
     public void setUnit(String unit) {
         this.unit = unit;
-    }
-
-    /**
-     * Método que premite obter a versão
-     * @return Retorna a versão
-     */
-    public String getVersion() {
-        return version;
-    }
-
-    /**
-     * Método que premite definir a versão
-     * @param version versão
-     */
-    public void setVersion(String version) {
-        this.version = version;
     }
 
     /**
