@@ -56,6 +56,17 @@ public class Line {
         this.setValorTotal(valorTotal);
     }
 
+    @Override
+    public String toString(){
+        return "Referência "+getReference() + "\n" +
+                "Descrição " + getDescription() + "\n" +
+                "Versão" + getVersion() + "\n" +
+                "Quantidade " +getQuantity() + "\n" +
+                "Unidade" + getUnit() + "\n" +
+                "Preço Unitário" + getUnitPrice() + "\n" +
+                "Valor Total" + getValorTotal() + "\n";
+    }
+
     /**
      * Método que permite obter a Linha de Referência do Produto
      * @return Retorna a Linha de Referência do Produto
