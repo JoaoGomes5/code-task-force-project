@@ -76,7 +76,7 @@
 
 ## Máquina - Machine
     - Codigo - code - String
-    - Nome - name - String
+    - Nome - name -  String
     - Horário de trabalho - schedule - Array schedule - (em cada dia da semana as horas que trabalha) 
     - Estado - status
 
@@ -108,8 +108,8 @@
     - Informação do cliente 
         (possibilidade de preencher os dados do cliente) 
         (possibilidade de escolher por NIF)
-    - Morada de faturação - 
-    - Morada de entrega - 
+    - Morada de faturação - purchaseAddress - String
+    - Morada de entrega - deliveryAddress - Strin
     - Nº de documento - documentNumber - int
     - Data de documento - date - Date
     - Estado - state - String
