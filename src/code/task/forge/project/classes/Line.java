@@ -46,6 +46,18 @@ public class Line {
     public Line(){
     }
 
+    /**
+     *
+     * Método que permite criar Linha
+     *
+     * @param reference Linha de Referência do Produto
+     * @param description Linha de Descrição do Produto
+     * @param version Linha de Versão do Produto
+     * @param quantity Linha de Quantidade do Produto
+     * @param unit Linha de Unidade do Produto
+     * @param unitPrice Linha de Preço Unitário do Produto
+     * @param valorTotal Linha de Valor Total
+     */
     public Line (String reference, String description, String version, int quantity, String unit, String unitPrice, String valorTotal) {
         this.setReference(reference);
         this.setDescription(description);
