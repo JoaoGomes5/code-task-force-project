@@ -85,7 +85,7 @@ public class Machine {
     
     /**
      * Método que permite definir o Código da Máquina
-     * @param code Código da Vacina
+     * @param code Código da Máquina
      */
     public void setCode(String code) {
         this.code = code;
@@ -93,7 +93,7 @@ public class Machine {
     
     /**
      * Método que permite obter o Nome da Máquina
-     * @return Retorna o Nome da máquina
+     * @return Retorna o Nome da Máquina
      */
     public String getName() {
         return name;
