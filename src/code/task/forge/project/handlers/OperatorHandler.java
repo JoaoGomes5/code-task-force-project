@@ -8,14 +8,21 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-
+/**
+ * Classe OperatorHandler
+ * @author Ricardo Santos
+ */
 public class OperatorHandler {
 
     static BufferedReader reader =
             new BufferedReader(new InputStreamReader(System.in));
 
     public static ArrayList<Operator> operators = new ArrayList<Operator>();
-
+/**
+ * Criação do operador
+ * @return Retorna o objeto operdador.
+ * @throws IOException 
+ */
     public static Operator createOperator() throws IOException {
         System.out.println("Introduza o codigo do operador");
         String operatorCode = reader.readLine();

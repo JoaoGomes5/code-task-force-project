@@ -9,7 +9,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-
+/**
+ * Classe MachineHandler.
+ * @author Ricardo Santos
+ */
 
 public class MachineHandler {
 
@@ -21,7 +24,11 @@ public class MachineHandler {
         Machine m = createMachine();
     }
 
-
+/**
+ * Criação da máquina.
+ * @return Retorna o objeto máquina.
+ * @throws IOException 
+ */
     public static Machine createMachine() throws IOException {
 
         System.out.println("Introduza o código da Máquina");

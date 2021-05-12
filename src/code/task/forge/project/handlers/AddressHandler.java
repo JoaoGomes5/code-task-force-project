@@ -7,14 +7,21 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-
+/**
+ * Classe AddressHandler
+ * @author Ricardo Santos
+ */
 public class AddressHandler {
 
     static BufferedReader reader =
             new BufferedReader(new InputStreamReader(System.in));
 
     public static ArrayList<Address> address = new ArrayList<Address>();
-
+/**
+ * Criação do endereço.
+ * @return Retorna o endereço.
+ * @throws IOException 
+ */
     public static Address createAddress() throws IOException {
 
         System.out.println("Introduza a morada");

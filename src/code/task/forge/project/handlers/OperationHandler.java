@@ -8,6 +8,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+/**
+ * Classe OperationHandler
+ * @author Ricardo Santos
+ */
 public class OperationHandler {
 
     public static ArrayList<Operation> operations = new ArrayList<Operation>();
@@ -15,9 +19,11 @@ public class OperationHandler {
     static BufferedReader reader
             = new BufferedReader(new InputStreamReader(System.in));
 
-    /**
-     * @throws IOException
-     */
+   /**
+    * Criação da operação.
+    * @return Retorna o obejto operação.
+    * @throws IOException 
+    */
     public static Operation createOperation() throws IOException {
         System.out.println("Introduza a ordem da operação!");
         int operationOrder = reader.read();

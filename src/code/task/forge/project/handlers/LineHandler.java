@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- *
+ * Classe LineHandler.
  * @author Ricardo Santos
  */
 public class LineHandler {
@@ -19,7 +19,7 @@ public class LineHandler {
     static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 /**
  * Criação de linha.
- * @return retorna o objeto linha.
+ * @return Retorna o objeto linha.
  * @throws IOException 
  */
     public static Line createLine() throws IOException {
