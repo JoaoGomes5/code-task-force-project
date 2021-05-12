@@ -17,7 +17,11 @@ import java.io.InputStreamReader;
 public class LineHandler {
 
     static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
+/**
+ * Criação de linha.
+ * @return retorna o objeto linha.
+ * @throws IOException 
+ */
     public static Line createLine() throws IOException {
         System.out.println("Introduza a referência!");
         String lineReference = reader.readLine();
