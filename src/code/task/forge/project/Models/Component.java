@@ -1,4 +1,4 @@
-package code.task.forge.project.classes;
+package code.task.forge.project.Models;
 
 /**
  * Classe que recebe os dados dos componentes

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package code.task.forge.project.classes;
+package code.task.forge.project.Models;
 
 /**
  *

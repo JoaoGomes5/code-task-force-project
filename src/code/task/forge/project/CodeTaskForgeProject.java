@@ -8,7 +8,7 @@ package code.task.forge.project;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import code.task.forge.project.classes.Menu;
+import code.task.forge.project.Models.Menu;
 
 import java.io.IOException;
 
