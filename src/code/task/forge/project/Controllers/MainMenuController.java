@@ -31,29 +31,44 @@ public class MainMenuController {
         // TODO
     }  
 
-    @FXML
     void exitApp(ActionEvent event) {
 
     }
 
-    @FXML
     void goToClientsManager(ActionEvent event) {
 
     }
 
-    @FXML
     void goToConfigurations(ActionEvent event) {
 
     }
 
-    @FXML
     void goToDatasheet(ActionEvent event) {
 
     }
 
-    @FXML
     void goToOrdersManager(ActionEvent event) {
 
+    }
+
+    @FXML
+    private void goToClientsManager(javafx.event.ActionEvent event) {
+    }
+
+    @FXML
+    private void goToOrdersManager(javafx.event.ActionEvent event) {
+    }
+
+    @FXML
+    private void goToDatasheet(javafx.event.ActionEvent event) {
+    }
+
+    @FXML
+    private void goToConfigurations(javafx.event.ActionEvent event) {
+    }
+
+    @FXML
+    private void exitApp(javafx.event.ActionEvent event) {
     }
 
 }
