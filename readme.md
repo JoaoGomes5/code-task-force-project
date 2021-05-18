@@ -36,8 +36,8 @@
  - Menu composto pelas seguintes funcionalidades:   
     - Gestão de Clientes
     - Gestão de Encomendas
-    - Fichas técnicas
-    - Configurações
+    - Fichas técnicas (Ver informação dos artigos)
+    - Configurações (CRUD (Create, Read, Update, Delete)) 
     - Sair
 
 # Classes

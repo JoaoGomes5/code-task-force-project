@@ -5,11 +5,10 @@
  */
 package code.task.forge.project;
 
-import code.task.forge.project.database.SQLConnection;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import code.task.forge.project.classes.Menu;
+import code.task.forge.project.Models.Menu;
 
 import java.io.IOException;
 
@@ -25,7 +24,7 @@ public class CodeTaskForgeProject {
 
     public static void main(String[] args) throws SQLException, IOException {
 
-        code.task.forge.project.database.SQLConnection.all2you();
+        SQLConnection.all2you();
         Menu Menu = new Menu();
         Menu.Menu();
     }
