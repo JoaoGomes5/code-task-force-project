@@ -1,4 +1,4 @@
-package code.task.forge.project.database;
+package code.task.forge.project;
 
 import java.sql.*;
 
