@@ -1,6 +1,8 @@
-package code.task.forge.project.interfaces.MainMenu;
+package code.task.forge.project.Controllers;
 
 import java.awt.event.ActionEvent;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
@@ -20,6 +22,14 @@ public class MainMenuController {
 
     @FXML
     private Button btn_exit;
+    
+     /**
+     * Initializes the main menu controller
+     */
+
+    public void initialize(URL url, ResourceBundle rb) {
+        // TODO
+    }  
 
     @FXML
     void exitApp(ActionEvent event) {
