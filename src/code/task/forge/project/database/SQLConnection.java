@@ -1,4 +1,4 @@
-package code.task.forge.project;
+package code.task.forge.project.database;
 
 import java.sql.*;
 
@@ -25,7 +25,7 @@ public class SQLConnection {
 
         Connection con = getDatabaseConnection();
         Statement st = con.createStatement();
-        String query = "Select * from teste";
+        String query = "Select * from component";
         ResultSet rs = st.executeQuery(query);
         while(rs.next()){
 

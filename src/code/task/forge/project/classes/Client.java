@@ -120,7 +120,7 @@ public class Client{
      * define Array contactos
      *
      * @param contacts
-     * @param contact contactos
+     * @param contacts contactos
      */
     public void setContacts(ArrayList<Contact> contacts) {
         this.contacts = contacts;

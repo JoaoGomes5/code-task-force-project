@@ -1,15 +1,15 @@
 USE [LP2_G3_2021]
 GO
-/****** Object:  User [LP2_G3_2021]    Script Date: 28/04/2021 21:19:04 ******/
-CREATE USER [LP2_G3_2021] FOR LOGIN [LP2_G3_2021] WITH DEFAULT_SCHEMA=[dbo]
-GO
-ALTER ROLE [db_owner] ADD MEMBER [LP2_G3_2021]
-GO
+--/****** Object:  User [LP2_G3_2021]    Script Date: 28/04/2021 21:19:04 ******/
+--CREATE USER [LP2_G3_2021] FOR LOGIN [LP2_G3_2021] WITH DEFAULT_SCHEMA=[dbo]
+--GO
+--ALTER ROLE [db_owner] ADD MEMBER [LP2_G3_2021]
+--GO
 
-CREATE DATABASE Code_Task_Force_Software
-GO
-USE Code_Task_Force_Software
-GO
+--CREATE DATABASE Code_Task_Force_Software
+--GO
+--USE Code_Task_Force_Software
+--GO
 
 CREATE TABLE Part (
                       id INTEGER IDENTITY(1,1) CONSTRAINT pk_part_id PRIMARY KEY ,
@@ -46,12 +46,12 @@ CREATE TABLE Operation (
 
 CREATE TABLE Component (
                            id INTEGER IDENTITY(1,1) CONSTRAINT pk_component_id PRIMARY KEY,
-                           reference VARCHAR CONSTRAINT nn_component_reference NOT NULL,
-                           commercialDesignation VARCHAR CONSTRAINT nn_component_commercialDesignation NOT NULL,
-                           version VARCHAR CONSTRAINT nn_component_commercialDesignation NOT NULL,
-                           quantityNeeded FLOAT CONSTRAINT nn_component_quantityNeeded NOT NULL,
-                           measureUnit VARCHAR CONSTRAINT nn_component_measureUnit NOT NULL,
-                           alternative VARCHAR CONSTRAINT nn_component_measureUnit NOT NULL,
+                           reference VARCHAR(10) CONSTRAINT nn_component_reference NOT NULL,
+                           commercialDesignation VARCHAR(40) CONSTRAINT nn_component_commercialDesignation NOT NULL,
+                           version VARCHAR(5) CONSTRAINT nn_component_commercialDesignation NOT NULL,
+                           stock INT CONSTRAINT nn_component_stock NOT NULL,
+                           measureUnit VARCHAR(5) CONSTRAINT nn_component_measureUnit NOT NULL,
+                           alternative VARCHAR(10) CONSTRAINT nn_component_measureUnit NOT NULL,
 );
 
 
@@ -62,3 +62,11 @@ CREATE TABLE Operator (
                           status VARCHAR CONSTRAINT nn_operator_status NOT NULL
 
 );
+
+--SET IDENTITY_INSERT id ON
+
+INSERT INTO Component (reference, commercialDesignation, version, stock, measureUnit, alternative)
+VALUES ('sqtb30302', 'Tubo Quadrado 30x30x2', 1, 500, 'mm', 0002);
+
+--SET IDENTITY_INSERT Component OFF
+--GO
