@@ -7,14 +7,21 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-
+/**
+ * Classe ContactHandler.
+ * @author Ricardo Santos
+ */
 public class ContactHandler {
 
     static BufferedReader reader =
             new BufferedReader(new InputStreamReader(System.in));
 
     public static ArrayList<Contact> contacts = new ArrayList<Contact>();
-
+/**
+ * Criação do contacto.
+ * @return Retorna o objeto contacto.
+ * @throws IOException 
+ */
     public static Contact createContact() throws IOException {
 
         System.out.println("Introduza o Cotacto");

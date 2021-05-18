@@ -10,14 +10,20 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-
+/**
+ * Classe cliente.
+ * @author Ricardo Santos
+ */
 public class ClientHandler {
 
     static BufferedReader reader =
             new BufferedReader(new InputStreamReader(System.in));
 
     public static ArrayList<Client> clients = new ArrayList<Client>();
-
+/**
+ * Criação do cliente.
+ * @throws IOException 
+ */
     public static void createClient() throws IOException {
         System.out.println("Introduza o NIF");
         String clientNif = reader.readLine();

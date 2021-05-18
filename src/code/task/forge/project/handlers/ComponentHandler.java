@@ -6,11 +6,18 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-
+/**
+ * Clase ComponentHandler.
+ * @author Ricardo Santos
+ */
 public class ComponentHandler {
 
     public static ArrayList<Component> components = new ArrayList<Component>();
-
+/**
+ * Criação do componente.
+ * @return Retorna o objeto componente.
+ * @throws IOException 
+ */
     public static Component createComponent () throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
