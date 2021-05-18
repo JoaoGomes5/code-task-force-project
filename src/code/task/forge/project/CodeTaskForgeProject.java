@@ -25,7 +25,6 @@ public class CodeTaskForgeProject {
     public static void main(String[] args) throws SQLException, IOException {
 
         SQLConnection.all2you();
-        Menu Menu = new Menu();
-        Menu.Menu();
+        
     }
 }
