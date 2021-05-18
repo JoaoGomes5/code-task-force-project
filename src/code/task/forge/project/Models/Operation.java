@@ -1,5 +1,5 @@
 
-package code.task.forge.project.classes;
+package code.task.forge.project.Models;
 
 import java.util.*;
 
