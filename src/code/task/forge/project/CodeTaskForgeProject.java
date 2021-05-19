@@ -8,7 +8,7 @@ package code.task.forge.project;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import code.task.forge.project.Models.Menu;
+import code.task.forge.project.Controllers.MainMenuController;
 
 import java.io.IOException;
 
@@ -24,8 +24,6 @@ public class CodeTaskForgeProject {
 
     public static void main(String[] args) throws SQLException, IOException {
 
-        code.task.forge.project.database.SQLConnection.all2you();
-        Menu Menu = new Menu();
-        Menu.Menu();
+        code.task.forge.project.SQLConnection.all2you();
     }
 }
