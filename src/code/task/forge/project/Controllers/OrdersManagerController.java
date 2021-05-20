@@ -7,7 +7,10 @@ package code.task.forge.project.Controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 
 /**
  * FXML Controller class
@@ -16,6 +19,13 @@ import javafx.fxml.Initializable;
  */
 public class OrdersManagerController implements Initializable {
 
+    @FXML
+    private Button btn_create_order;
+    @FXML
+    private Button btn_view_order;
+    @FXML
+    private Button btn_return;
+
     /**
      * Initializes the controller class.
      */
@@ -23,5 +33,17 @@ public class OrdersManagerController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void goToCreateOrder(ActionEvent event) {
+    }
+
+    @FXML
+    private void goToViewOrder(ActionEvent event) {
+    }
+
+    @FXML
+    private void returnPage(ActionEvent event) {
+    }
     
 }

@@ -9,7 +9,7 @@ import javafx.scene.control.Button;
 public class MainMenuController {
 
     @FXML
-    private Button btn_clents_manager;
+    private Button btn_clients_manager;
 
     @FXML
     private Button btn_orders_manager;

@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.task.forge.project.Controllers.OrdersManagerController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="code.task.forge.project.Controllers.OrdersManagerController">
     <stylesheets>
-        <URL value="@ordersmanager.css"/>
+        <URL value="@ordersmanager.css" />
     </stylesheets>
+   <children>
+      <Label layoutX="249.0" layoutY="14.0" prefHeight="38.0" prefWidth="97.0" text="Gerir Encomendas" />
+      <Button fx:id="btn_create_order" layoutX="228.0" layoutY="107.0" mnemonicParsing="false" onAction="#goToCreateOrder" prefHeight="50.0" prefWidth="142.0" text="Criar Encomenda" />
+      <Button fx:id="btn_view_order" layoutX="229.0" layoutY="172.0" mnemonicParsing="false" onAction="#goToViewOrder" prefHeight="50.0" prefWidth="142.0" text="Ver Encomenda" />
+      <Button fx:id="btn_return" layoutX="538.0" layoutY="360.0" mnemonicParsing="false" onAction="#returnPage" text="Voltar" />
+   </children>
 </AnchorPane>

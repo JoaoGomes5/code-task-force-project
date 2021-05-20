@@ -5,16 +5,16 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="code.task.forge.project.Controllers.MainMenuController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.task.forge.project.Controllers.MainMenuController">
     <stylesheets>
         <URL value="@mainmenu.css" />
     </stylesheets>
    <children>
-      <Button fx:id="btn_clents_manager" layoutX="228.0" layoutY="107.0" mnemonicParsing="false" onAction="#goToClientsManager" prefHeight="50.0" prefWidth="142.0" text="Gestão de Clientes" />
+      <Button fx:id="btn_clients_manager" layoutX="228.0" layoutY="107.0" mnemonicParsing="false" onAction="#goToClientsManager" prefHeight="50.0" prefWidth="142.0" text="Gestão de Clientes" />
       <Button fx:id="btn_orders_manager" layoutX="229.0" layoutY="172.0" mnemonicParsing="false" onAction="#goToOrdersManager" prefHeight="50.0" prefWidth="142.0" text="Gestão de Encomendas" />
       <Button fx:id="btn_datasheet" layoutX="229.0" layoutY="243.0" mnemonicParsing="false" onAction="#goToDatasheet" prefHeight="50.0" prefWidth="142.0" text="Fichas técnicas" />
       <Button fx:id="btn_configurations" layoutX="436.0" layoutY="359.0" mnemonicParsing="false" onAction="#goToConfigurations" prefHeight="26.0" prefWidth="102.0" text="Configurações" />
       <Button fx:id="btn_exit" layoutX="550.0" layoutY="360.0" mnemonicParsing="false" onAction="#exitApp" text="Sair" />
-      <Label layoutX="285.0" layoutY="14.0" prefHeight="18.0" prefWidth="36.0" text="Menu" />
+      <Label layoutX="281.0" layoutY="14.0" prefHeight="38.0" prefWidth="36.0" text="Menu" />
    </children>
 </AnchorPane>
