@@ -37,9 +37,9 @@ public class Article {
      */
         public Article (String reference, String commercialDesignation, String version)
     {
-        this.setReference(getReference());
-        this.setCommercialDesignation(getCommercialDesignation());
-        this.setVersion(getVersion());
+        this.setReference(reference);
+        this.setCommercialDesignation(commercialDesignation);
+        this.setVersion(version);
     }
 
     @Override

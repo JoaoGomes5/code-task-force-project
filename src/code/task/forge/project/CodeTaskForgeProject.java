@@ -8,7 +8,7 @@ package code.task.forge.project;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import java.io.IOException;
+import code.task.forge.project.Database.SQLConnection;
 
 /**
  *
