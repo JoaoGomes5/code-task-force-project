@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableView;
 
 /**
  * FXML Controller class
@@ -21,7 +22,7 @@ import javafx.scene.control.ListView;
 public class ClientsManagerController implements Initializable {
 
     @FXML
-    private ListView<?> listViewArticles;
+    private TableView<?> listViewArticles;
     @FXML
     private Button btnEditClient;
     @FXML
@@ -39,6 +40,7 @@ public class ClientsManagerController implements Initializable {
 
     @FXML
     private void goToEditClient(ActionEvent event) {
+        
     }
 
     @FXML
