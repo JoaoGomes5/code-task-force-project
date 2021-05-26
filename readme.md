@@ -127,6 +127,10 @@
     - Preço unitário - unitPrice - String
     - Valor Total - String
 
+## ManufacturingOrder
+    - id - String
+    - operation - Operação
+
 # Authors
    - João Gomes - 1200365
    - Gustavo Reis - 1200360
