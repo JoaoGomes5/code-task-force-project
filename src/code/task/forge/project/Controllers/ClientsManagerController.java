@@ -7,7 +7,12 @@ package code.task.forge.project.Controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TableView;
 
 /**
  * FXML Controller class
@@ -16,6 +21,15 @@ import javafx.fxml.Initializable;
  */
 public class ClientsManagerController implements Initializable {
 
+    @FXML
+    private TableView<?> listViewArticles;
+    @FXML
+    private Button btnEditClient;
+    @FXML
+    private Button btnCreateClient;
+    @FXML
+    private Button btnReturn;
+
     /**
      * Initializes the controller class.
      */
@@ -23,5 +37,18 @@ public class ClientsManagerController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void goToEditClient(ActionEvent event) {
+        
+    }
+
+    @FXML
+    private void goToCreateClient(ActionEvent event) {
+    }
+
+    @FXML
+    private void goReturn(ActionEvent event) {
+    }
     
 }
