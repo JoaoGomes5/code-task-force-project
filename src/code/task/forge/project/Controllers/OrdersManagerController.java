@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 
 /**
  * FXML Controller class
@@ -25,6 +26,8 @@ public class OrdersManagerController implements Initializable {
     private Button btn_view_order;
     @FXML
     private Button btn_return;
+    @FXML
+    private ListView<?> listView;
 
     /**
      * Initializes the controller class.

@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
 /**
@@ -30,6 +31,8 @@ public class DatasheetController implements Initializable {
     private Button btn_create_article;
     @FXML
     private Button btn_remove_article;
+    @FXML
+    private ListView<?> listViewArtigos;
 
      @FXML
     private void goToViewArticle(ActionEvent event) {

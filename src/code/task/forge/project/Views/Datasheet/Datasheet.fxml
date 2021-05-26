@@ -3,6 +3,7 @@
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.task.forge.project.Controllers.DatasheetController">
@@ -11,10 +12,11 @@
     </stylesheets>
    <children>
       <Label layoutX="265.0" layoutY="14.0" text="Ficha Tecnica" />
-      <Button fx:id="btn_view_article" layoutX="228.0" layoutY="107.0" mnemonicParsing="false" onAction="#goToViewArticle" prefHeight="50.0" prefWidth="142.0" text="Ver Artigos" />
-      <Button fx:id="btn_return" layoutX="538.0" layoutY="360.0" mnemonicParsing="false" onAction="#goReturn" text="Voltar" />
-      <Button fx:id="btn_edit_article" layoutX="229.0" layoutY="243.0" mnemonicParsing="false" onAction="#goToEditArticle" prefHeight="50.0" prefWidth="142.0" text="Editar Artigos" />
-      <Button fx:id="btn_create_article" layoutX="229.0" layoutY="172.0" mnemonicParsing="false" onAction="#goToCreateArticle" prefHeight="50.0" prefWidth="142.0" text="Criar Artigos" />
-      <Button fx:id="btn_remove_article" layoutX="229.0" layoutY="309.0" mnemonicParsing="false" onAction="#goToRemoveArticle" prefHeight="50.0" prefWidth="142.0" text="Remover Artigos" />
+      <Button fx:id="btn_view_article" layoutX="41.0" layoutY="342.0" mnemonicParsing="false" onAction="#goToViewArticle" prefHeight="34.0" prefWidth="110.0" text="Ver Artigos" />
+      <Button fx:id="btn_return" layoutX="538.0" layoutY="359.0" mnemonicParsing="false" onAction="#goReturn" text="Voltar" />
+      <Button fx:id="btn_edit_article" layoutX="261.0" layoutY="342.0" mnemonicParsing="false" onAction="#goToEditArticle" prefHeight="34.0" prefWidth="110.0" text="Editar Artigos" />
+      <Button fx:id="btn_create_article" layoutX="151.0" layoutY="342.0" mnemonicParsing="false" onAction="#goToCreateArticle" prefHeight="34.0" prefWidth="110.0" text="Criar Artigos" />
+      <Button fx:id="btn_remove_article" layoutX="371.0" layoutY="342.0" mnemonicParsing="false" onAction="#goToRemoveArticle" prefHeight="34.0" prefWidth="110.0" text="Remover Artigos" />
+      <ListView fx:id="listViewArtigos" layoutX="41.0" layoutY="82.0" prefHeight="230.0" prefWidth="439.0" />
    </children>
 </AnchorPane>
