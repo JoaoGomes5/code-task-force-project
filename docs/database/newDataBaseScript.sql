@@ -6,7 +6,7 @@ CREATE TABLE Client(
   nif VARCHAR(9) CONSTRAINT NN_client_nif NOT NULL,
   name VARCHAR(55) CONSTRAINT NN_client_name  NOT NULL ,
   annotations VARCHAR(55) CONSTRAINT NN_client_annotations NOT NULL,
-) 
+)
 
 CREATE TABLE Part (
   id INTEGER(10) IDENTITY(1,1) CONSTRAINT PK_part_id PRIMARY KEY,
@@ -27,8 +27,7 @@ CREATE TABLE Component (
   quantity_needed FLOAT CONSTRAINT NN_component_stock_quantity NOT NULL,
   measure_unit VARCHAR(55)  CONSTRAINT NN_component_measureUnit NOT NULL,
   alternative VARCHAR(10) CONSTRAINT NN_component_alternative NOT NULL
-) 
-
+)
 CREATE TABLE Operation (
       id                VARCHAR(10)  IDENTITY(1,1)  CONSTRAINT PK_operation_id  PRIMARY KEY,
       part_id           VARCHAR(55)  CONSTRAINT FK_operation_part_id  FOREIGN KEY REFERENCES Part(id),
@@ -43,47 +42,46 @@ CREATE TABLE Operation (
       description       VARCHAR(100) CONSTRAINT NN_operation_description NOT NULL,
       instructions      VARCHAR(100) CONSTRAINT NN_operation_instructions NOT NULL,
       type              VARCHAR(10)  CONSTRAINT NN_operation_type NOT NULL
-);
-
-
+); 
 CREATE TABLE Component_Operation (
   id  VARCHAR(10) IDENTITY(1,1) CONSTRAINT PK_component_operation_id  PRIMARY KEY,
   component_id VARCHAR(10) CONSTRAINT FK_component_operation_component_id  FOREIGN KEY REFERENCES Component(id),
   operation_id VARCHAR(10) CONSTRAINT FK_component_operation_operation_id  FOREIGN KEY REFERENCES Operation(id)
-) 
+); 
 
+CREATE TABLE Contact (
+  id VARCHAR(10) IDENTITY(1,1) CONSTRAINT PK_contact_id  PRIMARY KEY,
+  contact VARCHAR(30)  CONSTRAINT NN_contact_contact  NOT NULL,
+  contact_type VARCHAR(10)  CONSTRAINT NN_contact_contact_type  NOT NULL,
+  observation VARCHAR(10)  CONSTRAINT NN_contact_observation  NOT NULL,
+)
+GO
+CREATE TABLE Order (
+  id VARCHAR(10) IDENTITY(1,1) CONSTRAINT PK_order_id  PRIMARY KEY,
+  nif VARCHAR(9) CONSTRAINT NN_order_nif NOT NULL,
+  purchase_address INTEGER(10) CONSTRAINT FK_order_purchase_address FOREIGN KEY REFERENCES Address(id),
+  delivery_address INTEGER(10) CONSTRAINT FK_order_delivery_address FOREIGN KEY REFERENCES Address(id),
+  date DATE CONSTRAINT NN_order_date NOT NULL,
+  state VARCHAR(50) CONSTRAINT NN_order_state NOT NULL,
+  descount VARCHAR(10) CONSTRAINT NN_order_descount NOT NULL,
+  total FLOAT CONSTRAINT NN_order_total NOT NULL
+);
+GO
+CREATE TABLE Line (
+  id VARCHAR(10) IDENTITY(1,1) CONSTRAINT PK_line_id  PRIMARY KEY,
+  reference VARCHAR(50) CONSTRAINT NN_line_reference NOT NULL,
+  description VARCHAR(100) CONSTRAINT NN_line_description NOT NULL,
+  version VARCHAR(50) CONSTRAINT NN_line_version NOT NULL,
+  quantity INTEGER(10) CONSTRAINT NN_line_quantity NOT NULL,
+  unit VARCHAR(10) CONSTRAINT NN_line_unit NOT NULL,
+  unit_price FLOAT CONSTRAINT NN_line_unit_price NOT NULL,
+  total FLOAT CONSTRAINT NN_line_total NOT NULL,
+);
 
-CREATE TABLE `Contact` (
-  `id` CONSTRAINT PK_contact_id varchar(55) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `clientId` CONSTRAINT FK_contact_client_id varchar(55) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `contact` CONSTRAINT NN_contact_contact varchar(55) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `contactType` CONSTRAINT NN_contact_contactType varchar(55) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `observations` varchar(55) CONSTRAINT NN_contact_observation CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-
-CREATE TABLE `Order` (
-  `codEncomenda` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `dataEncomenda` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `dataUltimaModificacao` varchar(55) COLLATE utf8_unicode_ci NOT NULL,
-  `hora` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `codCliente` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `infoExtra` varchar(55) COLLATE utf8_unicode_ci NOT NULL,
-  `estado` varchar(55) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `valorTotal` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
-
-CREATE TABLE `Line` (
-  `codLinha` varchar(55) COLLATE utf8_unicode_ci NOT NULL,
-  `codFatura` varchar(55) COLLATE utf8_unicode_ci NOT NULL,
-  `codProduto` varchar(55) COLLATE utf8_unicode_ci NOT NULL,
-  `quantidade` double NOT NULL,
-  `valorTotal` double NOT NULL,
-  `nota` varchar(55) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-CREATE TABLE `Machine` (
-  `codMaquina` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+CREATE TABLE Machine (
+  id VARCHAR(10) IDENTITY(1,1) CONSTRAINT PK_machine_id  PRIMARY KEY,
+  code VARCHAR(10)  CONSTRAINT NN_operation_code NOT NULL,
+  name varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `descricao` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `horarioFuncionamento` varchar(55) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
