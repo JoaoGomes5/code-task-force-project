@@ -131,6 +131,14 @@
     - id - String
     - operation - Operação
 
+# Controllers exceptions
+
+## Order
+    - Converter a data de DD-MM-YYYY para YYYY-MM-DD
+    - Gerar
+
+## Line 
+
 # Authors
    - João Gomes - 1200365
    - Gustavo Reis - 1200360
