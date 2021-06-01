@@ -127,6 +127,14 @@
     - Preço unitário - unitPrice - String
     - Valor Total - String
 
+## ManufacturingOrder
+    - id - String
+    - operation - Operação
+
+## DATA BASE
+
+# MachineSchedule
+
 # Authors
    - João Gomes - 1200365
    - Gustavo Reis - 1200360
