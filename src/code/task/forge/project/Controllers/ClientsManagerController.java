@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -24,11 +25,13 @@ public class ClientsManagerController implements Initializable {
     @FXML
     private TableView<?> listViewArticles;
     @FXML
+    private Button btnReturn;
+    @FXML
+    private TextField txtFieldSearch;
+    @FXML
     private Button btnEditClient;
     @FXML
     private Button btnCreateClient;
-    @FXML
-    private Button btnReturn;
 
     /**
      * Initializes the controller class.
@@ -38,17 +41,17 @@ public class ClientsManagerController implements Initializable {
         // TODO
     }    
 
+
+    @FXML
+    private void goReturn(ActionEvent event) {
+    }
+
     @FXML
     private void goToEditClient(ActionEvent event) {
-        
     }
 
     @FXML
     private void goToCreateClient(ActionEvent event) {
-    }
-
-    @FXML
-    private void goReturn(ActionEvent event) {
     }
     
 }
