@@ -130,6 +130,7 @@
 ## ManufacturingOrder
     - id - String
     - operation - Operação
+    (Conpletar com o que tem no segundo enunciado)
 
 ## DATA BASE
 
