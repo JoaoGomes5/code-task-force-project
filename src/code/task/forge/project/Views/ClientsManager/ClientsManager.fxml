@@ -14,7 +14,7 @@
     </stylesheets>
    <children>
       <Label layoutX="401.0" layoutY="14.0" prefHeight="23.0" prefWidth="105.0" text="Gestao de Clientes" />
-      <Button fx:id="btnEditClient" layoutX="151.0" layoutY="543.0" mnemonicParsing="false" onAction="#goToEditClient" prefHeight="34.0" prefWidth="110.0" text="Editar Cliente" />
+      <Button fx:id="btnEditClient" layoutX="149.0" layoutY="543.0" mnemonicParsing="false" onAction="#goToEditClient" prefHeight="34.0" prefWidth="110.0" text="Editar Cliente" />
       <Button fx:id="btnCreateClient" layoutX="39.0" layoutY="543.0" mnemonicParsing="false" onAction="#goToCreateClient" prefHeight="34.0" prefWidth="110.0" text="Criar Clientes" />
       <Button fx:id="btnReturn" layoutX="838.0" layoutY="560.0" mnemonicParsing="false" onAction="#goReturn" text="Voltar" />
       <TableView fx:id="listViewArticles" layoutX="34.0" layoutY="88.0" prefHeight="426.0" prefWidth="840.0">
