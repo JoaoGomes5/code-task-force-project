@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package code.task.forge.project.Views.ClientsManager.EditClient;
+package code.task.forge.project.Controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,7 +14,7 @@ import javafx.fxml.Initializable;
  *
  * @author André Marques
  */
-public class EditClientController implements Initializable {
+public class EditOrderController implements Initializable {
 
     /**
      * Initializes the controller class.
