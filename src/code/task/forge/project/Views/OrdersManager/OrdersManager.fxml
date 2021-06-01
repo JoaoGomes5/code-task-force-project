@@ -9,18 +9,18 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.task.forge.project.Controllers.OrdersManagerController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="900.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.task.forge.project.Controllers.OrdersManagerController">
     <stylesheets>
         <URL value="@ordersmanager.css" />
     </stylesheets>
    <children>
-      <Label fx:id="manageOrderLabel" layoutX="250.0" layoutY="14.0" prefHeight="38.0" prefWidth="100.0" text="Gerir Encomendas" />
-      <Button fx:id="btn_create_order" layoutX="41.0" layoutY="342.0" mnemonicParsing="false" onAction="#goToCreateOrder" prefHeight="34.0" prefWidth="110.0" text="Criar Encomenda" />
-      <Button fx:id="btn_edit_order" layoutX="151.0" layoutY="342.0" mnemonicParsing="false" onAction="#goToEditOrder" prefHeight="34.0" prefWidth="110.0" text="Editar Encomenda " AnchorPane.rightAnchor="338.6" AnchorPane.topAnchor="342.0" />
-      <Button fx:id="btn_return" layoutX="538.0" layoutY="359.0" mnemonicParsing="false" onAction="#returnPage" text="Voltar" />
+      <Label fx:id="manageOrderLabel" layoutX="395.0" layoutY="14.0" prefHeight="38.0" prefWidth="110.0" text="Gerir Encomendas" />
+      <Button fx:id="btn_create_order" layoutX="41.0" layoutY="534.0" mnemonicParsing="false" onAction="#goToCreateOrder" prefHeight="34.0" prefWidth="110.0" text="Criar Encomenda" />
+      <Button fx:id="btn_edit_order" layoutX="152.0" layoutY="535.0" mnemonicParsing="false" onAction="#goToEditOrder" prefHeight="34.0" prefWidth="123.0" text="Editar Encomenda " AnchorPane.rightAnchor="624.8" AnchorPane.topAnchor="535.0" />
+      <Button fx:id="btn_return" layoutX="798.0" layoutY="534.0" mnemonicParsing="false" onAction="#returnPage" prefHeight="34.0" prefWidth="62.0" text="Voltar" />
       <Accordion layoutX="47.0" layoutY="114.0" />
       <Accordion layoutX="92.0" layoutY="99.0" />
-      <TableView fx:id="listViewOrder" layoutX="34.0" layoutY="88.0" prefHeight="242.0" prefWidth="672.0">
+      <TableView fx:id="listViewOrder" layoutX="41.0" layoutY="114.0" prefHeight="398.0" prefWidth="820.0">
         <columns>
           <TableColumn fx:id="orderName" prefWidth="84.79998779296875" text="Nome Cliente" />
           <TableColumn fx:id="orderNif" prefWidth="65.59998321533203" text="NIF" />
@@ -33,7 +33,7 @@
             <TableColumn fx:id="orderTotal" prefWidth="65.59998321533203" text="Total" />
         </columns>
       </TableView>
-      <TextField fx:id="txtOrder" layoutX="96.0" layoutY="54.0" />
-      <Label layoutX="41.0" layoutY="58.0" text="Pesquiar:" />
+      <TextField fx:id="txtOrder" layoutX="100.0" layoutY="86.0" prefHeight="26.0" prefWidth="760.0" />
+      <Label layoutX="41.0" layoutY="86.0" prefHeight="26.0" prefWidth="62.0" text="Pesquiar:" />
    </children>
 </AnchorPane>
