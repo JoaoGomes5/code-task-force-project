@@ -1,6 +1,6 @@
 --Use master
-DROP DATABASE Teste
-CREATE DATABASE Teste
+--DROP DATABASE Teste
+--CREATE DATABASE Teste
 USE Teste
 GO
 
