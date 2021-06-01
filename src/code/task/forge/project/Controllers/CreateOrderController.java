@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package code.task.forge.project.Views.OrdersManager.EditOrder;
+package code.task.forge.project.Controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,7 +14,7 @@ import javafx.fxml.Initializable;
  *
  * @author André Marques
  */
-public class EditOrderController implements Initializable {
+public class CreateOrderController implements Initializable {
 
     /**
      * Initializes the controller class.
