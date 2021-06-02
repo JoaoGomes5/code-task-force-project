@@ -40,9 +40,9 @@ public class ClientsManagerController implements Initializable {
     @FXML
     private TableColumn<Client, String> clientNif;
     @FXML
-    private TableColumn<Client, ?> clientContact;
+    private TableColumn<Client, String> clientContact;
     @FXML
-    private TableColumn<Client, ArrayList> clientAdress;
+    private TableColumn<Client, String> clientAdress;
     @FXML
     private TableColumn<Client, String> clientAnnotation;
 
@@ -52,6 +52,7 @@ public class ClientsManagerController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
     }    
 
 
