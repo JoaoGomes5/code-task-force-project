@@ -18,26 +18,20 @@ import javafx.scene.control.TextField;
  *
  * @author André Marques
  */
-public class CreateClientController implements Initializable {
+public class EditOperatorController implements Initializable {
 
     @FXML
     private Button btnReturn;
     @FXML
-    private TextField txtNif;
+    private TextField txtCod;
     @FXML
-    private TextField txtAddress1;
+    private TextField txtSchedule;
     @FXML
     private TextField txtName;
     @FXML
-    private TextField txtAddress2;
+    private TextField txtState;
     @FXML
-    private Button btnCreate;
-    @FXML
-    private TextField txtContact;
-    @FXML
-    private TextField txtAnnotation;
-    @FXML
-    private TextField txtContact2;
+    private Button btnEdit;
 
     /**
      * Initializes the controller class.
@@ -52,37 +46,23 @@ public class CreateClientController implements Initializable {
     }
 
     @FXML
-    private void ClientTxtNif(ActionEvent event) {
+    private void OperatorTxtCode(ActionEvent event) {
     }
 
     @FXML
-    private void ClientTxtAddress1(ActionEvent event) {
+    private void OperatorTxtSchedule(ActionEvent event) {
     }
 
     @FXML
-    private void ClientTxtName(ActionEvent event) {
-    }
-
-
-    @FXML
-    private void ClientTxtAddress2(ActionEvent event) {
-    }
-
-
-    @FXML
-    private void CreateClient(ActionEvent event) {
+    private void OperatorTxtName(ActionEvent event) {
     }
 
     @FXML
-    private void ClientTxtContact(ActionEvent event) {
+    private void OperatorTxtState(ActionEvent event) {
     }
 
     @FXML
-    private void ClientTxtAnnotation(ActionEvent event) {
-    }
-
-    @FXML
-    private void ClientTxtContact2(ActionEvent event) {
+    private void EditOperator(ActionEvent event) {
     }
     
 }
