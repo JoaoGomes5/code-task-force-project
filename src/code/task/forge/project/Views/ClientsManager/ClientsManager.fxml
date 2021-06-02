@@ -19,11 +19,11 @@
       <Button fx:id="btnReturn" layoutX="838.0" layoutY="560.0" mnemonicParsing="false" onAction="#goReturn" text="Voltar" />
       <TableView fx:id="listViewArticles" layoutX="34.0" layoutY="88.0" prefHeight="426.0" prefWidth="840.0">
         <columns>
-          <TableColumn prefWidth="81.5999755859375" text="Nome" />
-          <TableColumn prefWidth="78.4000244140625" text="NIF" />
-            <TableColumn prefWidth="99.20001220703125" text="Contacto" />
-            <TableColumn prefWidth="119.20001220703125" text="Morada" />
-            <TableColumn prefWidth="151.20001220703125" text="Notas" />
+          <TableColumn fx:id="clientName" prefWidth="81.5999755859375" text="Nome" />
+          <TableColumn fx:id="clientNif" prefWidth="78.4000244140625" text="NIF" />
+            <TableColumn fx:id="clientContact" prefWidth="99.20001220703125" text="Contacto" />
+            <TableColumn fx:id="clientAdress" prefWidth="119.20001220703125" text="Morada" />
+            <TableColumn fx:id="clientAnnotation" prefWidth="151.20001220703125" text="Notas" />
         </columns>
       </TableView>
       <TextField fx:id="txtFieldSearch" layoutX="96.0" layoutY="54.0" prefHeight="26.0" prefWidth="778.0" />

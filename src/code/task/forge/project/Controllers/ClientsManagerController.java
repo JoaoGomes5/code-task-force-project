@@ -5,13 +5,16 @@
  */
 package code.task.forge.project.Controllers;
 
+import code.task.forge.project.Models.Client;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
@@ -32,6 +35,16 @@ public class ClientsManagerController implements Initializable {
     private Button btnEditClient;
     @FXML
     private Button btnCreateClient;
+    @FXML
+    private TableColumn<Client, String> clientName;
+    @FXML
+    private TableColumn<Client, String> clientNif;
+    @FXML
+    private TableColumn<Client, ?> clientContact;
+    @FXML
+    private TableColumn<Client, ArrayList> clientAdress;
+    @FXML
+    private TableColumn<Client, String> clientAnnotation;
 
     /**
      * Initializes the controller class.
