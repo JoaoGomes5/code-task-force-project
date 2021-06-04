@@ -131,6 +131,7 @@
     - id - String
     - operation - Operação
 
+<<<<<<< HEAD
 # Controllers exceptions
 
 ## Order
@@ -138,6 +139,11 @@
     - Gerar
 
 ## Line 
+=======
+## DATA BASE
+
+# MachineSchedule
+>>>>>>> e6f25aeacc95f4aa3f0e2bfad28bd2e58eba29d0
 
 # Authors
    - João Gomes - 1200365

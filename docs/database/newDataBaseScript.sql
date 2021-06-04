@@ -1,11 +1,11 @@
 USE [LP2_G3_2021]
-GO
 
 CREATE TABLE Client(
   id VARCHAR(10) IDENTITY(1,1) CONSTRAINT PK_client_id PRIMARY KEY,
   nif VARCHAR(9) CONSTRAINT NN_client_nif NOT NULL,
   name VARCHAR(55) CONSTRAINT NN_client_name  NOT NULL ,
   annotations VARCHAR(55) CONSTRAINT NN_client_annotations NOT NULL,
+ -- main_contact VARCHAR(55) CONSTRAINT FK_client_main_contact REFERENCES Contact(id)
 )
 
 CREATE TABLE Part (
@@ -28,6 +28,7 @@ CREATE TABLE Component (
   measure_unit VARCHAR(55)  CONSTRAINT NN_component_measureUnit NOT NULL,
   alternative VARCHAR(10) CONSTRAINT NN_component_alternative NOT NULL
 )
+
 CREATE TABLE Operation (
       id                VARCHAR(10)  IDENTITY(1,1)  CONSTRAINT PK_operation_id  PRIMARY KEY,
       part_id           VARCHAR(55)  CONSTRAINT FK_operation_part_id  FOREIGN KEY REFERENCES Part(id),
@@ -43,11 +44,18 @@ CREATE TABLE Operation (
       instructions      VARCHAR(100) CONSTRAINT NN_operation_instructions NOT NULL,
       type              VARCHAR(10)  CONSTRAINT NN_operation_type NOT NULL
 ); 
+
 CREATE TABLE Component_Operation (
   id  VARCHAR(10) IDENTITY(1,1) CONSTRAINT PK_component_operation_id  PRIMARY KEY,
   component_id VARCHAR(10) CONSTRAINT FK_component_operation_component_id  FOREIGN KEY REFERENCES Component(id),
   operation_id VARCHAR(10) CONSTRAINT FK_component_operation_operation_id  FOREIGN KEY REFERENCES Operation(id)
 ); 
+
+CREATE TABLE Part_Operation (
+  id varchar(10) CONSTRAINT PK_part_operation_id PRIMARY KEY
+  part_id varchar(55) CONSTRAINT FK_part_operation_part_id REFERENCES Part(id),
+  operation_id varchar(55) CONSTRAINT FK_part_operation_operation_id REFERENCES Operation(id),
+) 
 
 CREATE TABLE Contact (
   id VARCHAR(10) IDENTITY(1,1) CONSTRAINT PK_contact_id  PRIMARY KEY,
@@ -55,7 +63,7 @@ CREATE TABLE Contact (
   contact_type VARCHAR(10)  CONSTRAINT NN_contact_contact_type  NOT NULL,
   observation VARCHAR(10)  CONSTRAINT NN_contact_observation  NOT NULL,
 )
-GO
+
 CREATE TABLE Order (
   id VARCHAR(10) IDENTITY(1,1) CONSTRAINT PK_order_id  PRIMARY KEY,
   nif VARCHAR(9) CONSTRAINT NN_order_nif NOT NULL,
@@ -66,7 +74,7 @@ CREATE TABLE Order (
   descount VARCHAR(10) CONSTRAINT NN_order_descount NOT NULL,
   total FLOAT CONSTRAINT NN_order_total NOT NULL
 );
-GO
+
 CREATE TABLE Line (
   id VARCHAR(10) IDENTITY(1,1) CONSTRAINT PK_line_id  PRIMARY KEY,
   reference VARCHAR(50) CONSTRAINT NN_line_reference NOT NULL,
@@ -80,152 +88,53 @@ CREATE TABLE Line (
 
 CREATE TABLE Machine (
   id VARCHAR(10) IDENTITY(1,1) CONSTRAINT PK_machine_id  PRIMARY KEY,
-  code VARCHAR(10)  CONSTRAINT NN_operation_code NOT NULL,
-  name varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `descricao` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `horarioFuncionamento` varchar(55) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  schedule_id varchar(10) CONSTRAINT NN_machine_schedule_id REFERENCES MachineSchedule(id),
+  code VARCHAR(10)  CONSTRAINT NN_machine_code NOT NULL,
+  name VARCHAR(10) CONSTRAINT NN_machine_name NOT NULL
+  status VARCHAR(10) CONSTRAINT NN_machine_status NOT NULL,
+)
 
-CREATE TABLE `Address` (
-  `codMorada` varchar(55) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `codCliente` varchar(55) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `Morada` varchar(55) COLLATE utf8_unicode_ci NOT NULL,
-  `CodPostal` varchar(55) COLLATE utf8_unicode_ci NOT NULL,
-  `Localidade` varchar(55) COLLATE utf8_unicode_ci NOT NULL,
-  `Pais` varchar(55) COLLATE utf8_unicode_ci NOT NULL
+CREATE TABLE MachineSchedule (
+  id VARCHAR(10) IDENTITY(1,1) CONSTRAINT PK_machine_schedule_id  PRIMARY KEY,
+  machine_id VARCHAR(10)  CONSTRAINT FK_machine_schedule_machine_id REFERENCES Machine(id),
+  monday VARCHAR(10) CONSTRAINT NN_machine_schedule_monday NOT NULL, 
+  tuesday VARCHAR(10) CONSTRAINT NN_machine_schedule_tuesday NOT NULL, 
+  wednesday VARCHAR(10) CONSTRAINT NN_machine_schedule_wednesday NOT NULL, 
+  thursday VARCHAR(10) CONSTRAINT NN_machine_schedule_thursday NOT NULL, 
+  friday VARCHAR(10) CONSTRAINT NN_machine_schedule_friday NOT NULL, 
+);
+
+CREATE TABLE Address (
+  id VARCHAR(10) CONSTRAINT PK_address_id PRIMARY KEY,
+  client_id varchar(10) CONSTRAINT FK_address_client_id REFERENCES Client(id),
+  address varchar(10) CONSTRAINT NN_address_address NOT NULL,
+  postalCode varchar(10) CONSTRAINT NN_address_postalCode NOT NULL,
+  locality varchar(10) CONSTRAINT NN_address_locality NOT NULL,
+  country varchar(10) CONSTRAINT NN_address_country NOT NULL
 ) 
 
-CREATE TABLE `OrdemFabrico` (
-  `codOrdem` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `codOperacao` varchar(10) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
+CREATE TABLE ManufacturingOrder (
+  id varchar(10) CONSTRAINT PK_manufacturingOrder_id PRIMARY KEY,
+  operation_id varchar(10) CONSTRAINT FK_manufacturingOrder_operation_id REFERENCES Operation(id)
+) 
 
-CREATE TABLE `Produto_Operacao` (
-  `codProduto` varchar(55) COLLATE utf8_unicode_ci NOT NULL,
-  `codOperacao` varchar(55) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-CREATE TABLE `Trabalhador` (
-  `codTrabalhador` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `nome` varchar(55) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `dataNascimento` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `sexo` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `nContribuinte` int(11) NOT NULL,
-  `horarioTrabalho` varchar(55) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
---
--- Extraindo dados da tabela `Trabalhador`
---
+CREATE TABLE Operator (
+  id VARCHAR(10) CONSTRAINT PK_operator_id PRIMARY KEY,
+  schedule_id varchar(10) CONSTRAINT FK_operator_schedule_id REFERENCES OperatorSchedule(id),
+  code varchar(10) CONSTRAINT NN_operator_code  NOT NULL,
+  name varchar(55) CONSTRAINT NN_operator_name NOT NULL,
+  state varchar(55) CONSTRAINT NN_operator_state NOT NULL
+) ;
 
-INSERT INTO `Trabalhador` (`codTrabalhador`, `nome`, `dataNascimento`, `sexo`, `nContribuinte`, `horarioTrabalho`) VALUES
-('T1', 'a', '2021-03-29', 's', 1, '1');
+CREATE TABLE OperatorSchedule (
+  id VARCHAR(10) IDENTITY(1,1) CONSTRAINT PK_operator_schedule_id  PRIMARY KEY,
+  operator_id VARCHAR(10)  CONSTRAINT FK_operator_schedule_operator_id REFERENCES Operator(id),
+  monday VARCHAR(10) CONSTRAINT NN_operator_schedule_monday NOT NULL, 
+  tuesday VARCHAR(10) CONSTRAINT NN_operator_schedule_tuesday NOT NULL, 
+  wednesday VARCHAR(10) CONSTRAINT NN_operator_schedule_wednesday NOT NULL, 
+  thursday VARCHAR(10) CONSTRAINT NN_operator_schedule_thursday NOT NULL, 
+  friday VARCHAR(10) CONSTRAINT NN_operator_schedule_friday NOT NULL, 
+);
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `Cliente`
---
-ALTER TABLE `Cliente`
-  ADD PRIMARY KEY (`codCliente`),
-  ADD UNIQUE KEY `nContribuinte` (`nContribuinte`);
-
---
--- Indexes for table `Componente`
---
-ALTER TABLE `Componente`
-  ADD PRIMARY KEY (`codComponente`);
-
---
--- Indexes for table `Componente_Operacao`
---
-ALTER TABLE `Componente_Operacao`
-  ADD PRIMARY KEY (`codOperacao`,`codComponente`);
-
---
--- Indexes for table `Contacto`
---
-ALTER TABLE `Contacto`
-  ADD PRIMARY KEY (`codContacto`);
-
---
--- Indexes for table `Encomenda`
---
-ALTER TABLE `Encomenda`
-  ADD PRIMARY KEY (`codEncomenda`),
-  ADD KEY `FK_encomenda_cliente` (`codCliente`);
-
---
--- Indexes for table `Maquina`
---
-ALTER TABLE `Maquina`
-  ADD PRIMARY KEY (`codMaquina`);
-
---
--- Indexes for table `Morada`
---
-ALTER TABLE `Morada`
-  ADD PRIMARY KEY (`codMorada`);
-
---
--- Indexes for table `Operacao`
---
-ALTER TABLE `Operacao`
-  ADD PRIMARY KEY (`codOperacao`),
-  ADD KEY `FK_operacao_Maquina` (`codMaquina`);
-
---
--- Indexes for table `OrdemFabrico`
---
-ALTER TABLE `OrdemFabrico`
-  ADD PRIMARY KEY (`codOrdem`),
-  ADD KEY `FK_ordemFabrico_operacao` (`codOperacao`);
-
---
--- Indexes for table `Produto`
---
-ALTER TABLE `Produto`
-  ADD PRIMARY KEY (`referenciaProduto`),
-  ADD UNIQUE KEY `designacao` (`designacao`,`designacaoComercial`);
-
---
--- Indexes for table `Produto_Operacao`
---
-ALTER TABLE `Produto_Operacao`
-  ADD PRIMARY KEY (`codProduto`,`codOperacao`);
-
---
--- Indexes for table `Trabalhador`
---
-ALTER TABLE `Trabalhador`
-  ADD PRIMARY KEY (`codTrabalhador`),
-  ADD UNIQUE KEY `nContribuinte` (`nContribuinte`);
-
---
--- Constraints for dumped tables
---
-
---
--- Limitadores para a tabela `Encomenda`
---
-ALTER TABLE `Encomenda`
-  ADD CONSTRAINT `FK_encomenda_cliente` FOREIGN KEY (`codCliente`) REFERENCES `Cliente` (`codcliente`) ON DELETE RESTRICT ON UPDATE RESTRICT;
-
---
--- Limitadores para a tabela `Operacao`
---
-ALTER TABLE `Operacao`
-  ADD CONSTRAINT `FK_operacao_Maquina` FOREIGN KEY (`codMaquina`) REFERENCES `Maquina` (`codmaquina`) ON DELETE RESTRICT ON UPDATE RESTRICT;
-
---
--- Limitadores para a tabela `OrdemFabrico`
---
-ALTER TABLE `OrdemFabrico`
-  ADD CONSTRAINT `FK_ordemFabrico_operacao` FOREIGN KEY (`codOperacao`) REFERENCES `Operacao` (`codoperacao`) ON DELETE RESTRICT ON UPDATE RESTRICT;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
