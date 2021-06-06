@@ -6,6 +6,7 @@
 package code.task.forge.project.Controllers;
 
 import java.net.URL;
+import java.sql.*;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -82,5 +83,56 @@ public class CreateClientController implements Initializable {
     @FXML
     private void CreateClient(ActionEvent event) {
     }
-    
+
+    PreparedStatement pst;
+    Connection con;
+
+    public static Connection getDatabaseConnection(){
+        String url= "jdbc:sqlserver://ctespbd.dei.isep.ipp.pt:1433;databaseName=LP2_G3_2021";
+        String username= "lp2_g3_2021";
+        String password= "LP2_2020_bd_3";
+        Connection connect= null;
+        try {
+            connect = DriverManager.getConnection(url, username, password);
+            System.out.println("Connection Successful");
+        }
+        catch (SQLException e) {
+            System.out.println("Error - Connection Failed");
+            e.printStackTrace();
+        }
+
+        return connect;
+    }
+
+    @FXML
+
+    void addClient(ActionEvent event) throws SQLException {
+        Connection con = getDatabaseConnection();
+        String nif = txtNif.getText();
+        String address1 = txtAddress1.getText();
+        String name = txtName.getText();
+        String contact = txtContact.getText();
+        String address2 = txtAddress2.getText();
+        String annotation = txtAnnotation.getText();
+        String contact2 = txtContact2.getText();
+
+        try{
+            pst = con.prepareStatement("Insert into records(nif, address1, name, contact, address2, annotation, contact2)values(?,?,?,?,?,?,?)");
+            pst.setString(1, nif);
+            pst.setString(2, address1);
+            pst.setString(3, name);
+            pst.setString(4, contact);
+            pst.setString(5, address2);
+            pst.setString(6, annotation);
+            pst.setString(7, contact2);
+
+
+        }
+        ResultSet rs = st.executeQuery(query);
+        while(rs.next()){
+
+            System.out.println(rs.getString("name"));
+        }
+    }
+
 }
