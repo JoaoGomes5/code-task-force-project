@@ -8,9 +8,13 @@ package code.task.forge.project.Controllers;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
@@ -87,7 +91,6 @@ public class CreateClientController implements Initializable {
     }
 
     PreparedStatement pst;
-    Connection con;
 
     public static Connection getDatabaseConnection(){
         String url= "jdbc:sqlserver://ctespbd.dei.isep.ipp.pt:1433;databaseName=LP2_G3_2021";
@@ -118,7 +121,7 @@ public class CreateClientController implements Initializable {
         String annotation = txtAnnotation.getText();
         String contact2 = txtContact2.getText();
 
-        try{
+        try {
             pst = con.prepareStatement("Insert into records(nif, address1, name, contact, address2, annotation, contact2)values(?,?,?,?,?,?,?)");
             pst.setString(1, nif);
             pst.setString(2, address1);
@@ -127,14 +130,38 @@ public class CreateClientController implements Initializable {
             pst.setString(5, address2);
             pst.setString(6, annotation);
             pst.setString(7, contact2);
+            int status = pst.executeUpdate();
 
+            if (status == 1) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Success");
+                alert.setHeaderText("Member");
+                alert.setContentText("Record Added Successfully");
+                alert.showAndWait();
 
+                txtNif.setText("");
+                txtAddress1.setText("");
+                txtName.setText("");
+                txtContact.setText("");
+                txtAddress2.setText("");
+                txtAnnotation.setText("");
+                txtContact2.setText("");
+                txtNif.requestFocus();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Fail");
+                alert.setHeaderText("Member");
+                alert.setContentText("Record Add Failed");
+                alert.showAndWait();
+            }
         }
-        ResultSet rs = st.executeQuery(query);
-        while(rs.next()){
+        catch (SQLException ex) {
+            Logger.getLogger(CreateClientController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ResultSet rs = pst.executeQuery(query);
+        while(rs.next()) {
 
             System.out.println(rs.getString("name"));
         }
     }
-
 }
