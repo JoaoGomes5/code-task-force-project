@@ -5,15 +5,23 @@
  */
 package code.task.forge.project.Controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.fxml.JavaFXBuilderFactory;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -21,9 +29,10 @@ import javafx.scene.control.TextField;
  * @author André Marques
  */
 public class DatasheetController implements Initializable {
+   
+    private Stage stage;
 
-    @FXML
-    private Button btn_view_article;
+    
     @FXML
     private Button btn_return;
     @FXML
@@ -35,16 +44,25 @@ public class DatasheetController implements Initializable {
     @FXML
     private TableView<?> listViewArtigos;
 
-     @FXML
-    private void goToViewArticle(ActionEvent event) {
-    }
 
     @FXML
     private void goReturn(ActionEvent event) {
     }
 
+    private Parent replaceSceneContent(String fxml) throws Exception {
+        Parent page = (Parent) FXMLLoader.load(DatasheetController.class.getResource(fxml), null, new JavaFXBuilderFactory());
+        Scene scene = stage.getScene();
+        
+        stage.sizeToScene();
+        return page;
+        
+    }
+    
     @FXML
-    private void goToEditArticle(ActionEvent event) {
+    private void goToEditArticle(ActionEvent event) throws IOException, Exception {
+        replaceSceneContent("EditArticle.fxml");
+        
+        
     }
 
     @FXML
