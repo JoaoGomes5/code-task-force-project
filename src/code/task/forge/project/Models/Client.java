@@ -22,11 +22,15 @@ public class Client{
      */
     private ArrayList<Address> addresses ;
 
+    /**
+     *contacto do cliente
+     */
+    private Contact mainContact;
 
     /**
      *contacto do cliente
      */
-    private ArrayList<Contact> contacts;
+    private ArrayList<Contact> secondaryContacts;
 
     /**
      *Nota do cliente
@@ -43,14 +47,14 @@ public class Client{
     }
 
 
-    public Client(String nif, String name, ArrayList<Address> addresses , ArrayList<Contact> contacts, String annotation){
+    public Client(String nif, String name, ArrayList<Address> addresses, Contact contact, ArrayList<Contact> contacts, String annotation) {
         this.nif = nif;
         this.name = name;
-        this.addresses  = addresses ;
-        this.contacts = contacts;
+        this.addresses = addresses;
+        this.mainContact = contact;
+        this.secondaryContacts= contacts;
         this.annotation = annotation;
     }
-    
 
     /**
      * Devolve o nif do cliente
@@ -107,23 +111,39 @@ public class Client{
     }
 
 
+
     /**
-     * devolve Array contacto
+     * devolve o contacto principal
      *
      * @return contactos
      */
-    public ArrayList<Contact> getContacts() {
-        return this.contacts;
+    public Contact getMainContact() {
+        return mainContact;
     }
 
     /**
-     * define Array contactos
+     * define o contacto principal
+     *
+     * @param contact
+     * @param contact mainContact
+     */
+    public void setMainContact(Contact contact) {
+        this.mainContact = contact;
+    }
+
+
+    public ArrayList<Contact> getSecondaryContacts() {
+        return secondaryContacts;
+    }
+
+    /**
+     * define o contacto principal
      *
      * @param contacts
-     * @param contacts contactos
+     * @param
      */
-    public void setContacts(ArrayList<Contact> contacts) {
-        this.contacts = contacts;
+    public void setSecondaryContacts(ArrayList<Contact> contacts) {
+        this.secondaryContacts = contacts;
     }
 
     /**

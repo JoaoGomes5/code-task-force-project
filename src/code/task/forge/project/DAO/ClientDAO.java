@@ -16,15 +16,18 @@ public class ClientDAO {
 
         DAO dao = new DAO();
 
-        String query = "INSERT INTO Client " +
-                "(code, name, ) " +
-                "VALUES (?)";
 
-        dao.executeQuery(query, "Gustavo Reis");
-        dao.executeQuery(query, "Daniela Azevedo");
-        dao.executeQuery(query, "Diogo Silva");
+        String clientQuery = "INSERT INTO Client " +
+                        "(main_contact, nif, name, annotations) " +
+                        "VALUES (?, ?, ?, ?)";
 
-        System.out.println(dao.executeQuery(query, "Dara Alves"));
+        String contactsQuery = "";
+        dao.executeQuery(clientQuery, client.getMainContact().getContact()); // Buscar o id do contacto igual ao client.getMainContact().getContact()
+        dao.executeQuery(clientQuery, client.getNif());
+        dao.executeQuery(clientQuery, client.getName());
+        dao.executeQuery(clientQuery, client.getAnnotation());
+
+
 
         dao.closeConnection();
     }

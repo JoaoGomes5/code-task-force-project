@@ -117,7 +117,7 @@ GO
 
 CREATE TABLE Contact (
   id INT IDENTITY(1,1) CONSTRAINT PK_contact_id  PRIMARY KEY,
-  client_id INT   NOT NULL,
+  client_id INT  NOT NULL,
   contact VARCHAR(30)  CONSTRAINT NN_contact_contact  NOT NULL,
   contact_type VARCHAR(10)  CONSTRAINT NN_contact_contact_type  NOT NULL,
   observation VARCHAR(10)  CONSTRAINT NN_contact_observation  NOT NULL,
