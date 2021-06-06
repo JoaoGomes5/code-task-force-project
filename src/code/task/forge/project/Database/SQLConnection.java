@@ -5,10 +5,11 @@ import java.sql.*;
 public class SQLConnection {
 
     public static Connection getDatabaseConnection(){
-        String url= "jdbc:sqlserver://ctespbd.dei.isep.ipp.pt:1433;databaseName=LP2_G3_2021";
-        String username= "lp2_g3_2021";
-        String password= "LP2_2020_bd_3";
-        Connection connect= null;
+        String url= "";
+        String username= "";
+        String password= "";
+
+        Connection connect = null;
         try {
             connect = DriverManager.getConnection(url, username, password);
             System.out.println("Connection Successful");

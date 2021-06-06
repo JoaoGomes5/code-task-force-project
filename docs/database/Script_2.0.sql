@@ -4,183 +4,188 @@
 USE LP2_G3_2021
 GO
 
-CREATE TABLE Client(
-  id INT IDENTITY(1,1) CONSTRAINT PK_client_id PRIMARY KEY,
-  main_contact INT NOT NULL,
-  nif VARCHAR(9) CONSTRAINT NN_client_nif NOT NULL,
-  name VARCHAR(55) CONSTRAINT NN_client_name  NOT NULL ,
-  annotations VARCHAR(55) CONSTRAINT NN_client_annotations NOT NULL,
+CREATE TABLE Address (
+  id INT IDENTITY(1,1) CONSTRAINT PK_Address_id PRIMARY KEY,
+  client_id INT CONSTRAINT FK_Address_client_id REFERENCES Client(id),
+  address VARCHAR(255)  NOT NULL,
+  postal_code VARCHAR(255) NOT NULL,
+  locality VARCHAR(255) NOT NULL,
+  country VARCHAR(255) NOT NULL,
+  importance_type VARCHAR(255) NOT NULL,
+  CONSTRAINT CHK_Address_importance_type
+  CHECK (
+    importance_type='principal' 
+    OR 
+    importance_type='secundaria'
+  ))
 );
-
-GO
-
-CREATE TABLE Part (
-  id INT IDENTITY(1,1) CONSTRAINT PK_part_id PRIMARY KEY,
-  reference VARCHAR(55) CONSTRAINT NN_part_reference NOT NULL,
-  designation VARCHAR(100) CONSTRAINT NN_part_designation NOT NULL,
-  commercial_designation  VARCHAR(100) CONSTRAINT NN_part_commercial_designation NOT NULL,
-  batch_size INT CONSTRAINT NN_part_batch_size NOT NULL,
-  unit VARCHAR(10) CONSTRAINT NN_part_unit NOT NULL,
-  version VARCHAR(10) CONSTRAINT NN_part_version NOT NULL,
-  status  VARCHAR(10) CONSTRAINT NN_part_status NOT NULL,
-);
-
-GO
-
-
-
-
-CREATE TABLE Component (
-  id INT IDENTITY(1,1) CONSTRAINT PK_component_id PRIMARY KEY,
-  reference VARCHAR(55) CONSTRAINT NN_component_reference NOT NULL,
-  commercial_designation VARCHAR(100) CONSTRAINT NN_component_commercial_designation NOT NULL,
-  version VARCHAR(10) CONSTRAINT NN_component_version NOT NULL,  
-  quantity_needed FLOAT CONSTRAINT NN_component_stock_quantity NOT NULL,
-  measure_unit VARCHAR(55)  CONSTRAINT NN_component_measureUnit NOT NULL,
-  alternative VARCHAR(10) CONSTRAINT NN_component_alternative NOT NULL
-);
-
-GO
-
-CREATE TABLE Machine (
-  id INT IDENTITY(1,1) CONSTRAINT PK_machine_id  PRIMARY KEY,
-  code VARCHAR(10)  CONSTRAINT NN_machine_code NOT NULL,
-  name VARCHAR(10) CONSTRAINT NN_machine_name NOT NULL,
-  status VARCHAR(10) CONSTRAINT NN_machine_status NOT NULL,
-
-  monday_start DATETIME CONSTRAINT NN_operator_schedule__start NOT NULL, 
-  tuesday_start DATETIME CONSTRAINT NN_operator_schedule_tuesday_start NOT NULL, 
-  wednesday_start DATETIME CONSTRAINT NN_operator_schedule_wednesday_start NOT NULL, 
-  thursday_start DATETIME CONSTRAINT NN_operator_schedule_thursday_start NOT NULL, 
-  friday_start DATETIME CONSTRAINT NN_operator_schedule_friday_start NOT NULL, 
-
-  monday_end DATETIME CONSTRAINT NN_operator_schedule_monday_end NOT NULL, 
-  tuesday_end DATETIME CONSTRAINT NN_operator_schedule_tuesday_end NOT NULL, 
-  wednesday_end DATETIME CONSTRAINT NN_operator_schedule_wednesday_end NOT NULL, 
-  thursday_end DATETIME CONSTRAINT NN_operator_schedule_thursday_end NOT NULL, 
-  friday_end DATETIME CONSTRAINT NN_operator_schedule_friday_end NOT NULL,
-);
-
-GO
-
-CREATE TABLE Operation (
-      id                INT  IDENTITY(1,1)  CONSTRAINT PK_operation_id  PRIMARY KEY,
-      part_id           INT  CONSTRAINT FK_operation_part_id  FOREIGN KEY REFERENCES Part(id),
-      machine_code      INT CONSTRAINT FK_operation_machineCode FOREIGN KEY REFERENCES Machine(id),
-      code              VARCHAR(10)  CONSTRAINT NN_operation_code NOT NULL,
-      execution_order             VARCHAR(10)  CONSTRAINT NN_operation_order NOT NULL,
-      name              VARCHAR(20)  CONSTRAINT NN_operation_name NOT NULL,
-      operators_needed  INT  CONSTRAINT NN_operation_operatorsNeeded NOT NULL,
-      execution_time    INT  CONSTRAINT NN_operation_executionTime NOT NULL,
-      quantity_per_hour INT  CONSTRAINT NN_operation_quantity_per_hour NOT NULL,
-      instructions      VARCHAR(100) CONSTRAINT NN_operation_instructions NOT NULL,
-      description       VARCHAR(100) CONSTRAINT NN_operation_description NOT NULL,
-      operation_instructions      VARCHAR(100) CONSTRAINT NN_operation_instructions NOT NULL,
-      type						  VARCHAR(10)  CONSTRAINT NN_operation_type NOT NULL
-);
-
-GO
-
-CREATE TABLE Operator (
-  id INT IDENTITY(1,1) CONSTRAINT PK_operator_id PRIMARY KEY,
-  code varchar(10) CONSTRAINT NN_operator_code  NOT NULL,
-  name varchar(55) CONSTRAINT NN_operator_name NOT NULL,
-  state varchar(55) CONSTRAINT NN_operator_state NOT NULL,
-
-  monday_morning_entrance DATETIME CONSTRAINT NN_operator_schedule__morning_entrance NOT NULL, 
-  tuesday_morning_entrance DATETIME CONSTRAINT NN_operator_schedule_tuesday_morning_entrance NOT NULL, 
-  wednesday_morning_entrance DATETIME CONSTRAINT NN_operator_schedule_wednesday_morning_entrance NOT NULL, 
-  thursday_morning_entrance DATETIME CONSTRAINT NN_operator_schedule_thursday_morning_entrance NOT NULL, 
-  friday_morning_entrance DATETIME CONSTRAINT NN_operator_schedule_friday_morning_entrance NOT NULL, 
-
-  monday_morning_exit DATETIME CONSTRAINT NN_operator_schedule_monday_morning_exit NOT NULL, 
-  tuesday_morning_exit DATETIME CONSTRAINT NN_operator_schedule_tuesday_morning_exit NOT NULL, 
-  wednesday_morning_exit DATETIME CONSTRAINT NN_operator_schedule_wednesday_morning_exit NOT NULL, 
-  thursday_morning_exit DATETIME CONSTRAINT NN_operator_schedule_thursday_morning_exit NOT NULL, 
-  friday_morning_exit DATETIME CONSTRAINT NN_operator_schedule_friday_morning_exit NOT NULL,
-  
-  monday_afternoon_entrance DATETIME CONSTRAINT NN_operator_schedule__afternoon_entrance NOT NULL, 
-  tuesday_afternoon_entrance DATETIME CONSTRAINT NN_operator_schedule_tuesday_afternoon_entrance NOT NULL, 
-  wednesday_afternoon_entrance DATETIME CONSTRAINT NN_operator_schedule_wednesday_afternoon_entrance NOT NULL, 
-  thursday_afternoon_entrance DATETIME CONSTRAINT NN_operator_schedule_thursday_afternoon_entrance NOT NULL, 
-  friday_afternoon_entrance DATETIME CONSTRAINT NN_operator_schedule_friday_afternoon_entrance NOT NULL, 
-
-  monday_afternoon_exit DATETIME CONSTRAINT NN_operator_schedule_monday_afternoon_exit NOT NULL, 
-  tuesday_afternoon_exit DATETIME CONSTRAINT NN_operator_schedule_tuesday_afternoon_exit NOT NULL, 
-  wednesday_afternoon_exit DATETIME CONSTRAINT NN_operator_schedule_wednesday_afternoon_exit NOT NULL, 
-  thursday_afternoon_exit DATETIME CONSTRAINT NN_operator_schedule_thursday_afternoon_exit NOT NULL, 
-  friday_afternoon_exit DATETIME CONSTRAINT NN_operator_schedule_friday_afternoon_exit NOT NULL,
-
-);
-
-GO
 
 CREATE TABLE Contact (
-  id INT IDENTITY(1,1) CONSTRAINT PK_contact_id  PRIMARY KEY,
-  client_id INT   NOT NULL,
-  contact VARCHAR(30)  CONSTRAINT NN_contact_contact  NOT NULL,
-  contact_type VARCHAR(10)  CONSTRAINT NN_contact_contact_type  NOT NULL,
-  observation VARCHAR(10)  CONSTRAINT NN_contact_observation  NOT NULL,
+  id INT IDENTITY(1,1) CONSTRAINT PK_Contact_id  PRIMARY KEY,
+  client_id INT CONSTRAINT FK_Contact_client_id NOT NULL,
+  contact VARCHAR(255) UNIQUE NOT NULL,
+  contact_type VARCHAR(255)  NOT NULL,
+  observation VARCHAR(255) NOT NULL,
+  importance_type VARCHAR(255) NOT NULL,
+  CONSTRAINT CHK_Contact_importance_type 
+   CHECK (
+      importance_type='principal' 
+      OR 
+      importance_type='secundario'
+      ))
 );
 
-GO
-
-CREATE TABLE MachineSchedule (
-  id INT IDENTITY(1,1) CONSTRAINT PK_machine_schedule_id  PRIMARY KEY,
-  machine_id INT  CONSTRAINT FK_machine_schedule_machine_id REFERENCES Machine(id),
-  monday VARCHAR(10) CONSTRAINT NN_machine_schedule_monday NOT NULL, 
-  tuesday VARCHAR(10) CONSTRAINT NN_machine_schedule_tuesday NOT NULL, 
-  wednesday VARCHAR(10) CONSTRAINT NN_machine_schedule_wednesday NOT NULL, 
-  thursday VARCHAR(10) CONSTRAINT NN_machine_schedule_thursday NOT NULL, 
-  friday VARCHAR(10) CONSTRAINT NN_machine_schedule_friday NOT NULL, 
+CREATE TABLE Client (
+  id INT IDENTITY(1,1) CONSTRAINT PK_Client_id PRIMARY KEY,
+  nif VARCHAR(9) UNIQUE NOT NULL,
+  name VARCHAR(255) NOT NULL ,
+  annotations VARCHAR(255) NOT NULL,
 );
 
-GO
 
-CREATE TABLE Address (
-  id INT CONSTRAINT PK_address_id PRIMARY KEY,
-  client_id INT CONSTRAINT FK_address_client_id REFERENCES Client(id),
-  address varchar(10) CONSTRAINT NN_address_address NOT NULL,
-  postalCode varchar(10) CONSTRAINT NN_address_postalCode NOT NULL,
-  locality varchar(10) CONSTRAINT NN_address_locality NOT NULL,
-  country varchar(10) CONSTRAINT NN_address_country NOT NULL
+CREATE TABLE Order (
+  id INT IDENTITY(1,1) CONSTRAINT PK_Order_id  PRIMARY KEY,
+  client_nif VARCHAR(9) CONSTRAINT FK_Order_client_nif  REFERENCES Client(nif),
+  purchase_address INT CONSTRAINT FK_Order_purchase_address  REFERENCES Address(id),
+  delivery_address INT CONSTRAINT FK_Order_delivery_address  REFERENCES Address(id),
+  date  DATETIME NOT NULL ,
+  state VARCHAR(255) NOT NULL,
+  descount DECIMAL(5,3) NOT NULL,
+  total FLOAT NOT NULL,
+  CONSTRAINT CHK_Order_state 
+   CHECK (
+      state='registada' 
+      OR 
+      state='finalizada'
+      OR
+      state='entregue'
+      OR
+      state='cancelada'
+      )),
+  CONSTRAINT CHK_Order_state 
+  CHECK (
+    date LIKE 'AAAA-MM-DD [HH:MM[:SS[.mmm]]]'
+    ),
 );
 
-GO
-
-CREATE TABLE "Order" (
-  id INT IDENTITY(1,1) CONSTRAINT PK_order_id  PRIMARY KEY,
-  nif VARCHAR(9) CONSTRAINT NN_order_nif NOT NULL,
-  purchase_address INT CONSTRAINT FK_order_purchase_address  REFERENCES Address(id),
-  delivery_address INT CONSTRAINT FK_order_delivery_address  REFERENCES Address(id),
-  date DATE CONSTRAINT NN_order_date NOT NULL,
-  state VARCHAR(50) CONSTRAINT NN_order_state NOT NULL,
-  descount VARCHAR(10) CONSTRAINT NN_order_descount NOT NULL,
-  total FLOAT CONSTRAINT NN_order_total NOT NULL
-);
-
-GO
 
 CREATE TABLE Line (
-  id INT IDENTITY(1,1) CONSTRAINT PK_line_id  PRIMARY KEY,
-  order_id INT CONSTRAINT FK_line_order_id REFERENCES "Order"(id) NULL,
-  reference VARCHAR(50) CONSTRAINT NN_line_reference NOT NULL,
-  description VARCHAR(100) CONSTRAINT NN_line_description NOT NULL,
-  version VARCHAR(50) CONSTRAINT NN_line_version NOT NULL,
-  quantity INT CONSTRAINT NN_line_quantity NOT NULL,
-  unit VARCHAR(10) CONSTRAINT NN_line_unit NOT NULL,
-  unit_price FLOAT CONSTRAINT NN_line_unit_price NOT NULL,
-  total FLOAT CONSTRAINT NN_line_total NOT NULL,
+  reference VARCHAR(255) CONSTRAINT PK_Line_id PRIMARY KEY,
+  order_id INT CONSTRAINT FK_Line_order_id REFERENCES Order(id) ,
+  description VARCHAR(255) NOT NULL,
+  version VARCHAR(255)  NOT NULL,
+  quantity INT CONSTRAINT NOT NULL,
+  unit VARCHAR(10) NOT NULL,
+  unit_price FLOAT NOT NULL,
+  total FLOAT NOT NULL,
 );
 
-GO
+CREATE TABLE Part (
+  reference VARCHAR(255) CONSTRAINT PK_Part_reference PRIMARY KEY,
+  designation VARCHAR(255) NOT NULL,
+  commercial_designation VARCHAR(255) NOT NULL,
+  batch_size INT  NOT NULL,
+  unit VARCHAR(255) NOT NULL,
+  version VARCHAR(255) NOT NULL,
+  status  VARCHAR(10) NOT NULL,
+  CONSTRAINT CHK_Part_status
+  CHECK (
+    status='ativo' 
+    OR 
+    status='inativo'
+    ))
+);
+
+CREATE TABLE Operation (
+      code              VARCHAR(255)  CONSTRAINT PK_Operation_code PRIMARY KEY,
+      machine_code      INT CONSTRAINT FK_operation_machine_code FOREIGN KEY REFERENCES Machine(code),
+      execution_order   INT NOT NULL,
+      name              VARCHAR(255) NOT NULL,
+      operators_needed  INT NOT NULL,
+      execution_time    INT NOT NULL,
+      quantity_per_hour INT  NOT NULL,
+      instructions      VARCHAR(255) NOT NULL,
+      description       VARCHAR(255) NOT NULL,
+      operation_instructions      VARCHAR(255) NOT NULL,
+      type						  VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Component (
+  reference VARCHAR(255) CONSTRAINT PN_Component_reference PRIMARY KEY,
+  commercial_designation VARCHAR(255) NOT NULL,
+  version VARCHAR(255) NOT NULL,  
+  quantity_needed FLOAT NOT NULL,
+  measure_unit VARCHAR(255) NOT NULL,
+  alternative VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Machine (
+  code VARCHAR(255)  CONSTRAINT PK_Machine_code PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  status VARCHAR(255) NOT NULL,
+
+  monday_start DATETIME  NOT NULL, 
+  tuesday_start DATETIME  NOT NULL, 
+  wednesday_start DATETIME NOT NULL, 
+  thursday_start DATETIME NOT NULL, 
+  friday_start DATETIME NOT NULL, 
+
+  monday_end DATETIME NOT NULL, 
+  tuesday_end DATETIME NOT NULL, 
+  wednesday_end DATETIME NOT NULL, 
+  thursday_end DATETIME NOT NULL, 
+  friday_end DATETIME NOT NULL,
+
+  CONSTRAINT CHK_Machine_status
+  CHECK (
+    status='ativo' 
+    OR 
+    status='inativo'
+    ))
+);
+
+CREATE TABLE Operator (
+  code varchar(255) CONSTRAINT PK_Operator_code  PRIMARY KEY,
+  name varchar(255)NOT NULL,
+  state varchar(255) NOT NULL,
+
+  monday_morning_entrance DATETIME NOT NULL, 
+  tuesday_morning_entrance DATETIME  NOT NULL, 
+  wednesday_morning_entrance DATETIME  NOT NULL, 
+  thursday_morning_entrance DATETIME  NOT NULL, 
+  friday_morning_entrance DATETIME  NOT NULL, 
+
+  monday_morning_exit DATETIME  NOT NULL, 
+  tuesday_morning_exit DATETIME  NOT NULL, 
+  wednesday_morning_exit DATETIME  NOT NULL, 
+  thursday_morning_exit DATETIME  NOT NULL, 
+  friday_morning_exit DATETIME  NOT NULL,
+  
+  monday_afternoon_entrance DATETIME  NOT NULL, 
+  tuesday_afternoon_entrance DATETIME  NOT NULL, 
+  wednesday_afternoon_entrance DATETIME  NOT NULL, 
+  thursday_afternoon_entrance DATETIME  NOT NULL, 
+  friday_afternoon_entrance DATETIME  NOT NULL, 
+
+  monday_afternoon_exit DATETIME  NOT NULL, 
+  tuesday_afternoon_exit DATETIME  NOT NULL, 
+  wednesday_afternoon_exit DATETIME  NOT NULL, 
+  thursday_afternoon_exit DATETIME  NOT NULL, 
+  friday_afternoon_exit DATETIME  NOT NULL,
+
+  CONSTRAINT CHK_Operator_status
+  CHECK (
+    status='ativo' 
+    OR 
+    status='inativo'
+    ))
+);
 
 CREATE TABLE ManufacturingOrder (
-  id varchar(10) CONSTRAINT PK_manufacturingOrder_id PRIMARY KEY,
+  id varchar(255) CONSTRAINT PK_manufacturingOrder_id PRIMARY KEY,
   operation_id INT CONSTRAINT FK_manufacturingOrder_operation_id REFERENCES Operation(id)
 );
 
-GO
 
 
 CREATE TABLE Component_Operation (
@@ -189,7 +194,7 @@ CREATE TABLE Component_Operation (
   operation_id INT CONSTRAINT FK_component_operation_operation_id  REFERENCES Operation(id)
 );
 
-GO
+
 
 CREATE TABLE Operation_Operator (
   id  INT IDENTITY(1,1) CONSTRAINT PK_operation_operator_id  PRIMARY KEY,
@@ -197,7 +202,7 @@ CREATE TABLE Operation_Operator (
   operator_id INT CONSTRAINT FK_operation_operator_operator_id  REFERENCES Operator(id)
 );
 
-GO
+
 
 CREATE TABLE Part_Operation (
   id INT CONSTRAINT PK_part_operation_id PRIMARY KEY,
@@ -210,6 +215,7 @@ ALTER TABLE Contact
       REFERENCES Client(id)
       
 ;
+
 ALTER TABLE Client
    ADD CONSTRAINT FK_client_main_contact FOREIGN KEY (main_contact)
       REFERENCES Contact(id)
