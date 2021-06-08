@@ -7,7 +7,7 @@ package code.task.forge.project;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import code.task.forge.project.Controllers.MainMenuController;
+import code.task.forge.project.Controllers.DatasheetController;
 
 import code.task.forge.project.Database.SQLConnection;
 import javafx.application.Application;
@@ -17,17 +17,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-/**
- *
- * @author Code Task Force Team
- */
-public class CodeTaskForgeProject extends Application {
-    
-    
 
-    /**
-     * @param args the command line arguments
-     */
+public class CodeTaskForgeProject extends Application {
+
+
+
+    
     public static void main(String[] args) {
         launch(args);
     }
@@ -36,15 +31,15 @@ public class CodeTaskForgeProject extends Application {
 
        // SQLConnection.all2you();
        Parent root;
-       root = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/MainMenu/MainMenu.fxml"));
+       root = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/Datasheet/Datasheet.fxml"));
        Scene scene = new Scene(root, 830,500);
-       
+
        app_stage.setTitle("Code Task Force");
        app_stage.setScene(scene);
        app_stage.setResizable(false);
        app_stage.show();
-        
-        
-        
+
+
+
     }
 }

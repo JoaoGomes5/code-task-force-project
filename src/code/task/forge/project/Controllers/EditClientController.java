@@ -43,7 +43,7 @@ public class EditClientController implements Initializable {
     @FXML
     private TextField txtContact2;
     @FXML
-    private Button btnCreate;
+    private Button btnEdit;
 
     /**
      * Initializes the controller class.
@@ -63,35 +63,35 @@ public class EditClientController implements Initializable {
     }
 
     @FXML
-    private void ClientEditTxtNif(ActionEvent event) {
+    private void ClientTxtNif(ActionEvent event) {
     }
 
     @FXML
-    private void ClientEditTxtAddress1(ActionEvent event) {
+    private void ClientTxtAddress1(ActionEvent event) {
     }
 
     @FXML
-    private void ClientEditTxtName(ActionEvent event) {
+    private void ClientTxtName(ActionEvent event) {
     }
 
     @FXML
-    private void ClientEditTxtContact(ActionEvent event) {
+    private void ClientTxtContact(ActionEvent event) {
     }
 
     @FXML
-    private void ClientEditTxtAddress2(ActionEvent event) {
+    private void ClientTxtAddress2(ActionEvent event) {
     }
 
     @FXML
-    private void ClientEditTxtAnnotation(ActionEvent event) {
+    private void ClientTxtAnnotation(ActionEvent event) {
     }
 
     @FXML
-    private void ClientEditTxtContact2(ActionEvent event) {
+    private void ClientTxtContact2(ActionEvent event) {
     }
 
     @FXML
-    private void editClient(ActionEvent event) {
+    private void EditClient(ActionEvent event) {
     }
     
 }

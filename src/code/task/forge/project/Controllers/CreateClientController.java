@@ -35,15 +35,15 @@ public class CreateClientController implements Initializable {
     @FXML
     private TextField txtName;
     @FXML
-    private TextField txtContact;
-    @FXML
     private TextField txtAddress2;
+    @FXML
+    private Button btnCreate;
+    @FXML
+    private TextField txtContact;
     @FXML
     private TextField txtAnnotation;
     @FXML
     private TextField txtContact2;
-    @FXML
-    private Button btnCreate;
 
     /**
      * Initializes the controller class.
@@ -74,12 +74,18 @@ public class CreateClientController implements Initializable {
     private void ClientTxtName(ActionEvent event) {
     }
 
-    @FXML
-    private void ClientTxtContact(ActionEvent event) {
-    }
 
     @FXML
     private void ClientTxtAddress2(ActionEvent event) {
+    }
+
+
+    @FXML
+    private void CreateClient(ActionEvent event) {
+    }
+
+    @FXML
+    private void ClientTxtContact(ActionEvent event) {
     }
 
     @FXML
@@ -88,10 +94,6 @@ public class CreateClientController implements Initializable {
 
     @FXML
     private void ClientTxtContact2(ActionEvent event) {
-    }
-
-    @FXML
-    private void CreateClient(ActionEvent event) {
     }
     
 }
