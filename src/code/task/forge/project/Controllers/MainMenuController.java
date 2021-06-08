@@ -62,10 +62,10 @@ public class MainMenuController {
     @FXML
     private void goToClientsManager(javafx.event.ActionEvent event) throws IOException {
            
-        Parent main_menu_controller_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/ClientsManager/ClientsManager.fxml"));
-        Scene main_menu_controller_scene = new Scene(main_menu_controller_parent);
+        Parent client_manager_controller_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/ClientsManager/ClientsManager.fxml"));
+        Scene client_manager_controller_scene = new Scene(client_manager_controller_parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage.setScene(main_menu_controller_scene);
+        app_stage.setScene(client_manager_controller_scene);
         app_stage.show();
       }
 
