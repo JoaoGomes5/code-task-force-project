@@ -158,10 +158,10 @@ public class CreateClientController implements Initializable {
         catch (SQLException ex) {
             Logger.getLogger(CreateClientController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        ResultSet rs = pst.executeQuery(query);
+        /*ResultSet rs = pst.executeQuery(query);
         while(rs.next()) {
 
             System.out.println(rs.getString("name"));
-        }
+        }*/
     }
 }

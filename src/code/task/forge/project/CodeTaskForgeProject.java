@@ -29,7 +29,7 @@ public class CodeTaskForgeProject extends Application {
 @Override
     public void start(Stage app_stage) throws SQLException, IOException {
 
-       // SQLConnection.all2you();
+       //SQLConnection.all2you();
        Parent root;
        root = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/Datasheet/Datasheet.fxml"));
        Scene scene = new Scene(root, 830,500);
@@ -38,8 +38,5 @@ public class CodeTaskForgeProject extends Application {
        app_stage.setScene(scene);
        app_stage.setResizable(false);
        app_stage.show();
-
-
-
     }
 }
