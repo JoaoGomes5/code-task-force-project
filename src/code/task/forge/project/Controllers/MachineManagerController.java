@@ -5,19 +5,21 @@
  */
 package code.task.forge.project.Controllers;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+
+import javax.swing.text.TableView;
+import java.awt.*;
+import java.net.URL;
+import java.sql.*;
+import java.util.ResourceBundle;
+
 
 /**
  * FXML Controller class
  *
- * @author André Marques
+ * @author Gustavo Reis
  */
 public class MachineManagerController implements Initializable {
 
@@ -52,5 +54,19 @@ public class MachineManagerController implements Initializable {
     @FXML
     private void goToCreateMachine(ActionEvent event) {
     }
-    
+
+
+    void addMachine(ActionEvent event) throws SQLException {
+
+
+        String code = txtCode.getText();
+        String name = txtName.getText();
+        String schedule = txtSchedule.getText();
+        boolean state = txtState.getText();
+        ResultSet rs = st.executeQuery(query);
+
+
+
+
+    }
 }
