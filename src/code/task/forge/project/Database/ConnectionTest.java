@@ -8,7 +8,7 @@ public class ConnectionTest {
 
         Connection connection = ConnectionFactory.getConnection();
 
-        System.out.println("Connected successfully!!!");
+
 
         Statement stmt = connection.createStatement();
         String query = "SELECT * FROM SYSOBJECTS WHERE xtype = 'U'";

@@ -19,12 +19,14 @@ public class ConnectionFactory {
             final String user = prop.getProperty("database.user");
             final String password = prop.getProperty("database.password");
 
+            System.out.println("Connection Successful");
 
             return DriverManager.getConnection(url, user, password);
 
 
-
         } catch (SQLException | IOException e) {
+
+            System.out.println("Error - Connection Failed");
             throw new RuntimeException(e);
         }
 
