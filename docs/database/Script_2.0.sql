@@ -17,7 +17,7 @@ CREATE TABLE Address (
     importance_type='principal' 
     OR 
     importance_type='secundaria'
-  ))
+  )
 );
 
 CREATE TABLE Contact (
@@ -32,7 +32,7 @@ CREATE TABLE Contact (
       importance_type='principal' 
       OR 
       importance_type='secundario'
-      ))
+      )
 );
 
 CREATE TABLE Client (
@@ -61,7 +61,7 @@ CREATE TABLE Order (
       state='entregue'
       OR
       state='cancelada'
-      )),
+      ),
   CONSTRAINT CHK_Order_state 
   CHECK (
     date LIKE 'AAAA-MM-DD [HH:MM[:SS[.mmm]]]'
@@ -93,12 +93,12 @@ CREATE TABLE Part (
     status='ativo' 
     OR 
     status='inativo'
-    ))
+    )
 );
 
 CREATE TABLE Operation (
       code              VARCHAR(255)  CONSTRAINT PK_Operation_code PRIMARY KEY,
-      machine_code      INT CONSTRAINT FK_operation_machine_code FOREIGN KEY REFERENCES Machine(code),
+      machine_code      INT CONSTRAINT FK_operation_machine_code REFERENCES Machine(code),
       execution_order   INT NOT NULL,
       name              VARCHAR(255) NOT NULL,
       operators_needed  INT NOT NULL,
@@ -141,7 +141,7 @@ CREATE TABLE Machine (
     status='ativo' 
     OR 
     status='inativo'
-    ))
+    )
 );
 
 CREATE TABLE Operator (
@@ -175,39 +175,39 @@ CREATE TABLE Operator (
 
   CONSTRAINT CHK_Operator_status
   CHECK (
-    status='ativo' 
+    state='ativo'
     OR 
-    status='inativo'
-    ))
+    state='inativo'
+    )
 );
 
 CREATE TABLE ManufacturingOrder (
   id varchar(255) CONSTRAINT PK_manufacturingOrder_id PRIMARY KEY,
-  operation_id INT CONSTRAINT FK_manufacturingOrder_operation_id REFERENCES Operation(id)
+  operation_id INT CONSTRAINT FK_manufacturingOrder_operation_id REFERENCES Operation(code)
 );
 
 
 
 CREATE TABLE Component_Operation (
   id  INT IDENTITY(1,1) CONSTRAINT PK_component_operation_id  PRIMARY KEY,
-  component_id INT CONSTRAINT FK_component_operation_component_id  REFERENCES Component(id),
-  operation_id INT CONSTRAINT FK_component_operation_operation_id  REFERENCES Operation(id)
+  component_id INT CONSTRAINT FK_component_operation_component_id  REFERENCES Component(reference),
+  operation_id INT CONSTRAINT FK_component_operation_operation_id  REFERENCES Operation(code)
 );
 
 
 
 CREATE TABLE Operation_Operator (
   id  INT IDENTITY(1,1) CONSTRAINT PK_operation_operator_id  PRIMARY KEY,
-  operation_id INT CONSTRAINT FK_operation_operator_operation_id  REFERENCES Operation(id),
-  operator_id INT CONSTRAINT FK_operation_operator_operator_id  REFERENCES Operator(id)
+  operation_id INT CONSTRAINT FK_operation_operator_operation_id  REFERENCES Operation(code),
+  operator_id INT CONSTRAINT FK_operation_operator_operator_id  REFERENCES Operator(code)
 );
 
 
 
 CREATE TABLE Part_Operation (
   id INT CONSTRAINT PK_part_operation_id PRIMARY KEY,
-  part_id INT CONSTRAINT FK_part_operation_part_id REFERENCES Part(id),
-  operation_id INT CONSTRAINT FK_part_operation_operation_id REFERENCES Operation(id),
+  part_id INT CONSTRAINT FK_part_operation_part_id REFERENCES Part(reference),
+  operation_id INT CONSTRAINT FK_part_operation_operation_id REFERENCES Operation(code),
 );
 
 ALTER TABLE Contact
@@ -216,8 +216,4 @@ ALTER TABLE Contact
       
 ;
 
-ALTER TABLE Client
-   ADD CONSTRAINT FK_client_main_contact FOREIGN KEY (main_contact)
-      REFERENCES Contact(id)
-     
-;
+
