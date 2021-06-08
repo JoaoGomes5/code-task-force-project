@@ -5,6 +5,7 @@
  */
 package code.task.forge.project.Controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
@@ -13,10 +14,15 @@ import java.util.logging.Logger;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -53,7 +59,12 @@ public class CreateClientController implements Initializable {
     }    
 
     @FXML
-    private void returnApp(ActionEvent event) {
+    private void returnApp(ActionEvent event) throws IOException {
+        Parent return_controller_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/ClientsManager/ClientsManager.fxml"));
+        Scene return_controller_scene = new Scene(return_controller_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(return_controller_scene);
+        app_stage.show();
     }
 
     @FXML
