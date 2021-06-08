@@ -56,17 +56,5 @@ public class MachineManagerController implements Initializable {
     }
 
 
-    void addMachine(ActionEvent event) throws SQLException {
 
-
-        String code = txtCode.getText();
-        String name = txtName.getText();
-        String schedule = txtSchedule.getText();
-        boolean state = txtState.getText();
-        ResultSet rs = st.executeQuery(query);
-
-
-
-
-    }
 }
