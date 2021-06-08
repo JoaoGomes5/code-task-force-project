@@ -55,10 +55,10 @@ public class CreateClientController implements Initializable {
 
     @FXML
     private void returnApp(ActionEvent event) throws IOException {
-        Parent edit_client_controller_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/ClientsManager/EditClient/EditClient.fxml"));
-        Scene edit_client_controller_scene = new Scene(edit_client_controller_parent);
+        Parent return_controller_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/ClientsManager/ClientsManager.fxml"));
+        Scene return_controller_scene = new Scene(return_controller_parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage.setScene(edit_client_controller_scene);
+        app_stage.setScene(return_controller_scene);
         app_stage.show();
     }
 

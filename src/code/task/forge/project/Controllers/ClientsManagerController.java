@@ -85,7 +85,7 @@ public class ClientsManagerController implements Initializable {
     @FXML
     private void goToCreateClient(ActionEvent event) throws IOException {
 
-        Parent create_client_controller_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/ClientsManager/CreateClient/CreaeClient.fxml"));
+        Parent create_client_controller_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/ClientsManager/CreateClient/CreateClient.fxml"));
         Scene create_client_controller_scene = new Scene(create_client_controller_parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(create_client_controller_scene);
