@@ -38,7 +38,7 @@ public class MainMenuController {
 
     @FXML
     private Button btn_exit;
-    
+
      /**
      * Initializes the main menu controller
      */
@@ -78,12 +78,6 @@ public class MainMenuController {
         app_stage.show();
       }
 
-        Parent main_menu_controller_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/ClientsManager/ClientsManager.fxml"));
-        Scene main_menu_controller_scene = new Scene(main_menu_controller_parent);
-        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage.setScene(main_menu_controller_scene);
-        app_stage.show();
-      }
     @FXML
     private void goToOrdersManager(javafx.event.ActionEvent event) throws IOException {
         
