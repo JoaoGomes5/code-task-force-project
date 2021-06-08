@@ -70,7 +70,13 @@ public class MainMenuController {
       }
 
     @FXML
-    private void goToOrdersManager(javafx.event.ActionEvent event) {
+    private void goToOrdersManager(javafx.event.ActionEvent event) throws IOException {
+        
+        Parent orders_manager_controller_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/ClientsManager/ClientsManager.fxml"));
+        Scene orders_manager_controller_scene = new Scene(orders_manager_controller_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(orders_manager_controller_scene);
+        app_stage.show();
     }
 
     @FXML

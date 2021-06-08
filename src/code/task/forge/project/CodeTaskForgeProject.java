@@ -18,6 +18,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 
+
 public class CodeTaskForgeProject extends Application {
 
 
@@ -31,8 +32,8 @@ public class CodeTaskForgeProject extends Application {
 
        // SQLConnection.all2you();
        Parent root;
-       root = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/Datasheet/Datasheet.fxml"));
-       Scene scene = new Scene(root, 830,500);
+       root = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/MainMenu/MainMenu.fxml"));
+       Scene scene = new Scene(root, 900,600);
 
        app_stage.setTitle("Code Task Force");
        app_stage.setScene(scene);
