@@ -132,6 +132,13 @@
     - operation - Operação
     (Conpletar com o que tem no segundo enunciado)
 
+# Controllers exceptions
+
+## Order
+    - Converter a data de DD-MM-YYYY para YYYY-MM-DD
+    - Gerar
+
+## Line 
 ## DATA BASE
 
 # MachineSchedule

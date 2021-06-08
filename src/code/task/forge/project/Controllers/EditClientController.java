@@ -5,13 +5,19 @@
  */
 package code.task.forge.project.Controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -37,7 +43,7 @@ public class EditClientController implements Initializable {
     @FXML
     private TextField txtContact2;
     @FXML
-    private Button btnCreate;
+    private Button btnEdit;
 
     /**
      * Initializes the controller class.
@@ -48,39 +54,44 @@ public class EditClientController implements Initializable {
     }    
 
     @FXML
-    private void returnApp(ActionEvent event) {
+    private void returnApp(ActionEvent event) throws IOException {
+        Parent return_controller_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/ClientsManager/ClientsManager.fxml"));
+        Scene return_controller_scene = new Scene(return_controller_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(return_controller_scene);
+        app_stage.show();
     }
 
     @FXML
-    private void ClientEditTxtNif(ActionEvent event) {
+    private void ClientTxtNif(ActionEvent event) {
     }
 
     @FXML
-    private void ClientEditTxtAddress1(ActionEvent event) {
+    private void ClientTxtAddress1(ActionEvent event) {
     }
 
     @FXML
-    private void ClientEditTxtName(ActionEvent event) {
+    private void ClientTxtName(ActionEvent event) {
     }
 
     @FXML
-    private void ClientEditTxtContact(ActionEvent event) {
+    private void ClientTxtContact(ActionEvent event) {
     }
 
     @FXML
-    private void ClientEditTxtAddress2(ActionEvent event) {
+    private void ClientTxtAddress2(ActionEvent event) {
     }
 
     @FXML
-    private void ClientEditTxtAnnotation(ActionEvent event) {
+    private void ClientTxtAnnotation(ActionEvent event) {
     }
 
     @FXML
-    private void ClientEditTxtContact2(ActionEvent event) {
+    private void ClientTxtContact2(ActionEvent event) {
     }
 
     @FXML
-    private void editClient(ActionEvent event) {
+    private void EditClient(ActionEvent event) {
     }
     
 }
