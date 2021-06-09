@@ -28,5 +28,6 @@
       </TableView>
       <TextField fx:id="txtFieldSearch" layoutX="96.0" layoutY="54.0" prefHeight="26.0" prefWidth="778.0" />
       <Label layoutX="41.0" layoutY="58.0" text="Pesquisar:" />
+      <Button fx:id="btnDesativateClient" layoutX="259.0" layoutY="543.0" mnemonicParsing="false" onAction="#desativateClient" prefHeight="34.0" prefWidth="110.0" text="Desativar Cliente" />
    </children>
 </AnchorPane>

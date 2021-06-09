@@ -51,6 +51,8 @@ public class ClientsManagerController implements Initializable {
     private TableColumn<Client, String> clientAdress;
     @FXML
     private TableColumn<Client, String> clientAnnotation;
+    @FXML
+    private Button btnDesativateClient;
 
     /**
      * Initializes the controller class.
@@ -90,6 +92,10 @@ public class ClientsManagerController implements Initializable {
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(create_client_controller_scene);
         app_stage.show();
+    }
+
+    @FXML
+    private void desativateClient(ActionEvent event) {
     }
 
 }

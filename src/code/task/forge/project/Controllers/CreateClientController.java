@@ -31,11 +31,7 @@ public class CreateClientController implements Initializable {
     @FXML
     private TextField txtNif;
     @FXML
-    private TextField txtAddress1;
-    @FXML
     private TextField txtName;
-    @FXML
-    private TextField txtAddress2;
     @FXML
     private Button btnCreate;
     @FXML
@@ -43,7 +39,17 @@ public class CreateClientController implements Initializable {
     @FXML
     private TextField txtAnnotation;
     @FXML
-    private TextField txtContact2;
+    private TextField txtAddress;
+    @FXML
+    private TextField txtCity;
+    @FXML
+    private TextField txtPostalCode;
+    @FXML
+    private TextField txtDorNumber;
+    @FXML
+    private TextField txtContactType;
+    @FXML
+    private TextField txtContactObservation;
 
     /**
      * Initializes the controller class.
@@ -53,7 +59,6 @@ public class CreateClientController implements Initializable {
         // TODO
     }    
 
-    @FXML
     private void returnApp(ActionEvent event) throws IOException {
         Parent return_controller_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/ClientsManager/ClientsManager.fxml"));
         Scene return_controller_scene = new Scene(return_controller_parent);
@@ -63,37 +68,55 @@ public class CreateClientController implements Initializable {
     }
 
     @FXML
-    private void ClientTxtNif(ActionEvent event) {
-    }
-
-    @FXML
-    private void ClientTxtAddress1(ActionEvent event) {
-    }
-
-    @FXML
-    private void ClientTxtName(ActionEvent event) {
+    private void retrunToClientManager(ActionEvent event) {
     }
 
 
     @FXML
-    private void ClientTxtAddress2(ActionEvent event) {
+    private void createClientTxtNif(ActionEvent event) {
     }
 
 
+
+
     @FXML
-    private void CreateClient(ActionEvent event) {
+    private void createClientTxtAddress(ActionEvent event) {
     }
 
     @FXML
-    private void ClientTxtContact(ActionEvent event) {
+    private void createClientTxtName(ActionEvent event) {
     }
 
     @FXML
-    private void ClientTxtAnnotation(ActionEvent event) {
+    private void createClientTxtContact(ActionEvent event) {
     }
 
     @FXML
-    private void ClientTxtContact2(ActionEvent event) {
+    private void createClientTxtCity(ActionEvent event) {
+    }
+
+    @FXML
+    private void createClientTxtAnnotation(ActionEvent event) {
+    }
+
+    @FXML
+    private void createClient(ActionEvent event) {
+    }
+
+    @FXML
+    private void createClientTxtPostalCode(ActionEvent event) {
+    }
+
+    @FXML
+    private void createClientTxtDorNumber(ActionEvent event) {
+    }
+
+    @FXML
+    private void createClientTxtContactType(ActionEvent event) {
+    }
+
+    @FXML
+    private void createClientTxtContactObservation(ActionEvent event) {
     }
     
 }
