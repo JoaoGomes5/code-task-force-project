@@ -46,7 +46,7 @@
     - Referencia - reference - String
     - Designação comercial - commercialDesignation - String
     - Versão - version - String
-
+    
 
 ## Peça/Produto - Part extends Article 
     - Designação - designation - String 
