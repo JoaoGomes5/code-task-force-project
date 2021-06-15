@@ -133,7 +133,7 @@ public class CreateClientController implements Initializable {
         String contact2 = txtContact2.getText();
 
         try {
-            pst = con.prepareStatement("Insert into records(nif, address1, name, contact, address2, annotation, contact2)values(?,?,?,?,?,?,?)");
+            pst = con.prepareStatement("Insert into client(nif, address1, name, contact, address2, annotation, contact2)values(?,?,?,?,?,?,?)");
             pst.setString(1, nif);
             pst.setString(2, address1);
             pst.setString(3, name);
@@ -169,10 +169,5 @@ public class CreateClientController implements Initializable {
         catch (SQLException ex) {
             Logger.getLogger(CreateClientController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        /*ResultSet rs = pst.executeQuery(query);
-        while(rs.next()) {
-
-            System.out.println(rs.getString("name"));
-        }*/
     }
 }

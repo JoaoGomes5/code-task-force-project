@@ -7,7 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-
+import javafx.scene.image.ImageView;
 
 import java.awt.event.ActionEvent;
 import java.io.IOException;
@@ -39,6 +39,8 @@ public class MainMenuController {
     @FXML
     private Button btn_exit;
 
+    @FXML
+    private ImageView a2u;
      /**
      * Initializes the main menu controller
      */

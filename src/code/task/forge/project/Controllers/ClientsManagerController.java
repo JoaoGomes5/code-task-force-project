@@ -72,6 +72,7 @@ public class ClientsManagerController implements Initializable {
 
     }
 
+
     @FXML
     private void goToEditClient(ActionEvent event) throws IOException {
 
