@@ -23,12 +23,7 @@ public class Client{
     private ArrayList<Address> addresses;
 
     /**
-     *contacto do cliente
-     */
-    private Contact mainContact;
-
-    /**
-     *contacto do cliente
+     *contactos do cliente
      */
     private ArrayList<Contact> secondaryContacts;
 

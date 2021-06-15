@@ -9,8 +9,6 @@ public class Address {
     private String address;
 
 
-
-
     /**
      * codigo postal
      */
@@ -26,7 +24,7 @@ public class Address {
     private String country;
 
 
-    private String importance_type;
+    private String importanceType;
 
 
 
@@ -40,12 +38,12 @@ public class Address {
      * @param country país cliente
      * @param importance_type importancia
      */
-    public Address(String address, String postalCode, String locality, String country, String importance_type) {
+    public Address(String address, String postalCode, String locality, String country, String importanceType) {
         this.address = address;
         this.postalCode = postalCode;
         this.locality = locality;
         this.country = country;
-        this.importance_type = importance_type;
+        this.importanceType = importanceType;
     }
 
 
@@ -125,11 +123,11 @@ public class Address {
     }
 
 
-    public String getImportance_type() {
-        return importance_type;
+    public String getImportanceType() {
+        return importanceType;
     }
 
-    public void setImportance_type(String importance_type) {
-        this.importance_type = importance_type;
+    public void setImportanceType(String importanceType) {
+        this.importanceType = importanceType;
     }
 }
