@@ -5,23 +5,20 @@
  */
 package code.task.forge.project.Controllers;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.fxml.JavaFXBuilderFactory;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  * FXML Controller class
@@ -46,9 +43,15 @@ public class DatasheetController implements Initializable {
 
 
     @FXML
-    private void goReturn(ActionEvent event) {
-    }
+    private void goReturn(ActionEvent event)throws IOException {
 
+        Parent return_controller_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/MainMenu/MainMenu.fxml"));
+        Scene return_controller_scene = new Scene(return_controller_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(return_controller_scene);
+        app_stage.show();
+    }
+/*
     private Parent replaceSceneContent(String fxml) throws Exception {
         Parent page = (Parent) FXMLLoader.load(DatasheetController.class.getResource(fxml), null, new JavaFXBuilderFactory());
         Scene scene = stage.getScene();
@@ -57,17 +60,30 @@ public class DatasheetController implements Initializable {
         return page;
         
     }
-    
+*/
     @FXML
     private void goToEditArticle(ActionEvent event) throws IOException, Exception {
-        replaceSceneContent("EditArticle.fxml");
+        //replaceSceneContent("EditArticle.fxml");
+            Parent edit_article_controller_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/Datasheet/EditArticle/EditArticleController.fxml"));
+            Scene edit_article_controller_scene = new Scene(edit_article_controller_parent);
+            Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            app_stage.setScene(edit_article_controller_scene);
+            app_stage.show();
+        }
         
-        
-    }
+
 
     @FXML
-    private void goToCreateArticle(ActionEvent event) {
+    private void goToCreateArticle(ActionEvent event) throws IOException, Exception {
+        //replaceSceneContent("EditArticle.fxml");
+        Parent create_article_controller_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/Datasheet/CreateArticle/CreateArticleController.fxml"));
+        Scene create_article_controller_scene = new Scene(create_article_controller_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(create_article_controller_scene);
+        app_stage.show();
     }
+
+
 
     @FXML
     private void goToRemoveArticle(ActionEvent event) {

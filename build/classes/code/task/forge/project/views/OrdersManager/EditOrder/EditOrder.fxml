@@ -6,27 +6,31 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="900.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.task.forge.project.Controllers.EditClientController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="900.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.task.forge.project.Controllers.EditOrderController">
    <stylesheets>
       <URL value="@../../MainMenu/mainmenu.css" />
    </stylesheets>
    <children>
-      <Button fx:id="btnReturn" layoutX="602.0" layoutY="511.0" mnemonicParsing="false" onAction="#returnApp" prefHeight="38.0" prefWidth="146.0" text="Voltar" />
+      <Button fx:id="btnReturn" layoutX="602.0" layoutY="511.0" mnemonicParsing="false" onAction="#returnOrderApp" prefHeight="38.0" prefWidth="146.0" text="Voltar" />
       <Label layoutX="414.0" layoutY="24.0" prefHeight="38.0" prefWidth="70.0" text="Editar Order" />
-      <TextField fx:id="txtNif" layoutX="267.0" layoutY="126.0" onAction="#ClientTxtNif" prefHeight="38.0" prefWidth="482.0" />
-      <TextField fx:id="txtAddress1" layoutX="267.0" layoutY="220.0" onAction="#ClientTxtAddress1" prefHeight="38.0" prefWidth="482.0" />
-      <TextField fx:id="txtName" layoutX="267.0" layoutY="174.0" onAction="#ClientTxtName" prefHeight="38.0" prefWidth="482.0" />
-      <TextField fx:id="txtContact" layoutX="267.0" layoutY="321.0" onAction="#ClientTxtContact" prefHeight="38.0" prefWidth="482.0" />
-      <TextField fx:id="txtAddress2" layoutX="267.0" layoutY="270.0" onAction="#ClientTxtAddress2" prefHeight="38.0" prefWidth="482.0" />
-      <Label layoutX="230.0" layoutY="136.0" text="NIF" />
-      <Label layoutX="166.0" layoutY="184.0" text="Nome Completo" />
-      <Label layoutX="204.0" layoutY="230.0" text="Morada 1" />
-      <Label layoutX="148.0" layoutY="280.0" text="Morada 2 (Opcional)" />
-      <Label layoutX="201.0" layoutY="331.0" text="Contacto 1" />
-      <TextField fx:id="txtAnnotation" layoutX="267.0" layoutY="422.0" onAction="#ClientTxtAnnotation" prefHeight="38.0" prefWidth="482.0" />
-      <TextField fx:id="txtContact2" layoutX="267.0" layoutY="371.0" onAction="#ClientTxtContact2" prefHeight="38.0" prefWidth="482.0" />
-      <Label layoutX="143.0" layoutY="381.0" text="Contacto 2 (Opcional)" />
-      <Label layoutX="226.0" layoutY="432.0" text="Nota" />
       <Button fx:id="btnEdit" layoutX="267.0" layoutY="511.0" mnemonicParsing="false" onAction="#EditClient" prefHeight="38.0" prefWidth="146.0" text="Editar" />
+      <TextField fx:id="txtNif1" layoutX="267.0" layoutY="72.0" onAction="#OrderTxtNif" prefHeight="38.0" prefWidth="482.0" />
+      <TextField fx:id="txtAddressDelivery" layoutX="267.0" layoutY="166.0" onAction="#OrderTxtAddressDelivery" prefHeight="38.0" prefWidth="482.0" />
+      <TextField fx:id="txtAddressBill" layoutX="267.0" layoutY="120.0" onAction="#OrderTxtAddressBill" prefHeight="38.0" prefWidth="482.0" />
+      <TextField fx:id="txtDocDate" layoutX="267.0" layoutY="267.0" onAction="#OrderTxtDocDate" prefHeight="38.0" prefWidth="482.0" />
+      <TextField fx:id="txtNumberDoc" layoutX="267.0" layoutY="216.0" onAction="#OrderTxtNumberDoc" prefHeight="38.0" prefWidth="482.0" />
+      <Label layoutX="245.0" layoutY="82.0" text="NIF" />
+      <Label layoutX="148.0" layoutY="130.0" text="Morada De Faturação" />
+      <Label layoutX="161.0" layoutY="176.0" text="Morada de Entrega" />
+      <Label layoutX="163.0" layoutY="226.0" text="Nº De Documento" />
+      <Label layoutX="151.0" layoutY="277.0" text="Data de Documento" />
+      <TextField fx:id="txtDescount" layoutX="267.0" layoutY="368.0" onAction="#OrderTxtDescount" prefHeight="38.0" prefWidth="482.0" />
+      <TextField fx:id="txtStatus" layoutX="267.0" layoutY="317.0" onAction="#OrderTxtStatus" prefHeight="38.0" prefWidth="482.0" />
+      <Label layoutX="225.0" layoutY="327.0" text="Estado" />
+      <Label layoutX="212.0" layoutY="378.0" text="Desconto" />
+      <TextField fx:id="txtTotal" layoutX="267.0" layoutY="415.0" onAction="#OrderTxtTotal" prefHeight="38.0" prefWidth="482.0" />
+      <Label layoutX="197.0" layoutY="425.0" text="Valor Total" />
+      <TextField fx:id="txtLine" layoutX="267.0" layoutY="460.0" onAction="#OrderTxtLine" prefHeight="38.0" prefWidth="482.0" />
+      <Label layoutX="226.0" layoutY="470.0" text="Linhas" />
    </children>
 </AnchorPane>

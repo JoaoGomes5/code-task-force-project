@@ -56,3 +56,5 @@ nb-configuration.xml
 release.properties
 pom.xml.releaseBackup
 pom.xml.tag
+
+src/libs/openjfx-11.0.2_windows-x64_bin-sdk
