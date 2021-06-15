@@ -5,11 +5,6 @@
  */
 package code.task.forge.project.Controllers;
 
-import code.task.forge.project.Models.Client;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,11 +13,13 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  * FXML Controller class
@@ -31,27 +28,33 @@ import javafx.stage.Stage;
  */
 public class ClientsManagerController implements Initializable {
 
-    @FXML
-    private TableView<Client> listViewArticles;
-    @FXML
-    private Button btnReturn;
-    @FXML
-    private TextField txtFieldSearch;
+
     @FXML
     private Button btnEditClient;
+
     @FXML
     private Button btnCreateClient;
-    @FXML
-    private TableColumn<Client, String> clientName;
-    @FXML
-    private TableColumn<Client, String> clientNif;
-    @FXML
-    private TableColumn<Client, String> clientContact;
-    @FXML
-    private TableColumn<Client, String> clientAdress;
-    @FXML
-    private TableColumn<Client, String> clientAnnotation;
 
+    @FXML
+    private Button btnReturn;
+
+    @FXML
+    private TableView<?> listViewClients;
+
+    @FXML
+    private TableColumn<?, ?> clientName;
+
+    @FXML
+    private TableColumn<?, ?> clientNif;
+
+    @FXML
+    private TableColumn<?, ?> clientContact;
+
+    @FXML
+    private TableColumn<?, ?> clientAddress;
+
+    @FXML
+    private TableColumn<?, ?> clientAnnotation;
     /**
      * Initializes the controller class.
      */
