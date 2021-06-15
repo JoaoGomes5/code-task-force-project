@@ -15,5 +15,6 @@
       <Button fx:id="btn_manage_operator" layoutX="230.0" layoutY="197.0" mnemonicParsing="false" onAction="#goToConfigManageOperator" prefHeight="50.0" prefWidth="440.0" text="Gerir Operador" />
       <Button fx:id="btn_manage_operation" layoutX="230.0" layoutY="268.0" mnemonicParsing="false" onAction="#goToConfigManageOperation" prefHeight="50.0" prefWidth="440.0" text="Gerir Operação" />
       <Button fx:id="btn_return" layoutX="376.0" layoutY="485.0" mnemonicParsing="false" onAction="#goReturn" prefHeight="50.0" prefWidth="145.0" text="Voltar" />
+      <Button fx:id="btn_manage_order" layoutX="229.0" layoutY="334.0" mnemonicParsing="false" onAction="#goToConfigManageOrder" prefHeight="50.0" prefWidth="440.0" text="Gerir Encomenda" />
    </children>
 </AnchorPane>
