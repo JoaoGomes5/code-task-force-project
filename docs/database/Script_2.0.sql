@@ -1,4 +1,4 @@
---Use master
+Use master
 --DROP DATABASE Teste
 --CREATE DATABASE Teste
 -- USE Teste

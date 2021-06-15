@@ -7,6 +7,10 @@ public class Address {
      * morada
      */
     private String address;
+
+
+
+
     /**
      * codigo postal
      */
@@ -15,10 +19,16 @@ public class Address {
      * localidade
      */
     private String locality;
+
     /**
      * país
      */
     private String country;
+
+
+    private String importance_type;
+
+
 
 
     /**
@@ -28,13 +38,14 @@ public class Address {
      * @param postalCode codigo postal cliente
      * @param locality localidade cliente
      * @param country país cliente
+     * @param importance_type importancia
      */
-    public Address(String address, String postalCode, String locality, String country){
-
+    public Address(String address, String postalCode, String locality, String country, String importance_type) {
         this.address = address;
         this.postalCode = postalCode;
         this.locality = locality;
         this.country = country;
+        this.importance_type = importance_type;
     }
 
 
@@ -55,6 +66,9 @@ public class Address {
     public void setAddress(String address) {
         this.address = address;
     }
+
+
+
 
     /**
      * devolve codigo postal
@@ -108,5 +122,14 @@ public class Address {
      */
     public void setCountry(String country) {
         this.country = country;
+    }
+
+
+    public String getImportance_type() {
+        return importance_type;
+    }
+
+    public void setImportance_type(String importance_type) {
+        this.importance_type = importance_type;
     }
 }
