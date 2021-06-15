@@ -53,6 +53,10 @@ public class ClientsManagerController implements Initializable {
     private TableColumn<Client, String> clientAnnotation;
     @FXML
     private Button btnDesativateClient;
+    @FXML
+    private Button btnAddAddress;
+    @FXML
+    private Button btnAddConftact;
 
     /**
      * Initializes the controller class.
@@ -63,7 +67,6 @@ public class ClientsManagerController implements Initializable {
 
     }
 
-    @FXML
     private void goReturn(ActionEvent event) throws IOException {
 
         Parent return_controller_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/MainMenu/MainMenu.fxml"));
@@ -96,6 +99,33 @@ public class ClientsManagerController implements Initializable {
 
     @FXML
     private void desativateClient(ActionEvent event) {
+    }
+
+    @FXML
+    private void returnToMainMenu(ActionEvent event) throws IOException {
+        Parent return_to_main_menu_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/MainMenu/MainMenu.fxml"));
+        Scene return_to_main_menu_scene = new Scene(return_to_main_menu_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(return_to_main_menu_scene);
+        app_stage.show();
+    }
+
+    @FXML
+    private void goToAddAddress(ActionEvent event) throws IOException {
+        Parent go_to_add_address_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/ClientsManager/AddAddressClient/AddAddressClient.fxml"));
+        Scene go_to_add_address_scene = new Scene(go_to_add_address_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(go_to_add_address_scene);
+        app_stage.show();
+    }
+
+    @FXML
+    private void goToAddContact(ActionEvent event) throws IOException {
+        Parent go_to_add_contact_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/ClientsManager/AddContactClient/AddContactClient.fxml"));
+        Scene go_to_add_contact_scene = new Scene(go_to_add_contact_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(go_to_add_contact_scene);
+        app_stage.show();
     }
 
 }

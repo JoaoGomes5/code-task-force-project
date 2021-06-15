@@ -59,14 +59,7 @@ public class EditClientController implements Initializable {
         // TODO
     }    
 
-    @FXML
-    private void returnApp(ActionEvent event) throws IOException {
-        Parent return_controller_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/ClientsManager/ClientsManager.fxml"));
-        Scene return_controller_scene = new Scene(return_controller_parent);
-        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage.setScene(return_controller_scene);
-        app_stage.show();
-    }
+ 
     @FXML
     private void editClient(ActionEvent event) {
     }
@@ -109,6 +102,16 @@ public class EditClientController implements Initializable {
 
     @FXML
     private void editClientTxtAnnotation(ActionEvent event) {
+    }
+
+    @FXML
+    private void returnToClientManager(ActionEvent event) throws IOException {
+         Parent return_controller_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/ClientsManager/ClientsManager.fxml"));
+        Scene return_controller_scene = new Scene(return_controller_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(return_controller_scene);
+        app_stage.show();
+
     }
     
 }
