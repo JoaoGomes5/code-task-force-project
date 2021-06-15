@@ -22,6 +22,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 /**
@@ -63,7 +64,13 @@ public class ClientsManagerController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
+        clientName.setCellValueFactory(new PropertyValueFactory<>("Nome"));       
+        clientNif.setCellValueFactory(new PropertyValueFactory<>("NIF"));        
+        clientContact.setCellValueFactory(new PropertyValueFactory<>("Contacto"));        
+        clientAdress.setCellValueFactory(new PropertyValueFactory<>("Morada"));        
+        clientAnnotation.setCellValueFactory(new PropertyValueFactory<>("Notas"));
+        
 
     }
 
