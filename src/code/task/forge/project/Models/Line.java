@@ -38,7 +38,7 @@ public class Line {
     /**
      * Linha de Valor Total
      */
-    private String valorTotal;
+    private String total;
 
     /**
      * Método Construtor Vazio
@@ -56,16 +56,16 @@ public class Line {
      * @param quantity Linha de Quantidade do Produto
      * @param unit Linha de Unidade do Produto
      * @param unitPrice Linha de Preço Unitário do Produto
-     * @param valorTotal Linha de Valor Total
+     * @param total Linha de Valor Total
      */
-    public Line (String reference, String description, String version, int quantity, String unit, String unitPrice, String valorTotal) {
+    public Line (String reference, String description, String version, int quantity, String unit, String unitPrice, String total) {
         this.setReference(reference);
         this.setDescription(description);
         this.setVersion(version);
         this.setQuantity(quantity);
         this.setUnit(unit);
         this.setUnitPrice(unitPrice);
-        this.setValorTotal(valorTotal);
+        this.setTotal(total);
     }
 
     @Override
@@ -76,7 +76,7 @@ public class Line {
                 "Quantidade " +getQuantity() + "\n" +
                 "Unidade" + getUnit() + "\n" +
                 "Preço Unitário" + getUnitPrice() + "\n" +
-                "Valor Total" + getValorTotal() + "\n";
+                "Valor Total" + getTotal() + "\n";
     }
 
     /**
@@ -179,15 +179,15 @@ public class Line {
      * Método que permite obter a Linha de Valor Total
      * @return Retorna a Linha de Valor Total
      */
-    public String getValorTotal() {
-        return valorTotal;
+    public String getTotal() {
+        return total;
     }
 
     /**
      * Método que permite definir a Linha de Valor Total
-     * @param valorTotal Linha de Valor Total
+     * @param total Linha de Valor Total
      */
-    public void setValorTotal(String valorTotal) {
-        this.valorTotal = valorTotal;
+    public void setTotal(String total) {
+        this.total = total;
     }
 }

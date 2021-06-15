@@ -23,7 +23,9 @@ public class Address {
      */
     private String country;
 
-
+    /**
+     * Importancia - principal ou secundaria
+     */
     private String importanceType;
 
 
@@ -36,7 +38,7 @@ public class Address {
      * @param postalCode codigo postal cliente
      * @param locality localidade cliente
      * @param country país cliente
-     * @param importance_type importancia
+     * @param importanceType importancia
      */
     public Address(String address, String postalCode, String locality, String country, String importanceType) {
         this.address = address;

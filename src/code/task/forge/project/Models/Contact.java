@@ -18,7 +18,9 @@ public class Contact {
      */
     private String observation;
 
-
+    /**
+     * Importancia - principal ou secundaria
+     */
      private String importanceType;
 
 
@@ -28,7 +30,7 @@ public class Contact {
      * @param contact contacto
      * @param contactType tipo de contacto
      * @param observation observações
-     * @param importanceType 
+     * @param importanceType importancia
      */
     public Contact(String contact, String contactType, String observation, String importanceType){
 
@@ -83,6 +85,7 @@ public class Contact {
         return observation;
     }
 
+
     /**
      * define uma nova observação
      *
@@ -92,21 +95,11 @@ public class Contact {
         this.observation = observation;
     }
 
-     /**
-     * devolve uma observação
-     *
-     * @return observação
-     */
     public String getImportanceType() {
-        return observation;
+        return importanceType;
     }
 
-    /**
-     * define uma nova observação
-     *
-     * @param observation observações
-     */
-    public void setObservation(String observation) {
-        this.observation = observation;
+    public void setImportanceType(String importanceType) {
+        this.importanceType = importanceType;
     }
 }
