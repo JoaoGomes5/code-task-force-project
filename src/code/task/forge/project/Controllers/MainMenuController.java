@@ -41,6 +41,15 @@ public class MainMenuController {
 
     @FXML
     private ImageView a2u;
+
+    @FXML
+    private ImageView userManage;
+
+    @FXML
+    private ImageView orderManage;
+
+    @FXML
+    private ImageView technicalSheets;
      /**
      * Initializes the main menu controller
      */

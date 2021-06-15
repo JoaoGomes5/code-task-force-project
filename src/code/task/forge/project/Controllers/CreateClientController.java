@@ -12,6 +12,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import code.task.forge.project.Models.Client;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -103,27 +104,9 @@ public class CreateClientController implements Initializable {
 
     PreparedStatement pst;
 
-    public static Connection getDatabaseConnection(){
-        String url= "jdbc:sqlserver://ctespbd.dei.isep.ipp.pt:1433;databaseName=LP2_G3_2021";
-        String username= "lp2_g3_2021";
-        String password= "LP2_2020_bd_3";
-        Connection connect= null;
-        try {
-            connect = DriverManager.getConnection(url, username, password);
-            System.out.println("Connection Successful");
-        }
-        catch (SQLException e) {
-            System.out.println("Error - Connection Failed");
-            e.printStackTrace();
-        }
-
-        return connect;
-    }
-
     @FXML
 
     void addClient(ActionEvent event) throws SQLException {
-        Connection con = getDatabaseConnection();
         String nif = txtNif.getText();
         String address1 = txtAddress1.getText();
         String name = txtName.getText();
@@ -132,8 +115,10 @@ public class CreateClientController implements Initializable {
         String annotation = txtAnnotation.getText();
         String contact2 = txtContact2.getText();
 
-        try {
-            pst = con.prepareStatement("Insert into client(nif, address1, name, contact, address2, annotation, contact2)values(?,?,?,?,?,?,?)");
+        Client client = new Client(nif, address1, name, contact, address2, annotation, contact2);
+
+        /*try {
+            pst = con.prepareStatement("Insert into Clients(nif, address1, name, contact, address2, annotation, contact2)values(?,?,?,?,?,?,?)");
             pst.setString(1, nif);
             pst.setString(2, address1);
             pst.setString(3, name);
@@ -168,6 +153,6 @@ public class CreateClientController implements Initializable {
         }
         catch (SQLException ex) {
             Logger.getLogger(CreateClientController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }
 }
