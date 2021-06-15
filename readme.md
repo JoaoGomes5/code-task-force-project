@@ -46,7 +46,7 @@
     - Referencia - reference - String
     - Designação comercial - commercialDesignation - String
     - Versão - version - String
-
+    
 
 ## Peça/Produto - Part extends Article 
     - Designação - designation - String 
@@ -132,6 +132,13 @@
     - operation - Operação
     (Conpletar com o que tem no segundo enunciado)
 
+# Controllers exceptions
+
+## Order
+    - Converter a data de DD-MM-YYYY para YYYY-MM-DD
+    - Gerar
+
+## Line 
 ## DATA BASE
 
 # MachineSchedule
