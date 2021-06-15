@@ -10,7 +10,7 @@ public class Client{
     /**
      *NIF do cliente
      */
-    private String nif;
+    private int nif;
 
     /**
      *Nome do cliente
@@ -20,15 +20,10 @@ public class Client{
     /**
      *morada do cliente
      */
-    private ArrayList<Address> addresses ;
+    private ArrayList<Address> addresses;
 
     /**
-     *contacto do cliente
-     */
-    private Contact mainContact;
-
-    /**
-     *contacto do cliente
+     *contactos do cliente
      */
     private ArrayList<Contact> secondaryContacts;
 
@@ -46,8 +41,17 @@ public class Client{
 
     }
 
-
-    public Client(String nif, String name, ArrayList<Address> addresses, Contact contact, ArrayList<Contact> contacts, String annotation) {
+    /**
+     * construtor da class morada
+     *
+     * @param nif nif cliente
+     * @param name nome
+     * @param addresses Moradas
+     * @param contact contacto principal
+     * @param contacts contactos secundarios
+     * @param annotation anotações
+     */
+    public Client(int nif, String name, ArrayList<Address> addresses, Contact contact, ArrayList<Contact> contacts, String annotation) {
         this.nif = nif;
         this.name = name;
         this.addresses = addresses;
@@ -61,7 +65,7 @@ public class Client{
      *
      * @return nif do cliente
      */
-    public String getNif() {
+    public int getNif() {
         return nif;
     }
 
@@ -70,7 +74,7 @@ public class Client{
      *
      * @param nif nif do cliente
      */
-    public void setNif(String nif) {
+    public void setNif(int nif) {
         this.nif = nif;
     }
 
