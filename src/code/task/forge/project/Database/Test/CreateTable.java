@@ -1,4 +1,6 @@
-package code.task.forge.project.Database;
+package code.task.forge.project.Database.Test;
+
+import code.task.forge.project.Database.ConnectionFactory;
 
 import java.sql.Connection;
 import java.sql.SQLException;

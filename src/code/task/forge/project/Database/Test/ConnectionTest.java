@@ -1,8 +1,10 @@
-package code.task.forge.project.Database;
+package code.task.forge.project.Database.Test;
+
+import code.task.forge.project.Database.ConnectionFactory;
 
 import java.sql.*;
 
-public class ConnectionTest {
+public class    ConnectionTest {
 
     public static void main(String[] args) throws SQLException {
 
@@ -11,7 +13,7 @@ public class ConnectionTest {
 
 
         Statement stmt = connection.createStatement();
-        String query = "SELECT * FROM SYSOBJECTS WHERE xtype = 'U'";
+        String query = "SELECT * FROM dbo.COLUMNS;";
 
         ResultSet result = stmt.executeQuery(query);
 
