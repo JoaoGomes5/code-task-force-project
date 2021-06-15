@@ -180,6 +180,8 @@ CREATE TABLE Operator (
     )
 );
 
+
+
 CREATE TABLE ManufacturingOrder (
   id varchar(255) CONSTRAINT PK_manufacturingOrder_id PRIMARY KEY,
   operation_id INT CONSTRAINT FK_manufacturingOrder_operation_id REFERENCES Operation(code)
