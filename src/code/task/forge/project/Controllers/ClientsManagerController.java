@@ -5,11 +5,6 @@
  */
 package code.task.forge.project.Controllers;
 
-import code.task.forge.project.Models.Client;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,12 +13,15 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  * FXML Controller class
@@ -32,24 +30,25 @@ import javafx.stage.Stage;
  */
 public class ClientsManagerController implements Initializable {
 
-    @FXML
-    private TableView<Client> listViewArticles;
-    @FXML
-    private Button btnReturn;
-    @FXML
-    private TextField txtFieldSearch;
+
     @FXML
     private Button btnEditClient;
+
     @FXML
     private Button btnCreateClient;
+
     @FXML
-    private TableColumn<Client, String> clientName;
+    private Button btnReturn;
+
     @FXML
-    private TableColumn<Client, String> clientNif;
+    private TableView<?> listViewClients;
+
     @FXML
-    private TableColumn<Client, String> clientContact;
+    private TableColumn<?, ?> clientName;
+
     @FXML
-    private TableColumn<Client, String> clientAdress;
+    private TableColumn<?, ?> clientNif;
+
     @FXML
     private TableColumn<Client, String> clientAnnotation;
     @FXML
@@ -59,6 +58,11 @@ public class ClientsManagerController implements Initializable {
     @FXML
     private Button btnAddConftact;
 
+    @FXML
+    private TableColumn<?, ?> clientAddress;
+
+    @FXML
+    private TableColumn<?, ?> clientAnnotation;
     /**
      * Initializes the controller class.
      */
@@ -83,6 +87,7 @@ public class ClientsManagerController implements Initializable {
         app_stage.show();
 
     }
+
 
     @FXML
     private void goToEditClient(ActionEvent event) throws IOException {

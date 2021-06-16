@@ -1,11 +1,12 @@
---Use master
---DROP DATABASE Teste
---CREATE DATABASE Teste
+Use master
+DROP DATABASE LAP
+CREATE DATABASE LAP
 -- USE Teste
 
+-- !!!!!!!!
 CREATE TABLE Address (
   id INT IDENTITY(1,1) CONSTRAINT PK_Address_id PRIMARY KEY,
-  client_id INT CONSTRAINT FK_Address_client_id REFERENCES Client(id),
+  client_id INT CONSTRAINT FK_Address_client_id REFERENCES Client(id) ON UPDATE CASCADE ON DELETE CASCADE,
   address VARCHAR(255)  NOT NULL,
   postal_code VARCHAR(255) NOT NULL,
   locality VARCHAR(255) NOT NULL,
@@ -16,12 +17,13 @@ CREATE TABLE Address (
     importance_type='principal' 
     OR 
     importance_type='secundaria'
-  ))
+  )
 );
 
+-- !!!!!!!
 CREATE TABLE Contact (
   id INT IDENTITY(1,1) CONSTRAINT PK_Contact_id  PRIMARY KEY,
-  client_id INT CONSTRAINT FK_Contact_client_id NOT NULL,
+  client_id INT CONSTRAINT FK_Contact_client_id REFERENCES Client(id) ON UPDATE CASCADE ON DELETE CASCADE ,
   contact VARCHAR(255) UNIQUE NOT NULL,
   contact_type VARCHAR(255)  NOT NULL,
   observation VARCHAR(255) NOT NULL,
@@ -31,22 +33,22 @@ CREATE TABLE Contact (
       importance_type='principal' 
       OR 
       importance_type='secundario'
-      ))
+      )
 );
 
+-- !!!!!!!
 CREATE TABLE Client (
-  id INT IDENTITY(1,1) CONSTRAINT PK_Client_id PRIMARY KEY,
-  nif VARCHAR(9) UNIQUE NOT NULL,
+  nif VARCHAR(9) CONSTRAINT PK_Client_nif PRIMARY KEY,
   name VARCHAR(255) NOT NULL ,
   annotations VARCHAR(255) NOT NULL,
 );
 
-
-CREATE TABLE Order (
+-- !!!!!!!
+CREATE TABLE "Order" (
   id INT IDENTITY(1,1) CONSTRAINT PK_Order_id  PRIMARY KEY,
-  client_nif VARCHAR(9) CONSTRAINT FK_Order_client_nif  REFERENCES Client(nif),
-  purchase_address INT CONSTRAINT FK_Order_purchase_address  REFERENCES Address(id),
-  delivery_address INT CONSTRAINT FK_Order_delivery_address  REFERENCES Address(id),
+  client_nif VARCHAR(9) CONSTRAINT FK_Order_client_nif  REFERENCES Client(nif) ON UPDATE CASCADE ON DELETE CASCADE,
+  purchase_address INT CONSTRAINT FK_Order_purchase_address  REFERENCES Address(id) ,
+  delivery_address INT CONSTRAINT FK_Order_delivery_address  REFERENCES Address(id) ,
   date  DATETIME NOT NULL ,
   state VARCHAR(255) NOT NULL,
   descount DECIMAL(5,3) NOT NULL,
@@ -60,8 +62,8 @@ CREATE TABLE Order (
       state='entregue'
       OR
       state='cancelada'
-      )),
-  CONSTRAINT CHK_Order_state 
+      ),
+  CONSTRAINT CHK_Order_date 
   CHECK (
     date LIKE 'AAAA-MM-DD [HH:MM[:SS[.mmm]]]'
     ),
@@ -70,17 +72,19 @@ CREATE TABLE Order (
 
 CREATE TABLE Line (
   reference VARCHAR(255) CONSTRAINT PK_Line_id PRIMARY KEY,
-  order_id INT CONSTRAINT FK_Line_order_id REFERENCES Order(id) ,
+  order_id INT CONSTRAINT FK_Line_order_id REFERENCES "Order"(id) ON UPDATE CASCADE ON DELETE CASCADE,
   description VARCHAR(255) NOT NULL,
   version VARCHAR(255)  NOT NULL,
-  quantity INT CONSTRAINT NOT NULL,
+  quantity INT  NOT NULL,
   unit VARCHAR(10) NOT NULL,
   unit_price FLOAT NOT NULL,
   total FLOAT NOT NULL,
 );
 
+-- !!!!!!!
 CREATE TABLE Part (
   reference VARCHAR(255) CONSTRAINT PK_Part_reference PRIMARY KEY,
+  order_id  INT CONSTRAINT FK_Part_order_id REFERENCES "Order"(id) ON UPDATE CASCADE ON DELETE CASCADE,
   designation VARCHAR(255) NOT NULL,
   commercial_designation VARCHAR(255) NOT NULL,
   batch_size INT  NOT NULL,
@@ -92,12 +96,13 @@ CREATE TABLE Part (
     status='ativo' 
     OR 
     status='inativo'
-    ))
+    )
 );
 
+-- !!!!!!!!
 CREATE TABLE Operation (
       code              VARCHAR(255)  CONSTRAINT PK_Operation_code PRIMARY KEY,
-      machine_code      INT CONSTRAINT FK_operation_machine_code FOREIGN KEY REFERENCES Machine(code),
+      machine_code      VARCHAR(255) CONSTRAINT FK_operation_machine_code REFERENCES Machine(code) ON UPDATE CASCADE ON DELETE CASCADE,
       execution_order   INT NOT NULL,
       name              VARCHAR(255) NOT NULL,
       operators_needed  INT NOT NULL,
@@ -109,8 +114,9 @@ CREATE TABLE Operation (
       type						  VARCHAR(255) NOT NULL
 );
 
+-- !!!!!!!!!!
 CREATE TABLE Component (
-  reference VARCHAR(255) CONSTRAINT PN_Component_reference PRIMARY KEY,
+  reference VARCHAR(255) CONSTRAINT PK_Component_reference PRIMARY KEY,
   commercial_designation VARCHAR(255) NOT NULL,
   version VARCHAR(255) NOT NULL,  
   quantity_needed FLOAT NOT NULL,
@@ -118,6 +124,7 @@ CREATE TABLE Component (
   alternative VARCHAR(255) NOT NULL
 );
 
+-- !!!!!!!!!!
 CREATE TABLE Machine (
   code VARCHAR(255)  CONSTRAINT PK_Machine_code PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
@@ -140,9 +147,10 @@ CREATE TABLE Machine (
     status='ativo' 
     OR 
     status='inativo'
-    ))
+    )
 );
 
+-- !!!!!!!
 CREATE TABLE Operator (
   code varchar(255) CONSTRAINT PK_Operator_code  PRIMARY KEY,
   name varchar(255)NOT NULL,
@@ -174,49 +182,59 @@ CREATE TABLE Operator (
 
   CONSTRAINT CHK_Operator_status
   CHECK (
-    status='ativo' 
+    state='ativo'
     OR 
-    status='inativo'
-    ))
+    state='inativo'
+    )
 );
 
+
+-- !!!!!!!!
 CREATE TABLE ManufacturingOrder (
   id varchar(255) CONSTRAINT PK_manufacturingOrder_id PRIMARY KEY,
-  operation_id INT CONSTRAINT FK_manufacturingOrder_operation_id REFERENCES Operation(id)
+  operation_id VARCHAR(255) CONSTRAINT FK_manufacturingOrder_operation_id REFERENCES Operation(code)
 );
 
 
-
+-- !!!!!!
 CREATE TABLE Component_Operation (
-  id  INT IDENTITY(1,1) CONSTRAINT PK_component_operation_id  PRIMARY KEY,
-  component_id INT CONSTRAINT FK_component_operation_component_id  REFERENCES Component(id),
-  operation_id INT CONSTRAINT FK_component_operation_operation_id  REFERENCES Operation(id)
+  component_id VARCHAR(255) NOT NULL,
+  operation_id varchar(255)  NOT NULL,
+  
+  	CONSTRAINT PK_Component_Operation_id PRIMARY KEY (component_id, operation_id),
+  		CONSTRAINT FK_Component_Operation_component_id
+      		FOREIGN KEY (component_id) REFERENCES  Component(reference) ON UPDATE CASCADE ON DELETE CASCADE,
+  		CONSTRAINT FK_Component_Operation_operation_id
+      		FOREIGN KEY (operation_id) REFERENCES Operation(code) ON UPDATE CASCADE ON DELETE CASCADE,
 );
 
-
-
+-- !!!!!!!
 CREATE TABLE Operation_Operator (
-  id  INT IDENTITY(1,1) CONSTRAINT PK_operation_operator_id  PRIMARY KEY,
-  operation_id INT CONSTRAINT FK_operation_operator_operation_id  REFERENCES Operation(id),
-  operator_id INT CONSTRAINT FK_operation_operator_operator_id  REFERENCES Operator(id)
+  operation_id VARCHAR(255) NOT NULL,
+  operator_id VARCHAR(255)  NOT NULL,
+  
+  	CONSTRAINT PK_Operation_Operator_id PRIMARY KEY (operation_id, operator_id),
+  		CONSTRAINT FK_Operation_Operator_operation_id
+      		FOREIGN KEY (operation_id) REFERENCES  Operation(code) ON UPDATE CASCADE ON DELETE CASCADE,
+  		CONSTRAINT FK_Operation_Operator_Operator_id
+      		FOREIGN KEY (operator_id) REFERENCES Operator(code) ON UPDATE CASCADE ON DELETE CASCADE,
 );
 
 
-
+-- !!!!!!
 CREATE TABLE Part_Operation (
-  id INT CONSTRAINT PK_part_operation_id PRIMARY KEY,
-  part_id INT CONSTRAINT FK_part_operation_part_id REFERENCES Part(id),
-  operation_id INT CONSTRAINT FK_part_operation_operation_id REFERENCES Operation(id),
+  part_id VARCHAR(255) NOT NULL,
+  operation_id VARCHAR(255)  NOT NULL,
+  
+  	CONSTRAINT FK_Part_Operation_id  PRIMARY KEY (part_id, operation_id),
+  		CONSTRAINT FK_Part_Operation_part_id
+      		FOREIGN KEY (part_id) REFERENCES  Part(reference) ON UPDATE CASCADE ON DELETE CASCADE,
+  		CONSTRAINT FK_Part_Operation_operation_id
+      		FOREIGN KEY (operation_id) REFERENCES Operation(code) ON UPDATE CASCADE ON DELETE CASCADE,
 );
 
-ALTER TABLE Contact
-   ADD CONSTRAINT FK_contact_client_id FOREIGN KEY (client_id)
-      REFERENCES Client(id)
-      
-;
 
-ALTER TABLE Client
-   ADD CONSTRAINT FK_client_main_contact FOREIGN KEY (main_contact)
-      REFERENCES Contact(id)
-     
-;
+
+
+
+

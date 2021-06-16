@@ -1,10 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="code.task.forge.project.Controllers.CreateArticleController">
-    <stylesheets>
-        <URL value="@createarticle.css" />
-    </stylesheets>
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="900.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.task.forge.project.Controllers.CreateArticleController">
+   <stylesheets>
+      <URL value="@../../MainMenu/mainmenu.css" />
+   </stylesheets>
+   <children>
+      <Button fx:id="btnCreateComp" layoutX="558.0" layoutY="537.0" mnemonicParsing="false" onAction="#CreateComp" prefHeight="38.0" prefWidth="146.0" text="Criar Componente" />
+      <Label layoutX="414.0" layoutY="24.0" prefHeight="38.0" prefWidth="70.0" text="Criar Artigo" />
+      <TextField fx:id="txtRef" layoutX="137.0" layoutY="125.0" onAction="#ArticleReference" prefHeight="38.0" prefWidth="750.0" />
+      <TextField fx:id="txtVersion" layoutX="137.0" layoutY="219.0" onAction="#ArticleVersion" prefHeight="38.0" prefWidth="750.0" />
+      <TextField fx:id="txtComercialDesignation" layoutX="137.0" layoutY="173.0" onAction="#ArticleComercialDesignation" prefHeight="38.0" prefWidth="750.0" />
+      <TextField fx:id="txtBatchSize" layoutX="138.0" layoutY="321.0" onAction="#ArticleBatchSize" prefHeight="38.0" prefWidth="327.0" />
+      <TextField fx:id="txtDesignation" layoutX="138.0" layoutY="270.0" onAction="#ArticleDesignation" prefHeight="38.0" prefWidth="327.0" />
+      <Label layoutX="73.0" layoutY="135.0" text="Referencia" />
+      <Label layoutX="15.0" layoutY="183.0" text="Designação Comercial" />
+      <Label layoutX="92.0" layoutY="229.0" text="Versão" />
+      <Label layoutX="70.0" layoutY="280.0" text="Designação" />
+      <Label layoutX="77.0" layoutY="331.0" text="Qtd Lote" />
+      <TextField fx:id="txtStatus" layoutX="138.0" layoutY="422.0" onAction="#ArticleStatus" prefHeight="38.0" prefWidth="327.0" />
+      <TextField fx:id="txtUnit" layoutX="138.0" layoutY="371.0" onAction="#ArticleUnit" prefHeight="38.0" prefWidth="327.0" />
+      <Label layoutX="88.0" layoutY="381.0" text="Unidade" />
+      <Label layoutX="97.0" layoutY="432.0" text="Estado" />
+      <Button fx:id="btnCreateProduct" layoutX="138.0" layoutY="537.0" mnemonicParsing="false" onAction="#CreateProduct" prefHeight="38.0" prefWidth="146.0" text="Criar Peça" />
+      <TextField fx:id="txtMeasureUnit" layoutX="558.0" layoutY="315.0" onAction="#ArticleMeasureUnit" prefHeight="38.0" prefWidth="327.0" />
+      <TextField fx:id="txtQuantityNeeded" layoutX="558.0" layoutY="264.0" onAction="#ArticleQuantityNeeded" prefHeight="38.0" prefWidth="327.0" />
+      <Label layoutX="494.0" layoutY="274.0" text="Quantidade" />
+      <Label layoutX="503.0" layoutY="325.0" text="Unidade" />
+      <TextField fx:id="txtAlternative" layoutX="558.0" layoutY="365.0" onAction="#ArticleAlternative" prefHeight="38.0" prefWidth="327.0" />
+      <Label layoutX="497.0" layoutY="375.0" text="Alternativa" />
+      <TextField fx:id="txtOperations" layoutX="138.0" layoutY="472.0" onAction="#ArticleOperations" prefHeight="38.0" prefWidth="327.0" />
+      <Label layoutX="73.0" layoutY="482.0" text="Operações" />
+      <Button fx:id="btnReturn" layoutX="823.0" layoutY="562.0" mnemonicParsing="false" onAction="#returnApp" prefHeight="18.0" prefWidth="62.0" text="Voltar" />
+   </children>
 </AnchorPane>

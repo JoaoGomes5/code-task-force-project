@@ -1,4 +1,4 @@
-USE Teste
+USE LAP
 GO
 
 CREATE TABLE Client(
@@ -9,7 +9,7 @@ CREATE TABLE Client(
   annotations VARCHAR(55) CONSTRAINT NN_client_annotations NOT NULL,
 );
 
-GOa
+GO
 
 CREATE TABLE Part (
   id INT IDENTITY(1,1) CONSTRAINT PK_part_id PRIMARY KEY,

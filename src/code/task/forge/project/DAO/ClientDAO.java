@@ -22,6 +22,8 @@ public class ClientDAO {
                         "VALUES (?, ?, ?, ?)";
 
         String contactsQuery = "";
+
+
         dao.executeQuery(clientQuery, client.getMainContact().getContact()); // Buscar o id do contacto igual ao client.getMainContact().getContact()
         dao.executeQuery(clientQuery, client.getNif());
         dao.executeQuery(clientQuery, client.getName());

@@ -10,7 +10,12 @@ import code.task.forge.project.Models.Address;
 import code.task.forge.project.Models.Contact;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.*;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import code.task.forge.project.Models.Client;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +23,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -120,5 +126,58 @@ public class CreateClientController implements Initializable {
     @FXML
     private void createClientTxtContactObservation(ActionEvent event) {
     }
-    
+
+    PreparedStatement pst;
+
+    @FXML
+
+    void addClient(ActionEvent event) throws SQLException {
+        String nif = txtNif.getText();
+        String address1 = txtAddress1.getText();
+        String name = txtName.getText();
+        String contact = txtContact.getText();
+        String address2 = txtAddress2.getText();
+        String annotation = txtAnnotation.getText();
+        String contact2 = txtContact2.getText();
+
+        Client client = new Client(nif, address1, name, contact, address2, annotation, contact2);
+
+        /*try {
+            pst = con.prepareStatement("Insert into Clients(nif, address1, name, contact, address2, annotation, contact2)values(?,?,?,?,?,?,?)");
+            pst.setString(1, nif);
+            pst.setString(2, address1);
+            pst.setString(3, name);
+            pst.setString(4, contact);
+            pst.setString(5, address2);
+            pst.setString(6, annotation);
+            pst.setString(7, contact2);
+            int status = pst.executeUpdate();
+
+            if (status == 1) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Success");
+                alert.setHeaderText("Member");
+                alert.setContentText("Record Added Successfully");
+                alert.showAndWait();
+
+                txtNif.setText("");
+                txtAddress1.setText("");
+                txtName.setText("");
+                txtContact.setText("");
+                txtAddress2.setText("");
+                txtAnnotation.setText("");
+                txtContact2.setText("");
+                txtNif.requestFocus();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Fail");
+                alert.setHeaderText("Member");
+                alert.setContentText("Record Add Failed");
+                alert.showAndWait();
+            }
+        }
+        catch (SQLException ex) {
+            Logger.getLogger(CreateClientController.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
+    }
 }
