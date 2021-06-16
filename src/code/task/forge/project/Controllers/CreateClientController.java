@@ -5,6 +5,9 @@
  */
 package code.task.forge.project.Controllers;
 
+import code.task.forge.project.Models.Client;
+import code.task.forge.project.Models.Address;
+import code.task.forge.project.Models.Contact;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
@@ -105,6 +108,7 @@ public class CreateClientController implements Initializable {
 
     @FXML
     private void createClient(ActionEvent event) {
+      
     }
 
     @FXML
