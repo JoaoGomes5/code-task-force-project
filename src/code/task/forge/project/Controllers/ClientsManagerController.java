@@ -44,35 +44,39 @@ public class ClientsManagerController implements Initializable {
     private TableView<?> listViewClients;
 
     @FXML
-    private TableColumn<?, ?> clientName;
-
-    @FXML
     private TableColumn<?, ?> clientNif;
 
     @FXML
-    private TableColumn<Client, String> clientAnnotation;
-    @FXML
-    private Button btnDesativateClient;
-    @FXML
-    private Button btnAddAddress;
-    @FXML
-    private Button btnAddConftact;
+    private TableColumn<?, ?> clientName;
 
     @FXML
     private TableColumn<?, ?> clientAddress;
 
     @FXML
-    private TableColumn<?, ?> clientAnnotation;
+    private TableColumn<?, ?> clientContact;
+
+    @FXML
+    private TableColumn<?, String> clientAnnotation;
+
+    @FXML
+    private Button btnDesativateClient;
+
+    @FXML
+    private Button btnAddAddress;
+
+    @FXML
+    private Button btnAddContact;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        clientName.setCellValueFactory(new PropertyValueFactory<>("Nome"));       
-        clientNif.setCellValueFactory(new PropertyValueFactory<>("NIF"));        
-        clientContact.setCellValueFactory(new PropertyValueFactory<>("Contacto"));        
-        clientAdress.setCellValueFactory(new PropertyValueFactory<>("Morada"));        
+
+        clientNif.setCellValueFactory(new PropertyValueFactory<>("NIF"));
+        clientName.setCellValueFactory(new PropertyValueFactory<>("Nome"));
+        clientAddress.setCellValueFactory(new PropertyValueFactory<>("Morada"));
+        clientContact.setCellValueFactory(new PropertyValueFactory<>("Contacto"));
         clientAnnotation.setCellValueFactory(new PropertyValueFactory<>("Notas"));
         
 

@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -22,6 +23,7 @@ public class CodeTaskForgeProject extends Application {
        //SQLConnection.all2you();
        Parent root;
        root = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/MainMenu/MainMenu.fxml"));
+       //app_stage.initStyle(StageStyle.UNDECORATED);
        Scene scene = new Scene(root, 900,600);
 
        app_stage.setTitle("Code Task Force");
