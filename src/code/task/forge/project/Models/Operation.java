@@ -5,6 +5,12 @@ import java.util.*;
 
 
 public class Operation {
+
+    /**
+     * Codigo
+     */
+    private String code;
+
    /**
     * Ordem
     */
@@ -36,6 +42,11 @@ public class Operation {
     private String instructions;
 
     /**
+     * Tipo
+     */
+    private String type;
+
+    /**
      * Componentes
      */
     private ArrayList<Component> components;
@@ -46,29 +57,43 @@ public class Operation {
     public Operation(){
         
     }
-    
-    
+
     /**
-     * 
-     * @param order Ordem   
+     *
+     * @param code Codigo
+     * @param order Ordem
      * @param name Nome
      * @param machine Máquina,
-     * @param operatorsNeeded Mão de obra       
+     * @param operatorsNeeded Mão de obra
      * @param executionTime Tempo (em segundos)
      * @param quantityPerHour Quantidade Hora
      * @param instructions Instruções técnicas
      * @param components Componentes
+     * @param type Tipo
      */
-    public Operation(int order,String name,Machine machine, int operatorsNeeded, int executionTime,int quantityPerHour,String instructions, ArrayList<Component> components){
-        this.order=order;
-        this.name=name;
-        this.machine=machine;
-        this.operatorsNeeded=operatorsNeeded;
-        this.executionTime=executionTime;
-        this.quantityPerHour=quantityPerHour;
-        this.instructions=instructions;
-        this.components=components;
-        
+    public Operation(String code, int order, String name, Machine machine, int operatorsNeeded, int executionTime, int quantityPerHour, String instructions, String type, ArrayList<Component> components) {
+        this.code = code;
+        this.order = order;
+        this.name = name;
+        this.machine = machine;
+        this.operatorsNeeded = operatorsNeeded;
+        this.executionTime = executionTime;
+        this.quantityPerHour = quantityPerHour;
+        this.instructions = instructions;
+        this.type = type;
+        this.components = components;
+    }
+
+
+
+
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     /**
@@ -184,6 +209,13 @@ public class Operation {
     }
 
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     /**
      Método que permite obter os componentes

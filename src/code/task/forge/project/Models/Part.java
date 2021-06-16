@@ -23,7 +23,7 @@ public class Part extends Article {
     private String unit;
 
     /**
-     * Estado
+     * Estado ativo ou inativo
      */
     private boolean status;
 

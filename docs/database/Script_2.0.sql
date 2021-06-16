@@ -191,7 +191,7 @@ CREATE TABLE Operator (
 
 -- !!!!!!!!
 CREATE TABLE ManufacturingOrder (
-  id varchar(255) CONSTRAINT PK_manufacturingOrder_id PRIMARY KEY,
+  reference varchar(255) CONSTRAINT PK_manufacturingOrder_reference PRIMARY KEY,
   operation_id VARCHAR(255) CONSTRAINT FK_manufacturingOrder_operation_id REFERENCES Operation(code)
 );
 

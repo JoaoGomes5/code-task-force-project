@@ -18,7 +18,7 @@ public class Operator {
     /**
      *Array do Horario
      */
-    private int[] schedule = new int[5];
+    private String[][] schedule = new String [4][5];
 
     /**
      *Estado do operador Ativo ou Inativo
@@ -40,7 +40,7 @@ public class Operator {
      * @param schedule Horario de trabalho do operador
      * @param state Estado do Operador (Ativo/Inativo)
      */
-    public Operator(String code, String name, int [] schedule, boolean state){
+    public Operator(String code, String name, String[][] schedule, boolean state){
         this.code = code;
         this.name = name;
         this.schedule = schedule;
@@ -83,7 +83,7 @@ public class Operator {
      * Método que permite obter o Horario do Operador
      * @return Retorna o Horário de trabalho do operador
      */
-    public int[] getSchedule() {
+    public String[][] getSchedule() {
         return schedule;
     }
 
@@ -91,7 +91,7 @@ public class Operator {
      *Método que permite Definir o Horario do Operador
      * @param schedule Horario Do Operador
      */
-    public void setSchedule(int[] schedule) {
+    public void setSchedule(String[][] schedule) {
         this.schedule = schedule;
     }
 
