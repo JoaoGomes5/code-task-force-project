@@ -78,6 +78,7 @@ public class CreateClientController implements Initializable {
 
     @FXML
     private void createClientTxtNif(ActionEvent event) {
+         
     }
 
 
@@ -128,6 +129,7 @@ public class CreateClientController implements Initializable {
     @FXML
 
     void addClient(ActionEvent event) throws SQLException {
+        
         String nif = txtNif.getText();
         String address1 = txtAddress1.getText();
         String name = txtName.getText();
