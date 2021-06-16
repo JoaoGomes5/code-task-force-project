@@ -5,11 +5,6 @@
  */
 package code.task.forge.project.Controllers;
 
-import code.task.forge.project.Models.Client;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,11 +13,15 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  * FXML Controller class
@@ -31,37 +30,54 @@ import javafx.stage.Stage;
  */
 public class ClientsManagerController implements Initializable {
 
-    @FXML
-    private TableView<Client> listViewArticles;
-    @FXML
-    private Button btnReturn;
-    @FXML
-    private TextField txtFieldSearch;
+
     @FXML
     private Button btnEditClient;
+
     @FXML
     private Button btnCreateClient;
+
     @FXML
-    private TableColumn<Client, String> clientName;
+    private Button btnReturn;
+
     @FXML
-    private TableColumn<Client, String> clientNif;
+    private TableView<?> listViewClients;
+
     @FXML
-    private TableColumn<Client, String> clientContact;
+    private TableColumn<?, ?> clientName;
+
     @FXML
-    private TableColumn<Client, String> clientAdress;
+    private TableColumn<?, ?> clientNif;
+
     @FXML
     private TableColumn<Client, String> clientAnnotation;
+    @FXML
+    private Button btnDesativateClient;
+    @FXML
+    private Button btnAddAddress;
+    @FXML
+    private Button btnAddConftact;
 
+    @FXML
+    private TableColumn<?, ?> clientAddress;
+
+    @FXML
+    private TableColumn<?, ?> clientAnnotation;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
+        clientName.setCellValueFactory(new PropertyValueFactory<>("Nome"));       
+        clientNif.setCellValueFactory(new PropertyValueFactory<>("NIF"));        
+        clientContact.setCellValueFactory(new PropertyValueFactory<>("Contacto"));        
+        clientAdress.setCellValueFactory(new PropertyValueFactory<>("Morada"));        
+        clientAnnotation.setCellValueFactory(new PropertyValueFactory<>("Notas"));
+        
 
     }
 
-    @FXML
     private void goReturn(ActionEvent event) throws IOException {
 
         Parent return_controller_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/MainMenu/MainMenu.fxml"));
@@ -71,6 +87,7 @@ public class ClientsManagerController implements Initializable {
         app_stage.show();
 
     }
+
 
     @FXML
     private void goToEditClient(ActionEvent event) throws IOException {
@@ -89,6 +106,37 @@ public class ClientsManagerController implements Initializable {
         Scene create_client_controller_scene = new Scene(create_client_controller_parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(create_client_controller_scene);
+        app_stage.show();
+    }
+
+    @FXML
+    private void desativateClient(ActionEvent event) {
+    }
+
+    @FXML
+    private void returnToMainMenu(ActionEvent event) throws IOException {
+        Parent return_to_main_menu_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/MainMenu/MainMenu.fxml"));
+        Scene return_to_main_menu_scene = new Scene(return_to_main_menu_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(return_to_main_menu_scene);
+        app_stage.show();
+    }
+
+    @FXML
+    private void goToAddAddress(ActionEvent event) throws IOException {
+        Parent go_to_add_address_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/ClientsManager/AddAddressClient/AddAddressClient.fxml"));
+        Scene go_to_add_address_scene = new Scene(go_to_add_address_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(go_to_add_address_scene);
+        app_stage.show();
+    }
+
+    @FXML
+    private void goToAddContact(ActionEvent event) throws IOException {
+        Parent go_to_add_contact_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/ClientsManager/AddContactClient/AddContactClient.fxml"));
+        Scene go_to_add_contact_scene = new Scene(go_to_add_contact_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(go_to_add_contact_scene);
         app_stage.show();
     }
 

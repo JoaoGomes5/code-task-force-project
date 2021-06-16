@@ -10,7 +10,7 @@ public class Client{
     /**
      *NIF do cliente
      */
-    private String nif;
+    private int nif;
 
     /**
      *Nome do cliente
@@ -20,17 +20,12 @@ public class Client{
     /**
      *morada do cliente
      */
-    private ArrayList<Address> addresses ;
+    private ArrayList<Address> addresses;
 
     /**
-     *contacto do cliente
+     *contactos do cliente
      */
-    private Contact mainContact;
-
-    /**
-     *contacto do cliente
-     */
-    private ArrayList<Contact> secondaryContacts;
+    private ArrayList<Contact> contacts;
 
     /**
      *Nota do cliente
@@ -46,13 +41,20 @@ public class Client{
 
     }
 
-
-    public Client(String nif, String name, ArrayList<Address> addresses, Contact contact, ArrayList<Contact> contacts, String annotation) {
+    /**
+     * construtor da class morada
+     *
+     * @param nif nif cliente
+     * @param name nome
+     * @param addresses Moradas
+     * @param contacts Contactos
+     * @param annotation anotações
+     */
+    public Client(int nif, String name, ArrayList<Address> addresses, ArrayList<Contact> contacts, String annotation) {
         this.nif = nif;
         this.name = name;
         this.addresses = addresses;
-        this.mainContact = contact;
-        this.secondaryContacts= contacts;
+        this.contacts = contacts;
         this.annotation = annotation;
     }
 
@@ -61,7 +63,7 @@ public class Client{
      *
      * @return nif do cliente
      */
-    public String getNif() {
+    public int getNif() {
         return nif;
     }
 
@@ -70,7 +72,7 @@ public class Client{
      *
      * @param nif nif do cliente
      */
-    public void setNif(String nif) {
+    public void setNif(int nif) {
         this.nif = nif;
     }
 
@@ -111,39 +113,12 @@ public class Client{
     }
 
 
-
-    /**
-     * devolve o contacto principal
-     *
-     * @return contactos
-     */
-    public Contact getMainContact() {
-        return mainContact;
+    public ArrayList<Contact> getContacts() {
+        return contacts;
     }
 
-    /**
-     * define o contacto principal
-     *
-     * @param contact
-     * @param contact mainContact
-     */
-    public void setMainContact(Contact contact) {
-        this.mainContact = contact;
-    }
-
-
-    public ArrayList<Contact> getSecondaryContacts() {
-        return secondaryContacts;
-    }
-
-    /**
-     * define o contacto principal
-     *
-     * @param contacts
-     * @param
-     */
-    public void setSecondaryContacts(ArrayList<Contact> contacts) {
-        this.secondaryContacts = contacts;
+    public void setContacts(ArrayList<Contact> contacts) {
+        this.contacts = contacts;
     }
 
     /**

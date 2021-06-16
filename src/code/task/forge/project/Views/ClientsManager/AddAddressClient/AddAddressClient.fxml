@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="900.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.task.forge.project.Controllers.AddAddressClientController">
+    <stylesheets>
+        <URL value="@addaddressclient.css" />
+    </stylesheets>
+   <children>
+      <Label layoutX="424.0" layoutY="34.0" prefHeight="38.0" prefWidth="106.0" text="Adicionar Morada" />
+      <TextField fx:id="txtAddress" layoutX="260.0" layoutY="132.0" onAction="#addAddressClientTxtAddress" prefHeight="38.0" prefWidth="181.0" />
+      <TextField fx:id="txtCity" layoutX="260.0" layoutY="202.0" onAction="#addAddressClientTxtCity" prefHeight="38.0" prefWidth="181.0" />
+      <Label layoutX="199.0" layoutY="212.0" text="Cidade" />
+      <Label layoutX="169.0" layoutY="380.0" text="Código-Postal" />
+      <TextField fx:id="txtPostalCode" layoutX="260.0" layoutY="369.0" onAction="#addAddressClientTxtPostalCode" prefHeight="38.0" prefWidth="181.0" />
+      <Label layoutX="170.0" layoutY="292.0" text="Número Porta" />
+      <TextField fx:id="txtDorNumber" layoutX="260.0" layoutY="290.0" onAction="#addAddressClientTxtDorNumber" prefHeight="38.0" prefWidth="181.0" />
+      <Label layoutX="207.0" layoutY="142.0" text="Rua" />
+      <Button fx:id="btnReturn" layoutX="612.0" layoutY="521.0" mnemonicParsing="false" onAction="#returnToClientManager" prefHeight="38.0" prefWidth="146.0" text="Voltar" />
+      <Button fx:id="btnCreate" layoutX="277.0" layoutY="521.0" mnemonicParsing="false" onAction="#addAddressClient" prefHeight="38.0" prefWidth="146.0" text="Adicionar" />
+   </children>
+</AnchorPane>
