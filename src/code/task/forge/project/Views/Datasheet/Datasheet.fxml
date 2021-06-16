@@ -14,11 +14,10 @@
     </stylesheets>
    <children>
       <Label layoutX="415.0" layoutY="14.0" text="Ficha Tecnica" />
-      <Button fx:id="btn_view_article" layoutX="34.0" layoutY="548.0" mnemonicParsing="false" onAction="#goToViewArticle" prefHeight="34.0" prefWidth="110.0" text="Ver Artigos" />
       <Button fx:id="btn_return" layoutX="838.0" layoutY="553.0" mnemonicParsing="false" onAction="#goReturn" text="Voltar" />
-      <Button fx:id="btn_edit_article" layoutX="254.0" layoutY="548.0" mnemonicParsing="false" onAction="#goToEditArticle" prefHeight="34.0" prefWidth="110.0" text="Editar Artigos" />
-      <Button fx:id="btn_create_article" layoutX="144.0" layoutY="548.0" mnemonicParsing="false" onAction="#goToCreateArticle" prefHeight="34.0" prefWidth="110.0" text="Criar Artigos" />
-      <Button fx:id="btn_remove_article" layoutX="364.0" layoutY="548.0" mnemonicParsing="false" onAction="#goToRemoveArticle" prefHeight="34.0" prefWidth="110.0" text="Remover Artigos" />
+      <Button fx:id="btn_edit_article" layoutX="144.0" layoutY="548.0" mnemonicParsing="false" onAction="#goToEditArticle" prefHeight="34.0" prefWidth="110.0" text="Editar Artigos" />
+      <Button fx:id="btn_create_article" layoutX="34.0" layoutY="548.0" mnemonicParsing="false" onAction="#goToCreateArticle" prefHeight="34.0" prefWidth="110.0" text="Criar Artigos" />
+      <Button fx:id="btn_remove_article" layoutX="254.0" layoutY="548.0" mnemonicParsing="false" onAction="#goToRemoveArticle" prefHeight="34.0" prefWidth="110.0" text="Remover Artigos" />
       <TextField layoutX="96.0" layoutY="79.0" prefHeight="26.0" prefWidth="785.0" />
       <Label layoutX="42.0" layoutY="83.0" text="Pesquisar:" />
       <TableView fx:id="listViewArtigos" layoutX="34.0" layoutY="110.0" prefHeight="422.0" prefWidth="849.0">

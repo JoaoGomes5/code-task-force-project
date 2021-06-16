@@ -15,18 +15,21 @@
    <children>
       <Label layoutX="401.0" layoutY="14.0" prefHeight="23.0" prefWidth="105.0" text="Gestao de Clientes" />
       <Button fx:id="btnEditClient" layoutX="149.0" layoutY="543.0" mnemonicParsing="false" onAction="#goToEditClient" prefHeight="34.0" prefWidth="110.0" text="Editar Cliente" />
-      <Button fx:id="btnCreateClient" layoutX="39.0" layoutY="543.0" mnemonicParsing="false" onAction="#goToCreateClient" prefHeight="34.0" prefWidth="110.0" text="Criar Clientes" />
-      <Button fx:id="btnReturn" layoutX="838.0" layoutY="560.0" mnemonicParsing="false" onAction="#goReturn" text="Voltar" />
+      <Button fx:id="btnCreateClient" layoutX="39.0" layoutY="543.0" mnemonicParsing="false" onAction="#goToCreateClient" prefHeight="34.0" prefWidth="110.0" text="Criar Cliente" />
+      <Button fx:id="btnReturn" layoutX="838.0" layoutY="560.0" mnemonicParsing="false" onAction="#returnToMainMenu" text="Voltar" />
       <TableView fx:id="listViewArticles" layoutX="34.0" layoutY="88.0" prefHeight="426.0" prefWidth="840.0">
         <columns>
-          <TableColumn prefWidth="81.5999755859375" text="Nome" />
-          <TableColumn prefWidth="78.4000244140625" text="NIF" />
-            <TableColumn prefWidth="99.20001220703125" text="Contacto" />
-            <TableColumn prefWidth="119.20001220703125" text="Morada" />
-            <TableColumn prefWidth="151.20001220703125" text="Notas" />
+          <TableColumn fx:id="clientName" prefWidth="154.39998626708984" text="Nome" />
+          <TableColumn fx:id="clientNif" minWidth="0.0" prefWidth="131.20001220703125" text="NIF" />
+            <TableColumn fx:id="clientContact" minWidth="0.0" prefWidth="164.0" text="Contacto" />
+            <TableColumn fx:id="clientAddress" prefWidth="170.40005493164062" text="Morada" />
+            <TableColumn fx:id="clientAnnotation" minWidth="6.39996337890625" prefWidth="220.79998779296875" text="Notas" />
         </columns>
       </TableView>
       <TextField fx:id="txtFieldSearch" layoutX="96.0" layoutY="54.0" prefHeight="26.0" prefWidth="778.0" />
       <Label layoutX="41.0" layoutY="58.0" text="Pesquisar:" />
+      <Button fx:id="btnDesativateClient" layoutX="259.0" layoutY="543.0" mnemonicParsing="false" onAction="#desativateClient" prefHeight="34.0" prefWidth="110.0" text="Desativar Cliente" />
+      <Button fx:id="btnAddAddress" layoutX="369.0" layoutY="543.0" mnemonicParsing="false" onAction="#goToAddAddress" prefHeight="34.0" prefWidth="117.0" text="Adicionar Morada" />
+      <Button fx:id="btnAddConftact" layoutX="486.0" layoutY="543.0" mnemonicParsing="false" onAction="#goToAddContact" prefHeight="34.0" prefWidth="117.0" text="Adicionar Telefone" />
    </children>
 </AnchorPane>
