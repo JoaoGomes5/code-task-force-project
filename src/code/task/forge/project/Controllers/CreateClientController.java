@@ -70,7 +70,7 @@ public class CreateClientController implements Initializable {
 
 
     @FXML
-    private void retrunToClientManager(ActionEvent event) throws IOException {
+    private void returnToClientManager(ActionEvent event) throws IOException {
         Parent return_controller_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/ClientsManager/ClientsManager.fxml"));
         Scene return_controller_scene = new Scene(return_controller_parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -133,14 +133,18 @@ public class CreateClientController implements Initializable {
 
     void addClient(ActionEvent event) throws SQLException {
         String nif = txtNif.getText();
-        String address1 = txtAddress1.getText();
         String name = txtName.getText();
         String contact = txtContact.getText();
-        String address2 = txtAddress2.getText();
         String annotation = txtAnnotation.getText();
-        String contact2 = txtContact2.getText();
+        String address = txtAddress.getText();
+        String city = txtCity.getText();
+        String postalCode = txtPostalCode.getText();
+        String doorNumber = txtDorNumber.getText();
+        String contactType = txtContactType.getText();
+        String contactObservation = txtContactObservation.getText();
 
-        Client client = new Client(nif, address1, name, contact, address2, annotation, contact2);
+
+        Client client = new Client(nif, name, contact, annotation, address, city, postalCode, doorNumber, contactType, contactObservation);
 
         /*try {
             pst = con.prepareStatement("Insert into Clients(nif, address1, name, contact, address2, annotation, contact2)values(?,?,?,?,?,?,?)");

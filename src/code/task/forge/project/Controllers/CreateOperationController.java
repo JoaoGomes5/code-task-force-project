@@ -5,6 +5,8 @@
  */
 package code.task.forge.project.Controllers;
 
+import code.task.forge.project.Models.Client;
+import code.task.forge.project.Models.Operation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +20,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 /**
@@ -120,5 +123,25 @@ public class CreateOperationController implements Initializable {
     @FXML
     private void OperationTxtType(ActionEvent event) {
     }
-    
+
+    @FXML
+
+    void addOperation(ActionEvent event) throws SQLException {
+        String code = txtCode.getText();
+        String name = txtName.getText();
+        String order = txtOrder.getText();
+        String machine = txtMachine.getText();
+        String quantityPerHour = txtQuantityPerHour();
+        String components = txtComponents.getText();
+        String instructions = txtInstructions.getText();
+        String description = txtDescription.getText();
+        String time = txtTime.getText();
+        String operatorsNeeded = txtOperatorsNeeded.getText();
+        String type = txtType.getText();
+
+
+        Operation operation = new Operation(code, name, order, machine, quantityPerHour, components,
+                instructions, description, time,  operatorsNeeded, type);
+    }
+
 }

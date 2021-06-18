@@ -34,10 +34,20 @@ public class Client{
 
     /**
      *Método construtor vazio
-     * 
+     *
+     * @param nif
+     * @param name
+     * @param contact
+     * @param annotation
+     * @param address
+     * @param city
+     * @param postalCode
+     * @param doorNumber
+     * @param contactType
+     * @param contactObservation
      */
 
-    public Client() {
+    public Client(String nif, String name, String contact, String annotation, String address, String city, String postalCode, String doorNumber, String contactType, String contactObservation) {
 
     }
 

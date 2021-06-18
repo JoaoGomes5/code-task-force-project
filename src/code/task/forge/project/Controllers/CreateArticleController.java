@@ -1,5 +1,7 @@
 package code.task.forge.project.Controllers;
 
+import code.task.forge.project.Models.Article;
+import code.task.forge.project.Models.Operation;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -7,6 +9,7 @@ import javafx.scene.control.TextField;
 
 import java.awt.event.ActionEvent;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 
@@ -33,7 +36,7 @@ public class CreateArticleController implements Initializable {
         private TextField txtVersion;
 
         @FXML
-        private TextField txtComercialDesignation;
+        private TextField txtCommercialDesignation;
 
         @FXML
         private TextField txtBatchSize;
@@ -76,7 +79,7 @@ public class CreateArticleController implements Initializable {
         }
 
         @FXML
-        void ArticleComercialDesignation(ActionEvent event) {
+        void ArticleCommercialDesignation(ActionEvent event) {
 
         }
 
@@ -134,6 +137,24 @@ public class CreateArticleController implements Initializable {
         void returnApp(ActionEvent event) {
 
         }
+
+    void addArticle(javafx.event.ActionEvent event) throws SQLException {
+        String reference = txtRef.getText();
+        String commercialDesignation = txtCommercialDesignation.getText();
+        String version = txtVersion.getText();
+        String batchSize = txtBatchSize.getText();
+        String designation = txtDesignation.getText();
+        String status = txtStatus.getText();
+        String unit = txtUnit.getText();
+        String measureUnit = txtMeasureUnit.getText();
+        String quantityNeeded = txtQuantityNeeded.getText();
+        String alternative = txtAlternative.getText();
+        String operations = txtOperations.getText();
+
+
+        Article article = new Article(reference, commercialDesignation, version, batchSize, designation,
+                status, unit, measureUnit, quantityNeeded, alternative, operations);
+    }
 
     }
 

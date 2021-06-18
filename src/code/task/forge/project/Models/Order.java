@@ -16,7 +16,7 @@ public class Order {
 
     private String state;
 
-    private float descount;
+    private float discount;
 
     private float total;
 
@@ -26,14 +26,14 @@ public class Order {
     public Order() {
     }
 
-    public Order(int documentNumber, Client client, Address purchaseAddress, Address deliveryAddress, String date, String state, float descount, float total, ArrayList<Line> lines) {
+    public Order(int documentNumber, Client client, Address purchaseAddress, Address deliveryAddress, String date, String state, float discount, float total, ArrayList<Line> lines) {
         this.documentNumber = documentNumber;
         this.client = client;
         this.purchaseAddress = purchaseAddress;
         this.deliveryAddress = deliveryAddress;
         this.date = date;
         this.state = state;
-        this.descount = descount;
+        this.discount = discount;
         this.total = total;
         this.lines = lines;
     }
@@ -87,12 +87,12 @@ public class Order {
         this.state = state;
     }
 
-    public float getDescount() {
-        return descount;
+    public float getDiscount() {
+        return discount;
     }
 
-    public void setDescount(float descount) {
-        this.descount = descount;
+    public void setDiscount(float descount) {
+        this.discount = descount;
     }
 
     public float getTotal() {

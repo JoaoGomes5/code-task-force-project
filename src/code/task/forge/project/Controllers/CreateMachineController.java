@@ -1,21 +1,20 @@
 package code.task.forge.project.Controllers;
 
+import code.task.forge.project.Models.Client;
+import code.task.forge.project.Models.Machine;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-<<<<<<< HEAD
-=======
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
->>>>>>> feat-003-controllers-CM
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class CreateMachineController {
@@ -32,31 +31,31 @@ public class CreateMachineController {
     @FXML
     private Button btnCreate;
 
-<<<<<<< HEAD
+
     @FXML
     void CreateClient(ActionEvent event) {
-=======
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
 
-    @FXML
-    private void returnApp(ActionEvent event) throws IOException {
-        Parent return_controller_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/Configurations/MachineManager/MachineManager.fxml"));
-        Scene return_controller_scene = new Scene(return_controller_parent);
-        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage.setScene(return_controller_scene);
-        app_stage.show();
-    }
+        /**
+         * Initializes the controller class.
+         */
+        @Override
+        public void initialize (URL, ResourceBundle){
+            // TODO
+        }
 
-    @FXML
-    private void CreateMachine(ActionEvent event) {
-    }
->>>>>>> feat-003-controllers-CM
+        @FXML
+        private void returnApp (ActionEvent event) throws IOException {
+            Parent return_controller_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/Configurations/MachineManager/MachineManager.fxml"));
+            Scene return_controller_scene = new Scene(return_controller_parent);
+            Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            app_stage.setScene(return_controller_scene);
+            app_stage.show();
+        }
+
+        @FXML
+        private void CreateMachine (ActionEvent event){
+        }
+
 
     }
 
@@ -75,4 +74,14 @@ public class CreateMachineController {
 
     }
 
+    @FXML
+    void addMachine(ActionEvent event) throws SQLException {
+        String code = txtCode.getText();
+        String name = txtName.getText();
+
+
+        Machine machine = new Machine(code, name);
+
+
+    }
 }

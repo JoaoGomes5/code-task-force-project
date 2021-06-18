@@ -47,6 +47,9 @@ public class Operator {
         this.state = state;
     }
 
+    public Operator(String code, String schedule, String name, String state) {
+    }
+
     /**
      *Método que permite obter o Código do Operador
      * @return Retorna o código do operador

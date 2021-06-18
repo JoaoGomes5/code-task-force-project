@@ -42,6 +42,9 @@ public class Article {
         this.setVersion(version);
     }
 
+    public Article(String reference, String commercialDesignation, String version, String batchSize, String designation, String status, String unit, String measureUnit, String quantityNeeded, String alternative, String operations) {
+    }
+
     @Override
     public String toString() {
         return "Este artigo tem a referência " + getReference() + ", a designação comercial " + getCommercialDesignation() + "e a sua versão é " + getVersion();

@@ -23,8 +23,8 @@
       <Label layoutX="221.0" layoutY="269.0" text="Horario" />
       <Button fx:id="btnCreate" layoutX="267.0" layoutY="511.0" mnemonicParsing="false" onAction="#CreateClient" prefHeight="38.0" prefWidth="146.0" text="Criar" />
       <Label layoutX="223.0" layoutY="319.0" text="Estado" />
-      <CheckBox layoutX="275.0" layoutY="319.0" mnemonicParsing="false" text="Ativo" />
-      <CheckBox layoutX="340.0" layoutY="319.0" mnemonicParsing="false" text="Inativo" />
+      <CheckBox fx:id="activeState" layoutX="275.0" layoutY="319.0" mnemonicParsing="false" text="Ativo" />
+      <CheckBox fx:id="inactiveState" layoutX="340.0" layoutY="319.0" mnemonicParsing="false" text="Inativo" />
       <MenuButton layoutX="286.0" layoutY="265.0" mnemonicParsing="false" text="Segunda-Feira">
         <items>
           <MenuItem mnemonicParsing="false" text="Action 1" />

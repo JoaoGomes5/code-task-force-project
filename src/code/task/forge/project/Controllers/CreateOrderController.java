@@ -5,6 +5,7 @@
  */
 package code.task.forge.project.Controllers;
 
+import code.task.forge.project.Models.Article;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +19,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 /**
@@ -106,5 +108,19 @@ public class CreateOrderController implements Initializable {
     @FXML
     private void OrderTxtLine(ActionEvent event) {
     }
-    
+
+    void addOrder(javafx.event.ActionEvent event) throws SQLException {
+        String nif = txtNif.getText();
+        String deliveryAddress = txtAddressDelivery.getText();
+        String purchaseAddress = txtAddressBill.getText();
+        String date = txtDocDate.getText();
+        String documentNumber = txtNumberDoc.getText();
+        String discount = txtDescount.getText();
+        String status = txtStatus.getText();
+        String total = txtTotal.getText();
+        String lines = txtLine.getText();
+
+
+        Order order = new Order(nif,deliveryAddress, purchaseAddress, date, documentNumber, discount, status, total, lines);
+    }
 }
