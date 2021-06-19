@@ -3,11 +3,11 @@ package code.task.forge.project.DAO;
 import code.task.forge.project.Database.ConnectionFactory;
 import code.task.forge.project.Models.Address;
 import code.task.forge.project.Models.Client;
+import code.task.forge.project.Models.Contact;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class AddressDAO {
 
@@ -40,18 +40,47 @@ public class AddressDAO {
     }
 
 
-    public static void read(Address address) {
+
+    public List<Address> read(String nif) throws SQLException {
+
+        Connection conn = ConnectionFactory.getConnection();
+        Statement stmt = conn.createStatement();
+        List<Address> addresses = new ArrayList();
+
+
+        String query = "SELECT  \n" +
+                "\t*\n" +
+                "FROM Client \n" +
+                " INNER JOIN Address ON Client.nif = Address.client_id \n" +
+                "\n" +
+                "WHERE Client.nif = " + "'" + nif + "%'";
+
+
+        ResultSet result = stmt.executeQuery(query);
+
+        while (result.next()) {
+
+
+            addresses.add(new Address(
+                                    result.getString("client_id"),
+                                    result.getString("address"),
+                                    result.getString("locality"),
+                                    result.getString("country") ,
+                                    result.getString("importance_type")
+            ));
+        }
+
+        stmt.close();
+        conn.close();
+
+        return addresses;
 
     }
 
-
-    public static void update(Address address) {
+    public void filter()  {
 
     }
 
-
-
-    public static void delete(Address address) {
-
+    public void update()  {
     }
 }

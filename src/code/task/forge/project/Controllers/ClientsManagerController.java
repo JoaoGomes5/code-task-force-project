@@ -14,10 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -57,20 +54,23 @@ public class ClientsManagerController implements Initializable {
     @FXML
     private TableColumn<Client, String> clientAnnotation;
 
-    @FXML
-    private Button btnDeactivateClient;
-
-    @FXML
-    private Button btnAddAddress;
-
-    @FXML
-    private Button btnAddContact;
 
     @FXML
     private Button btnRefresh;
 
     @FXML
     private Button btnSearch;
+
+    @FXML
+    private MenuItem btnAddAddress;
+
+    @FXML
+    private MenuItem btnShowAddresses;
+
+    @FXML
+    private Button btnAddContact;
+
+
 
 
 
@@ -127,7 +127,6 @@ public class ClientsManagerController implements Initializable {
 
         }
 
-
     }
 
     @FXML
@@ -152,11 +151,41 @@ public class ClientsManagerController implements Initializable {
 
     @FXML
     private void goToAddAddress(ActionEvent event) throws IOException {
-        Parent go_to_add_address_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/ClientsManager/AddAddressClient/AddAddressClient.fxml"));
-        Scene go_to_add_address_scene = new Scene(go_to_add_address_parent);
-        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage.setScene(go_to_add_address_scene);
-        app_stage.show();
+
+
+        if(selectedClient != null ){
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/code/task/forge/project/Views/ClientsManager/AddAddressClient/AddAddressClient.fxml"));
+            Parent parent = loader.load();
+
+            Stage stage = new Stage();
+
+            AddAddressClientController controller = loader.getController();
+
+            controller.initData(selectedClient);
+
+            stage.setTitle(" Adicionar Morada");
+            stage.setScene(new Scene(parent));
+            stage.show();
+        }
+    }
+
+    @FXML
+    void goToShowAddresses(ActionEvent event) throws IOException {
+
+        if(selectedClient != null ){
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/code/task/forge/project/Views/ClientsManager/ShowAddressesClient/ShowAddressesClient.fxml"));
+            Parent parent = loader.load();
+
+            Stage stage = new Stage();
+
+            ShowAddressesClientController controller = loader.getController();
+
+            controller.initData(selectedClient);
+
+            stage.setTitle(" Ver moradas Morada");
+            stage.setScene(new Scene(parent));
+            stage.show();
+        }
     }
 
     @FXML
@@ -234,6 +263,7 @@ public class ClientsManagerController implements Initializable {
         clients = clientDAO.read();
         updateTable();
     }
+
 
 }
 

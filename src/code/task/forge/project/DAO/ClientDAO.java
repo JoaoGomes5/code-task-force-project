@@ -51,7 +51,7 @@ public class ClientDAO {
         Statement stmt = conn.createStatement();
 
 
-        String query = "SELECT * FROM Client";
+        String query = "SELECT * FROM Client ORDER BY name";
 
         List<Client> clients = new ArrayList();
 

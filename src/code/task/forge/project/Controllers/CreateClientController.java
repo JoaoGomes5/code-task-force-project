@@ -65,7 +65,6 @@ public class CreateClientController {
         Parent goToListClients = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/ClientsManager/ClientsManager.fxml"));
         Scene tableScene = new Scene(goToListClients);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//        app_stage.setScene(go_to_add_address_scene);
         app_stage.show();
 
         ClientDAO clientDAO = new ClientDAO();

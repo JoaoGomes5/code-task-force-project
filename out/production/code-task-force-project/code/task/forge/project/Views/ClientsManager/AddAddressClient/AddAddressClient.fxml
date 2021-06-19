@@ -5,22 +5,32 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="900.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.task.forge.project.Controllers.AddAddressClientController">
+<AnchorPane id="AnchorPane" prefHeight="486.0" prefWidth="402.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.task.forge.project.Controllers.AddAddressClientController">
     <stylesheets>
         <URL value="@addaddressclient.css" />
     </stylesheets>
    <children>
-      <Label layoutX="424.0" layoutY="34.0" prefHeight="38.0" prefWidth="106.0" text="Adicionar Morada" />
-      <TextField fx:id="txtAddress" layoutX="260.0" layoutY="132.0" onAction="#addAddressClientTxtAddress" prefHeight="38.0" prefWidth="181.0" />
-      <TextField fx:id="txtCity" layoutX="260.0" layoutY="202.0" onAction="#addAddressClientTxtCity" prefHeight="38.0" prefWidth="181.0" />
-      <Label layoutX="199.0" layoutY="212.0" text="Cidade" />
-      <Label layoutX="169.0" layoutY="380.0" text="Código-Postal" />
-      <TextField fx:id="txtPostalCode" layoutX="260.0" layoutY="369.0" onAction="#addAddressClientTxtPostalCode" prefHeight="38.0" prefWidth="181.0" />
-      <Label layoutX="170.0" layoutY="292.0" text="Número Porta" />
-      <TextField fx:id="txtDorNumber" layoutX="260.0" layoutY="290.0" onAction="#addAddressClientTxtDorNumber" prefHeight="38.0" prefWidth="181.0" />
-      <Label layoutX="207.0" layoutY="142.0" text="Rua" />
-      <Button fx:id="btnReturn" layoutX="612.0" layoutY="521.0" mnemonicParsing="false" onAction="#returnToClientManager" prefHeight="38.0" prefWidth="146.0" text="Voltar" />
-      <Button fx:id="btnCreate" layoutX="277.0" layoutY="521.0" mnemonicParsing="false" onAction="#addAddressClient" prefHeight="38.0" prefWidth="146.0" text="Adicionar" />
+      <Label layoutX="155.0" layoutY="36.0" prefHeight="38.0" prefWidth="106.0" text="Adicionar Morada" />
+      <TextField fx:id="txtAddress" layoutX="118.0" layoutY="126.0" prefHeight="38.0" prefWidth="181.0" />
+      <TextField fx:id="txtPostalCode" layoutX="118.0" layoutY="194.0" prefHeight="38.0" prefWidth="181.0" />
+      <Label layoutX="34.0" layoutY="205.0" text="Código postal" />
+      <Label layoutX="63.0" layoutY="328.0" text="País" />
+      <TextField fx:id="txtCountry" layoutX="118.0" layoutY="317.0" prefHeight="38.0" prefWidth="181.0" />
+      <Label layoutX="53.0" layoutY="267.0" text="Localidade" />
+      <TextField fx:id="txtLocality" layoutX="118.0" layoutY="256.0" prefHeight="38.0" prefWidth="181.0" />
+      <Label layoutX="60.0" layoutY="137.0" text="Morada" />
+      <Button fx:id="btnAddAddress" layoutX="164.0" layoutY="387.0" mnemonicParsing="false" onAction="#addAddressClient" prefHeight="46.0" prefWidth="89.0" text="Adicionar" />
+      <AnchorPane layoutX="42.0" layoutY="47.0" prefHeight="75.0" prefWidth="900.0" style="-fx-background-color: #DDD;" styleClass="mainFxmlClass" stylesheets="@../EditClient/editclient.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Text layoutX="134.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adicionar Morada" textAlignment="CENTER">
+               <font>
+                  <Font name="Calibri Bold" size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
