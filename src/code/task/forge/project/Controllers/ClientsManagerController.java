@@ -16,6 +16,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -43,30 +45,41 @@ public class ClientsManagerController implements Initializable {
     private TableView<?> listViewClients;
 
     @FXML
-    private TableColumn<?, ?> clientName;
-
-    @FXML
     private TableColumn<?, ?> clientNif;
 
     @FXML
-    private TableColumn<Client, String> clientAnnotation;
-    @FXML
-    private Button btnDesativateClient;
-    @FXML
-    private Button btnAddAddress;
-    @FXML
-    private Button btnAddConftact;
+    private TableColumn<?, ?> clientName;
 
     @FXML
     private TableColumn<?, ?> clientAddress;
 
+    @FXML
+    private TableColumn<?, ?> clientContact;
+
+    @FXML
+    private TableColumn<?, String> clientAnnotation;
+
+    @FXML
+    private Button btnDesativateClient;
+
+    @FXML
+    private Button btnAddAddress;
+
+    @FXML
+    private Button btnAddContact;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+
+        clientNif.setCellValueFactory(new PropertyValueFactory<>("NIF"));
+        clientName.setCellValueFactory(new PropertyValueFactory<>("Nome"));
+        clientAddress.setCellValueFactory(new PropertyValueFactory<>("Morada"));
+        clientContact.setCellValueFactory(new PropertyValueFactory<>("Contacto"));
+        clientAnnotation.setCellValueFactory(new PropertyValueFactory<>("Notas"));
+        
 
     }
 

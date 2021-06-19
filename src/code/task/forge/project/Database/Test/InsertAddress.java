@@ -7,7 +7,6 @@ import code.task.forge.project.Models.Client;
 import code.task.forge.project.Models.Contact;
 
 import java.awt.font.FontRenderContext;
-
 import java.util.ArrayList;
 
 public class InsertAddress {
