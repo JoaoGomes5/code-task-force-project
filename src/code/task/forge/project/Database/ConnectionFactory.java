@@ -21,7 +21,7 @@ public class ConnectionFactory {
 
             System.out.println("Connection Successful");
 
-            return DriverManager.getConnection(url);
+            return DriverManager.getConnection(url, user, password);
 
 
         } catch (SQLException | IOException e) {
