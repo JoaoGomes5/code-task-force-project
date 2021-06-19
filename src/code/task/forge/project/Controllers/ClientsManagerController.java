@@ -1,11 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package code.task.forge.project.Controllers;
 
+import code.task.forge.project.DAO.ClientDAO;
+import code.task.forge.project.Models.Address;
 import code.task.forge.project.Models.Client;
+import code.task.forge.project.Models.Contact;
+import com.sun.javafx.property.PropertyReference;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,19 +19,19 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
+import javax.print.DocFlavor;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
-/**
- * FXML Controller class
- *
- * @author joaop
- */
 public class ClientsManagerController implements Initializable {
-
 
     @FXML
     private Button btnEditClient;
@@ -42,25 +43,22 @@ public class ClientsManagerController implements Initializable {
     private Button btnReturn;
 
     @FXML
-    private TableView<?> listViewClients;
+    private TableView<Client> listViewClients;
 
     @FXML
-    private TableColumn<?, ?> clientNif;
+    private TextField txtFieldSearch;
 
     @FXML
-    private TableColumn<?, ?> clientName;
+    private TableColumn<Client, String> clientNif;
 
     @FXML
-    private TableColumn<?, ?> clientAddress;
+    private TableColumn<Client, String> clientName;
 
     @FXML
-    private TableColumn<?, ?> clientContact;
+    private TableColumn<Client, String> clientAnnotation;
 
     @FXML
-    private TableColumn<?, String> clientAnnotation;
-
-    @FXML
-    private Button btnDesativateClient;
+    private Button btnDeactivateClient;
 
     @FXML
     private Button btnAddAddress;
@@ -68,21 +66,35 @@ public class ClientsManagerController implements Initializable {
     @FXML
     private Button btnAddContact;
 
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    @FXML
+    private Button btnRefresh;
 
-        clientNif.setCellValueFactory(new PropertyValueFactory<>("NIF"));
-        clientName.setCellValueFactory(new PropertyValueFactory<>("Nome"));
-        clientAddress.setCellValueFactory(new PropertyValueFactory<>("Morada"));
-        clientContact.setCellValueFactory(new PropertyValueFactory<>("Contacto"));
-        clientAnnotation.setCellValueFactory(new PropertyValueFactory<>("Notas"));
-        
+    @FXML
+    private Button btnSearch;
 
+
+
+    private ClientDAO clientDAO = new ClientDAO();
+    private List<Client> clients = clientDAO.read();
+    private ObservableList<Client> clientsObservableListList = FXCollections.observableArrayList();
+    private Client selectedClient;
+    public ClientsManagerController() throws SQLException {
     }
 
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        try {
+            updateTable();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+
+    @FXML
     private void goReturn(ActionEvent event) throws IOException {
 
         Parent return_controller_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/MainMenu/MainMenu.fxml"));
@@ -97,11 +109,25 @@ public class ClientsManagerController implements Initializable {
     @FXML
     private void goToEditClient(ActionEvent event) throws IOException {
 
-        Parent edit_client_controller_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/ClientsManager/EditClient/EditClient.fxml"));
-        Scene edit_client_controller_scene = new Scene(edit_client_controller_parent);
-        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage.setScene(edit_client_controller_scene);
-        app_stage.show();
+        if(selectedClient != null ){
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/code/task/forge/project/Views/ClientsManager/EditClient/EditClient.fxml"));
+            Parent parent = loader.load();
+
+            EditClientController controller = loader.getController();
+
+            controller.initData(selectedClient);
+            Stage stage = new Stage();
+            stage.setTitle(" Editar Perfil");
+            stage.setScene(new Scene(parent));
+            stage.show();
+
+
+
+
+
+        }
+
+
     }
 
     @FXML
@@ -114,9 +140,6 @@ public class ClientsManagerController implements Initializable {
         app_stage.show();
     }
 
-    @FXML
-    private void desativateClient(ActionEvent event) {
-    }
 
     @FXML
     private void returnToMainMenu(ActionEvent event) throws IOException {
@@ -145,4 +168,72 @@ public class ClientsManagerController implements Initializable {
         app_stage.show();
     }
 
+    public void updateTable() throws SQLException {
+        if(!clientsObservableListList.isEmpty()){
+            clientsObservableListList.clear();
+            System.out.println("Cleaned");
+        }
+
+        ArrayList<Address> addresses = new ArrayList<>();
+        ArrayList<Contact> contacts = new ArrayList<>();
+
+        for(Client client: clients) {
+            Client c = new Client(client.getNif(), client.getName(),addresses, contacts, client.getAnnotation());
+            clientsObservableListList.add(c);
+        }
+
+        clientNif.setCellValueFactory(new PropertyValueFactory<Client, String>("nif"));
+        clientName.setCellValueFactory(new PropertyValueFactory<Client, String>("name"));
+        clientAnnotation.setCellValueFactory(new PropertyValueFactory<Client, String>("annotation"));
+
+        listViewClients.setItems(clientsObservableListList);
+
+    }
+
+    @FXML
+    void filterClients(ActionEvent event) throws SQLException {
+        if(!clientsObservableListList.isEmpty()){
+            clientsObservableListList.clear();
+            System.out.println("Cleaned");
+        }
+
+        clients = clientDAO.filter(txtFieldSearch.getText());
+
+        ArrayList<Address> addresses = new ArrayList<>();
+        ArrayList<Contact> contacts = new ArrayList<>();
+
+        for(Client client: clients) {
+
+            Client c = new Client(client.getNif(), client.getName(),addresses, contacts, client.getAnnotation());
+            clientsObservableListList.add(c);
+        }
+
+        clientNif.setCellValueFactory(new PropertyValueFactory<Client, String>("nif"));
+        clientName.setCellValueFactory(new PropertyValueFactory<Client, String>("name"));
+        clientAnnotation.setCellValueFactory(new PropertyValueFactory<Client, String>("annotation"));
+
+        listViewClients.setItems(clientsObservableListList);
+    }
+
+
+    @FXML
+    void setSelectedClient(MouseEvent event) {
+
+        Client client = listViewClients.getSelectionModel().getSelectedItem();
+
+        if(client==null){
+            System.out.println("Nothing Selected");
+        } else {
+            selectedClient = new Client(client.getNif(), client.getName(), client.getAddresses(), client.getContacts(), client.getAnnotation());
+        }
+    }
+
+    @FXML
+    void updateClients(ActionEvent event) throws SQLException {
+        clients = null;
+        clients = clientDAO.read();
+        updateTable();
+    }
+
 }
+

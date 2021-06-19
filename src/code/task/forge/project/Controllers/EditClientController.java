@@ -1,117 +1,91 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package code.task.forge.project.Controllers;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
+import code.task.forge.project.DAO.ClientDAO;
+import code.task.forge.project.Models.Address;
+import code.task.forge.project.Models.Client;
+import code.task.forge.project.Models.Contact;
+import code.task.forge.project.utils.AlertBox;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author André Marques
- */
-public class EditClientController implements Initializable {
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
-    @FXML
-    private Button btnReturn;
+public class EditClientController {
+
+
     @FXML
     private TextField txtNif;
+
     @FXML
     private TextField txtName;
-    @FXML
-    private TextField txtContact;
+
     @FXML
     private TextField txtAnnotation;
-    @FXML
-    private Button btnCreate;
-    @FXML
-    private TextField txtAddress;
-    @FXML
-    private TextField txtDorNumber;
-    @FXML
-    private TextField txtCity;
-    @FXML
-    private TextField txtPostalCode;
-    @FXML
-    private TextField txtContactType;
-    @FXML
-    private TextField txtContactObservation;
-
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-
- 
-    @FXML
-    private void editClient(ActionEvent event) {
-    }
 
     @FXML
-    private void editClientTxtNif(ActionEvent event) {
-    }
+    private Button btnEdit;
+
+    private String nif = "";
 
     @FXML
-    private void editClientTxtName(ActionEvent event) {
-    }
+    void editClient(ActionEvent event) throws SQLException, IOException {
 
-    @FXML
-    private void editClientTxtAddress(ActionEvent event) {
-    }
+        ClientDAO clientDAO = new ClientDAO();
 
-    @FXML
-    private void editClientTxtDorNumber(ActionEvent event) {
-    }
+        ArrayList<Address> addresses = new ArrayList<>();
+        ArrayList<Contact> contacts = new ArrayList<>();
 
-    @FXML
-    private void editClientTxtCity(ActionEvent event) {
-    }
+        try {
 
-    @FXML
-    private void editClientTxtPostalCode(ActionEvent event) {
-    }
+            clientDAO.update(txtNif.getText(), new Client(txtNif.getText(), txtName.getText(), addresses, contacts, txtAnnotation.getText()));
 
-    @FXML
-    private void editClientTxtContact(ActionEvent event) {
-    }
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
 
-    @FXML
-    private void editClientTxtContactType(ActionEvent event) {
-    }
+            alert.setTitle("Sucesso");
+            alert.setHeaderText("Informação atualizada com sucesso!");
 
-    @FXML
-    private void editClientTxtContactObservation(ActionEvent event) {
-    }
 
-    @FXML
-    private void editClientTxtAnnotation(ActionEvent event) {
-    }
+            alert.showAndWait();
 
-    @FXML
-    private void returnToClientManager(ActionEvent event) throws IOException {
-         Parent return_controller_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/ClientsManager/ClientsManager.fxml"));
-        Scene return_controller_scene = new Scene(return_controller_parent);
-        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage.setScene(return_controller_scene);
-        app_stage.show();
+            ClientsManagerController clientsTable = new ClientsManagerController();
+
+            clientsTable.updateTable();
+
+        } catch (SQLException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+
+            alert.setTitle("ERRO");
+            alert.setHeaderText("Algo correu mal :(");
+            alert.setContentText(e.getMessage());
+
+            alert.showAndWait();
+        }
+
+
 
     }
-    
+
+
+    public void initData(Client client){
+        if(client != null){
+            txtNif.setText(client.getNif());
+            txtName.setText(client.getName());
+            txtAnnotation.setText(client.getAnnotation());
+        }
+
+    }
+
+
 }

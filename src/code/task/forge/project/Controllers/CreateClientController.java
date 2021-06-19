@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -59,7 +60,13 @@ public class CreateClientController {
     private Button btnCreate;
 
     @FXML
-    void createClient(ActionEvent event) {
+    void createClient(ActionEvent event) throws IOException {
+
+        Parent goToListClients = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/ClientsManager/ClientsManager.fxml"));
+        Scene tableScene = new Scene(goToListClients);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//        app_stage.setScene(go_to_add_address_scene);
+        app_stage.show();
 
         ClientDAO clientDAO = new ClientDAO();
         AddressDAO addressDAO = new AddressDAO();
@@ -86,62 +93,32 @@ public class CreateClientController {
             addressDAO.insert(client);
             contactDAO.insert(client);
 
-            System.out.println("Sucesso");
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+
+            alert.setTitle("Sucesso");
+            alert.setHeaderText("Cliente criado com sucesso!");
+
+
+            alert.showAndWait();
+
+            ClientsManagerController clientsTable = new ClientsManagerController();
+
+            clientsTable.updateTable();
+
         }  catch (SQLException e) {
-            System.out.println(e.getMessage());
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+
+            alert.setTitle("ERRO");
+            alert.setHeaderText("Algo correu mal :(");
+            alert.setContentText(e.getMessage());
+
+            alert.showAndWait();
         }
 
     }
 
-    @FXML
-    void createClientTxtAddress(ActionEvent event) {
-
-    }
-
-    @FXML
-    void createClientTxtAnnotation(ActionEvent event) {
-
-    }
-
-    @FXML
-    void createClientTxtContact(ActionEvent event) {
-
-    }
-
-    @FXML
-    void createClientTxtContactObservation(ActionEvent event) {
-
-    }
-
-    @FXML
-    void createClientTxtContactType(ActionEvent event) {
-
-    }
-
-    @FXML
-    void createClientTxtCountry(ActionEvent event) {
-
-    }
-
-    @FXML
-    void createClientTxtLocal(ActionEvent event) {
-
-    }
-
-    @FXML
-    void createClientTxtName(ActionEvent event) {
-
-    }
-
-    @FXML
-    void createClientTxtNif(ActionEvent event) {
-
-    }
-
-    @FXML
-    void createClientTxtPostalCode(ActionEvent event) {
-
-    }
 
     @FXML
     void returnToClientManager(ActionEvent event) throws IOException {
