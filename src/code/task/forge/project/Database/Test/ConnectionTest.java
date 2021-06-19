@@ -13,7 +13,12 @@ public class    ConnectionTest {
 
 
         Statement stmt = connection.createStatement();
-        String query = "SELECT * FROM dbo.COLUMNS;";
+        String query = "SELECT\n" +
+                "  *\n" +
+                "FROM\n" +
+                "  SYSOBJECTS\n" +
+                "WHERE\n" +
+                "  xtype = 'U';";
 
         ResultSet result = stmt.executeQuery(query);
 

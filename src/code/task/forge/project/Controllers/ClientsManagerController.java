@@ -5,6 +5,7 @@
  */
 package code.task.forge.project.Controllers;
 
+import code.task.forge.project.Models.Client;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -59,8 +60,7 @@ public class ClientsManagerController implements Initializable {
     @FXML
     private TableColumn<?, ?> clientAddress;
 
-    @FXML
-    private TableColumn<?, ?> clientAnnotation;
+
     /**
      * Initializes the controller class.
      */

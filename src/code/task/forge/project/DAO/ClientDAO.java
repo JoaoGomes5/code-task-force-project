@@ -5,32 +5,40 @@
  */
 package code.task.forge.project.DAO;
 
+import code.task.forge.project.Database.ConnectionFactory;
 import code.task.forge.project.Models.Client;
+
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 
 /**
  *
  * @author joaop
  */
 public class ClientDAO {
-    public void insert(Client client) {
 
-        DAO dao = new DAO();
+    public void insert(Client client) throws SQLException {
 
+        Connection conn = ConnectionFactory.getConnection();
 
         String clientQuery = "INSERT INTO Client " +
-                        "(main_contact, nif, name, annotations) " +
-                        "VALUES (?, ?, ?, ?)";
+                "( nif, name, annotations) " +
+                "VALUES ( ?, ?, ?)";
 
-        String contactsQuery = "";
+        PreparedStatement stmt = conn.prepareStatement(clientQuery);
 
-
-        dao.executeQuery(clientQuery, client.getMainContact().getContact()); // Buscar o id do contacto igual ao client.getMainContact().getContact()
-        dao.executeQuery(clientQuery, client.getNif());
-        dao.executeQuery(clientQuery, client.getName());
-        dao.executeQuery(clientQuery, client.getAnnotation());
+        stmt.setString(1, client.getNif());
+        stmt.setString(2, client.getName());
+        stmt.setString(3, client.getAnnotation());
 
 
 
-        dao.closeConnection();
+        stmt.execute();
+
+        conn.close();
+
     }
 }

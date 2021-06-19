@@ -131,8 +131,11 @@ public class CreateClientController implements Initializable {
     void addClient(ActionEvent event) throws SQLException {
         
         String nif = txtNif.getText();
+
         String address1 = txtAddress1.getText();
+
         String name = txtName.getText();
+
         String contact = txtContact.getText();
         String address2 = txtAddress2.getText();
         String annotation = txtAnnotation.getText();

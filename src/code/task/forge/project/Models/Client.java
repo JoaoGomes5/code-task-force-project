@@ -10,7 +10,7 @@ public class Client{
     /**
      *NIF do cliente
      */
-    private int nif;
+    private String nif;
 
     /**
      *Nome do cliente
@@ -50,7 +50,7 @@ public class Client{
      * @param contacts Contactos
      * @param annotation anotações
      */
-    public Client(int nif, String name, ArrayList<Address> addresses, ArrayList<Contact> contacts, String annotation) {
+    public Client(String nif, String name, ArrayList<Address> addresses, ArrayList<Contact> contacts, String annotation) {
         this.nif = nif;
         this.name = name;
         this.addresses = addresses;
@@ -63,7 +63,7 @@ public class Client{
      *
      * @return nif do cliente
      */
-    public int getNif() {
+    public String getNif() {
         return nif;
     }
 
@@ -72,7 +72,7 @@ public class Client{
      *
      * @param nif nif do cliente
      */
-    public void setNif(int nif) {
+    public void setNif(String nif) {
         this.nif = nif;
     }
 
