@@ -38,59 +38,68 @@ public class ShowAddressesClientController implements Initializable {
     @FXML
     private TableColumn<Address, String> clClientAddressImportance;
 
-    private String selectedNif = "";
-    private AddressDAO addressDAO = new AddressDAO();
-    private List<Address> addresses = addressDAO.read(selectedNif);
 
+
+    private AddressDAO addressDAO = new AddressDAO();
+//    private List<Address> addresses =  addressDAO.read(clClientNif.getText());
     private ObservableList<Address> addressesObservableListList = FXCollections.observableArrayList();
+    private String nif = "";
 
     public ShowAddressesClientController() throws SQLException {
+
     }
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println(selectedNif);
+
 //        try {
+//
 //            updateTable();
+//
 //        } catch (SQLException throwables) {
 //            throwables.printStackTrace();
 //        }
+
+
     }
 
     public void updateTable() throws SQLException {
-        if(!addressesObservableListList.isEmpty()){
-            addressesObservableListList.clear();
-            System.out.println("Cleaned");
-        }
-
-
-
-        for(Address address: addresses) {
-            Address adr = new Address(
-                    address.getAddress(),
-                    address.getPostalCode(),
-                    address.getLocality(),
-                    address.getCountry(),
-                    address.getImportanceType()
-            );
-            addressesObservableListList.add(adr);
-        }
-
-        clClientAddress.setCellValueFactory(new PropertyValueFactory<Address, String>("address"));
-        clClientPostalCode.setCellValueFactory(new PropertyValueFactory<Address, String>("postalCode"));
-        clClientLocality.setCellValueFactory(new PropertyValueFactory<Address, String>("locality"));
-        clClientCountry.setCellValueFactory(new PropertyValueFactory<Address, String>("country"));
-        clClientAddressImportance.setCellValueFactory(new PropertyValueFactory<Address, String>("importanceType"));
-
-        tbAddresses.setItems(addressesObservableListList);
 
     }
 
-    public void initData(Client client){
-        if(client != null){
-            selectedNif = client.getNif();
+    public void initData(List<Address> addresses) throws SQLException {
+        if(addresses != null){
+            if(!addressesObservableListList.isEmpty()){
+                addressesObservableListList.clear();
+                System.out.println("Cleaned");
+            }
+
+
+
+            for(Address address: addresses) {
+                Address adr = new Address(
+                        address.getAddress(),
+                        address.getPostalCode(),
+                        address.getLocality(),
+                        address.getCountry(),
+                        address.getImportanceType()
+                );
+
+
+                addressesObservableListList.add(adr);
+            }
+
+
+            clClientAddress.setCellValueFactory(new PropertyValueFactory<Address, String>("address"));
+            clClientPostalCode.setCellValueFactory(new PropertyValueFactory<Address, String>("postalCode"));
+            clClientLocality.setCellValueFactory(new PropertyValueFactory<Address, String>("locality"));
+            clClientCountry.setCellValueFactory(new PropertyValueFactory<Address, String>("country"));
+            clClientAddressImportance.setCellValueFactory(new PropertyValueFactory<Address, String>("importanceType"));
+
+            tbAddresses.setItems(addressesObservableListList);
         }
+
 
     }
 }

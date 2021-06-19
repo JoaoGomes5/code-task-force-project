@@ -30,7 +30,7 @@
       <Button fx:id="btnCreateClient" layoutX="39.0" layoutY="543.0" mnemonicParsing="false" onAction="#goToCreateClient" prefHeight="34.0" prefWidth="110.0" text="Criar Cliente" />
       <TableView fx:id="listViewClients" layoutX="34.0" layoutY="127.0" onMouseClicked="#setSelectedClient" prefHeight="387.0" prefWidth="827.0">
         <columns>
-            <TableColumn fx:id="clientNif" minWidth="0.0" prefWidth="131.20001220703125" text="NIF" />
+            <TableColumn fx:id="clClientNif" minWidth="0.0" prefWidth="131.20001220703125" text="NIF" />
             <TableColumn fx:id="clientName" prefWidth="154.39998626708984" text="Nome" />
             <TableColumn fx:id="clientAnnotation" minWidth="6.39996337890625" prefWidth="220.79998779296875" text="Notas" />
         </columns>
@@ -74,7 +74,7 @@
       </Button>
       <SplitMenuButton layoutX="642.0" layoutY="538.0" mnemonicParsing="false" popupSide="TOP" prefHeight="38.0" prefWidth="97.0" text="Moradas">
         <items>
-          <MenuItem fx:id="btnShowAddresses" mnemonicParsing="false" onAction="#goToShowAddresses" text="Ver moradas" />
+          <MenuItem fx:id="btnShowAddresses" mnemonicParsing="false" onAction="#b n  " text="Ver moradas" />
             <SeparatorMenuItem mnemonicParsing="false" />
           <MenuItem fx:id="btnAddAddress" mnemonicParsing="false" onAction="#goToAddAddress" text="Adicionar morada" />
         </items>

@@ -48,12 +48,11 @@ public class AddressDAO {
         List<Address> addresses = new ArrayList();
 
 
+
         String query = "SELECT  \n" +
                 "\t*\n" +
                 "FROM Client \n" +
-                " INNER JOIN Address ON Client.nif = Address.client_id \n" +
-                "\n" +
-                "WHERE Client.nif = " + "'" + nif + "%'";
+                " INNER JOIN Address ON Client.nif = Address.client_id WHERE Client.nif= " + "'" + nif + "';" ;
 
 
         ResultSet result = stmt.executeQuery(query);

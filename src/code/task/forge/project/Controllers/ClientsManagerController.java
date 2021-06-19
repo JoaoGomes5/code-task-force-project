@@ -170,25 +170,6 @@ public class ClientsManagerController implements Initializable {
     }
 
     @FXML
-    void goToShowAddresses(ActionEvent event) throws IOException {
-
-        if(selectedClient != null ){
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/code/task/forge/project/Views/ClientsManager/ShowAddressesClient/ShowAddressesClient.fxml"));
-            Parent parent = loader.load();
-
-            Stage stage = new Stage();
-
-            ShowAddressesClientController controller = loader.getController();
-
-            controller.initData(selectedClient);
-
-            stage.setTitle(" Ver moradas Morada");
-            stage.setScene(new Scene(parent));
-            stage.show();
-        }
-    }
-
-    @FXML
     private void goToAddContact(ActionEvent event) throws IOException {
         Parent go_to_add_contact_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/ClientsManager/AddContactClient/AddContactClient.fxml"));
         Scene go_to_add_contact_scene = new Scene(go_to_add_contact_parent);
