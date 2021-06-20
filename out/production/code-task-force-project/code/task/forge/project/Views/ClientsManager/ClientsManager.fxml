@@ -74,7 +74,7 @@
       </Button>
       <SplitMenuButton layoutX="642.0" layoutY="538.0" mnemonicParsing="false" popupSide="TOP" prefHeight="38.0" prefWidth="97.0" text="Moradas">
         <items>
-          <MenuItem fx:id="btnShowAddresses" mnemonicParsing="false" onAction="#" text="Ver moradas" />
+          <MenuItem fx:id="btnShowAddresses" mnemonicParsing="false" onAction="#b n  " text="Ver moradas" />
             <SeparatorMenuItem mnemonicParsing="false" />
           <MenuItem fx:id="btnAddAddress" mnemonicParsing="false" onAction="#goToAddAddress" text="Adicionar morada" />
         </items>
