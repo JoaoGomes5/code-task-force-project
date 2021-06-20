@@ -4,7 +4,6 @@ import code.task.forge.project.DAO.ClientDAO;
 import code.task.forge.project.Models.Address;
 import code.task.forge.project.Models.Client;
 import code.task.forge.project.Models.Contact;
-import com.sun.javafx.property.PropertyReference;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,9 +17,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
-import javax.print.DocFlavor;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -46,7 +43,7 @@ public class ClientsManagerController implements Initializable {
     private TextField txtFieldSearch;
 
     @FXML
-    private TableColumn<Client, String> clientNif;
+    private TableColumn<Client, String> clClientNif;
 
     @FXML
     private TableColumn<Client, String> clientName;
@@ -86,11 +83,11 @@ public class ClientsManagerController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-//        try {
-//            updateTable();
-//        } catch (SQLException throwables) {
-//            throwables.printStackTrace();
-//        }
+        try {
+            updateTable();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
 
@@ -192,7 +189,7 @@ public class ClientsManagerController implements Initializable {
             clientsObservableListList.add(c);
         }
 
-        clientNif.setCellValueFactory(new PropertyValueFactory<Client, String>("nif"));
+        clClientNif.setCellValueFactory(new PropertyValueFactory<Client, String>("nif"));
         clientName.setCellValueFactory(new PropertyValueFactory<Client, String>("name"));
         clientAnnotation.setCellValueFactory(new PropertyValueFactory<Client, String>("annotation"));
 
@@ -218,7 +215,7 @@ public class ClientsManagerController implements Initializable {
             clientsObservableListList.add(c);
         }
 
-        clientNif.setCellValueFactory(new PropertyValueFactory<Client, String>("nif"));
+        clClientNif.setCellValueFactory(new PropertyValueFactory<Client, String>("nif"));
         clientName.setCellValueFactory(new PropertyValueFactory<Client, String>("name"));
         clientAnnotation.setCellValueFactory(new PropertyValueFactory<Client, String>("annotation"));
 
@@ -243,6 +240,11 @@ public class ClientsManagerController implements Initializable {
         clients = null;
         clients = clientDAO.read();
         updateTable();
+    }
+
+    @FXML
+    void goToAllAddresses(ActionEvent event) {
+
     }
 
 
