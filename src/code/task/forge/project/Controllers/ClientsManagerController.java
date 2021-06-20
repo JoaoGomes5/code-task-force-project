@@ -2,6 +2,7 @@ package code.task.forge.project.Controllers;
 
 import code.task.forge.project.DAO.AddressDAO;
 import code.task.forge.project.DAO.ClientDAO;
+import code.task.forge.project.DAO.ContactDAO;
 import code.task.forge.project.Models.Address;
 import code.task.forge.project.Models.Client;
 import code.task.forge.project.Models.Contact;
@@ -77,12 +78,14 @@ public class ClientsManagerController implements Initializable {
 
     private ClientDAO clientDAO = new ClientDAO();
     private AddressDAO addressDao = new AddressDAO();
+    private ContactDAO contactDao = new ContactDAO();
 
     private Client selectedClient;
     private List<Client> clients = clientDAO.read();
     private ObservableList<Client> clientsObservableListList = FXCollections.observableArrayList();
-    private List<Address> addresses = new ArrayList<>();
 
+    private List<Address> addresses = new ArrayList<>();
+    private List<Contact> contacts = new ArrayList<>();
 
 
 
@@ -187,10 +190,13 @@ public class ClientsManagerController implements Initializable {
         addresses = addressDao.read(selectedClient.getNif());
 
 
-        for(Address address: addresses) {
 
-            System.out.println(address.getPostalCode());
-        }
+    }
+
+    public void updateContacts() throws SQLException {
+
+        contacts = null;
+        contacts = contactDao.read(selectedClient.getNif());
 
 
 
@@ -255,7 +261,7 @@ public class ClientsManagerController implements Initializable {
 
             controller.initData(selectedClient);
 
-            stage.setTitle(" Adicionar Morada");
+            stage.setTitle(" Adicionar Morada - " + selectedClient.getName());
             stage.setScene(new Scene(parent));
             stage.show();
         }
@@ -276,7 +282,7 @@ public class ClientsManagerController implements Initializable {
 
             controller.initData(addresses);
 
-            stage.setTitle("Minhas Moradas");
+            stage.setTitle("Minhas Moradas - " + selectedClient.getName());
             stage.setScene(new Scene(parent));
             stage.show();
         }
@@ -285,6 +291,7 @@ public class ClientsManagerController implements Initializable {
     @FXML
     void goToAddContacts(ActionEvent event) throws IOException {
         if(selectedClient != null ){
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/code/task/forge/project/Views/ClientsManager/AddContactClient/AddContactClient.fxml"));
             Parent parent = loader.load();
 
@@ -301,8 +308,23 @@ public class ClientsManagerController implements Initializable {
     }
 
     @FXML
-    void goToAllContacts(ActionEvent event) {
+    void goToAllContacts(ActionEvent event) throws IOException, SQLException {
+        if(selectedClient != null ){
+            updateContacts();
 
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/code/task/forge/project/Views/ClientsManager/ShowContactsClient/ShowContactsClient.fxml"));
+            Parent parent = loader.load();
+
+            Stage stage = new Stage();
+
+            ShowContactsClientController controller = loader.getController();
+
+            controller.initData(contacts);
+
+            stage.setTitle("Meus contatos - " + selectedClient.getName());
+            stage.setScene(new Scene(parent));
+            stage.show();
+        }
     }
 
 

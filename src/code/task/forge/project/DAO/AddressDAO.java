@@ -58,7 +58,6 @@ public class AddressDAO {
         ResultSet result = stmt.executeQuery(query);
 
         while (result.next()) {
-//            System.out.println(result.getString("postal_code"));
 
             addresses.add(new Address(
                                     result.getString("address"),

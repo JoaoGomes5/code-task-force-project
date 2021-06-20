@@ -6,10 +6,9 @@ import code.task.forge.project.Models.Address;
 import code.task.forge.project.Models.Client;
 import code.task.forge.project.Models.Contact;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ContactDAO {
 
@@ -39,8 +38,43 @@ public class ContactDAO {
     }
 
 
-    public static void read(Contact contact) {
+    public static List<Contact> read(String nif) throws SQLException {
 
+        Connection conn = ConnectionFactory.getConnection();
+
+        Statement stmt = conn.createStatement();
+        List<Contact> contacts = new ArrayList();
+
+
+
+        String query = "SELECT  \n" +
+                "\t*\n" +
+                "FROM Client \n" +
+                " INNER JOIN Contact ON Client.nif = Contact.client_id WHERE Client.nif=" + "'" + nif + "';" ;
+
+
+
+
+
+
+        ResultSet result = stmt.executeQuery(query);
+
+        while (result.next()) {
+
+            contacts.add(new Contact(
+                    result.getString("contact"),
+                    result.getString("contact_type") ,
+                    result.getString("observation"),
+                    result.getString("importance_type")
+            ));
+
+
+        }
+
+        stmt.close();
+        conn.close();
+
+        return contacts;
     }
 
 
