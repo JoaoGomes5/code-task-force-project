@@ -58,15 +58,17 @@ public class AddressDAO {
         ResultSet result = stmt.executeQuery(query);
 
         while (result.next()) {
-
+//            System.out.println(result.getString("postal_code"));
 
             addresses.add(new Address(
-                                    result.getString("client_id"),
                                     result.getString("address"),
+                                    result.getString("postal_code"),
                                     result.getString("locality"),
                                     result.getString("country") ,
                                     result.getString("importance_type")
             ));
+
+
         }
 
         stmt.close();

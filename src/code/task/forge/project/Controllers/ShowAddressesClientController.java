@@ -18,10 +18,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class ShowAddressesClientController implements Initializable {
-
     @FXML
     private TableView<Address> tbAddresses;
-
 
     @FXML
     private TableColumn<Address, String> clClientAddress;
@@ -38,12 +36,11 @@ public class ShowAddressesClientController implements Initializable {
     @FXML
     private TableColumn<Address, String> clClientAddressImportance;
 
-
-
-    private AddressDAO addressDAO = new AddressDAO();
-//    private List<Address> addresses =  addressDAO.read(clClientNif.getText());
-    private ObservableList<Address> addressesObservableListList = FXCollections.observableArrayList();
     private String nif = "";
+    private AddressDAO addressDAO = new AddressDAO();
+    private List<Address> addresses =  addressDAO.read(nif);
+    private ObservableList<Address> addressesObservableListList = FXCollections.observableArrayList();
+
 
     public ShowAddressesClientController() throws SQLException {
 
@@ -53,13 +50,13 @@ public class ShowAddressesClientController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-//        try {
-//
-//            updateTable();
-//
-//        } catch (SQLException throwables) {
-//            throwables.printStackTrace();
-//        }
+        try {
+
+            updateTable();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
 
 
     }
@@ -69,6 +66,7 @@ public class ShowAddressesClientController implements Initializable {
     }
 
     public void initData(List<Address> addresses) throws SQLException {
+
         if(addresses != null){
             if(!addressesObservableListList.isEmpty()){
                 addressesObservableListList.clear();
@@ -78,6 +76,7 @@ public class ShowAddressesClientController implements Initializable {
 
 
             for(Address address: addresses) {
+                System.out.println(address.getAddress());
                 Address adr = new Address(
                         address.getAddress(),
                         address.getPostalCode(),

@@ -81,9 +81,9 @@
       </SplitMenuButton>
       <SplitMenuButton layoutX="764.0" layoutY="538.0" mnemonicParsing="false" popupSide="TOP" prefHeight="38.0" prefWidth="97.0" text="Contactos">
          <items>
-            <MenuItem mnemonicParsing="false" text="Ver contactos" />
+            <MenuItem fx:id="btnShowContacts" mnemonicParsing="false" onAction="#goToAllContacts" text="Ver contactos" />
             <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Adicionar contacto" />
+            <MenuItem fx:id="btnAddContact" mnemonicParsing="false" onAction="#goToAddContacts" text="Adicionar contacto" />
          </items>
       </SplitMenuButton>
    </children>

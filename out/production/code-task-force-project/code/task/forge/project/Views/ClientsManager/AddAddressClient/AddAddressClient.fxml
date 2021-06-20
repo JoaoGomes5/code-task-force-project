@@ -15,7 +15,7 @@
    <children>
       <Label layoutX="155.0" layoutY="36.0" prefHeight="38.0" prefWidth="106.0" text="Adicionar Morada" />
       <TextField fx:id="txtAddress" layoutX="118.0" layoutY="126.0" prefHeight="38.0" prefWidth="181.0" />
-      <TextField fx:id="txtPostalCode" layoutX="118.0" layoutY="194.0" prefHeight="38.0" prefWidth="181.0" />
+      <TextField fx:id="txtPostalCode" layoutX="118.0" layoutY="186.0" prefHeight="38.0" prefWidth="181.0" />
       <Label layoutX="34.0" layoutY="205.0" text="Código postal" />
       <Label layoutX="63.0" layoutY="328.0" text="País" />
       <TextField fx:id="txtCountry" layoutX="118.0" layoutY="317.0" prefHeight="38.0" prefWidth="181.0" />

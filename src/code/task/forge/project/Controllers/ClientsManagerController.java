@@ -1,5 +1,6 @@
 package code.task.forge.project.Controllers;
 
+import code.task.forge.project.DAO.AddressDAO;
 import code.task.forge.project.DAO.ClientDAO;
 import code.task.forge.project.Models.Address;
 import code.task.forge.project.Models.Client;
@@ -65,16 +66,26 @@ public class ClientsManagerController implements Initializable {
     private MenuItem btnShowAddresses;
 
     @FXML
-    private Button btnAddContact;
+    private MenuItem btnShowContacts;
+
+    @FXML
+    private MenuItem btnAddContact;
 
 
 
 
 
     private ClientDAO clientDAO = new ClientDAO();
+    private AddressDAO addressDao = new AddressDAO();
+
+    private Client selectedClient;
     private List<Client> clients = clientDAO.read();
     private ObservableList<Client> clientsObservableListList = FXCollections.observableArrayList();
-    private Client selectedClient;
+    private List<Address> addresses = new ArrayList<>();
+
+
+
+
     public ClientsManagerController() throws SQLException {
     }
 
@@ -103,6 +114,26 @@ public class ClientsManagerController implements Initializable {
     }
 
 
+
+    @FXML
+    private void returnToMainMenu(ActionEvent event) throws IOException {
+        Parent return_to_main_menu_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/MainMenu/MainMenu.fxml"));
+        Scene return_to_main_menu_scene = new Scene(return_to_main_menu_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(return_to_main_menu_scene);
+        app_stage.show();
+    }
+
+    @FXML
+    private void goToCreateClient(ActionEvent event) throws IOException {
+
+        Parent create_client_controller_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/ClientsManager/CreateClient/CreateClient.fxml"));
+        Scene create_client_controller_scene = new Scene(create_client_controller_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(create_client_controller_scene);
+        app_stage.show();
+    }
+
     @FXML
     private void goToEditClient(ActionEvent event) throws IOException {
 
@@ -126,56 +157,9 @@ public class ClientsManagerController implements Initializable {
 
     }
 
-    @FXML
-    private void goToCreateClient(ActionEvent event) throws IOException {
-
-        Parent create_client_controller_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/ClientsManager/CreateClient/CreateClient.fxml"));
-        Scene create_client_controller_scene = new Scene(create_client_controller_parent);
-        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage.setScene(create_client_controller_scene);
-        app_stage.show();
-    }
-
-
-    @FXML
-    private void returnToMainMenu(ActionEvent event) throws IOException {
-        Parent return_to_main_menu_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/MainMenu/MainMenu.fxml"));
-        Scene return_to_main_menu_scene = new Scene(return_to_main_menu_parent);
-        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage.setScene(return_to_main_menu_scene);
-        app_stage.show();
-    }
-
-    @FXML
-    private void goToAddAddress(ActionEvent event) throws IOException {
-
-
-        if(selectedClient != null ){
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/code/task/forge/project/Views/ClientsManager/AddAddressClient/AddAddressClient.fxml"));
-            Parent parent = loader.load();
-
-            Stage stage = new Stage();
-
-            AddAddressClientController controller = loader.getController();
-
-            controller.initData(selectedClient);
-
-            stage.setTitle(" Adicionar Morada");
-            stage.setScene(new Scene(parent));
-            stage.show();
-        }
-    }
-
-    @FXML
-    private void goToAddContact(ActionEvent event) throws IOException {
-        Parent go_to_add_contact_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/ClientsManager/AddContactClient/AddContactClient.fxml"));
-        Scene go_to_add_contact_scene = new Scene(go_to_add_contact_parent);
-        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage.setScene(go_to_add_contact_scene);
-        app_stage.show();
-    }
 
     public void updateTable() throws SQLException {
+
         if(!clientsObservableListList.isEmpty()){
             clientsObservableListList.clear();
             System.out.println("Cleaned");
@@ -195,6 +179,28 @@ public class ClientsManagerController implements Initializable {
 
         listViewClients.setItems(clientsObservableListList);
 
+    }
+
+    public void updateAddresses() throws SQLException {
+
+        addresses = null;
+        addresses = addressDao.read(selectedClient.getNif());
+
+
+        for(Address address: addresses) {
+
+            System.out.println(address.getPostalCode());
+        }
+
+
+
+    }
+
+    @FXML
+    void updateClients(ActionEvent event) throws SQLException {
+        clients = null;
+        clients = clientDAO.read();
+        updateTable();
     }
 
     @FXML
@@ -236,14 +242,66 @@ public class ClientsManagerController implements Initializable {
     }
 
     @FXML
-    void updateClients(ActionEvent event) throws SQLException {
-        clients = null;
-        clients = clientDAO.read();
-        updateTable();
+    private void goToAddAddress(ActionEvent event) throws IOException {
+
+
+        if(selectedClient != null ){
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/code/task/forge/project/Views/ClientsManager/AddAddressClient/AddAddressClient.fxml"));
+            Parent parent = loader.load();
+
+            Stage stage = new Stage();
+
+            AddAddressClientController controller = loader.getController();
+
+            controller.initData(selectedClient);
+
+            stage.setTitle(" Adicionar Morada");
+            stage.setScene(new Scene(parent));
+            stage.show();
+        }
     }
 
     @FXML
-    void goToAllAddresses(ActionEvent event) {
+    void goToAllAddresses(ActionEvent event) throws IOException, SQLException {
+
+        if(selectedClient != null ){
+            updateAddresses();
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/code/task/forge/project/Views/ClientsManager/ShowAddressesClient/ShowAddressesClient.fxml"));
+            Parent parent = loader.load();
+
+            Stage stage = new Stage();
+
+            ShowAddressesClientController controller = loader.getController();
+
+            controller.initData(addresses);
+
+            stage.setTitle("Minhas Moradas");
+            stage.setScene(new Scene(parent));
+            stage.show();
+        }
+    }
+
+    @FXML
+    void goToAddContacts(ActionEvent event) throws IOException {
+        if(selectedClient != null ){
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/code/task/forge/project/Views/ClientsManager/AddContactClient/AddContactClient.fxml"));
+            Parent parent = loader.load();
+
+            Stage stage = new Stage();
+
+            AddContactClientController controller = loader.getController();
+
+            controller.initData(selectedClient);
+
+            stage.setTitle(" Adicionar Contacto - " + selectedClient.getName());
+            stage.setScene(new Scene(parent));
+            stage.show();
+        }
+    }
+
+    @FXML
+    void goToAllContacts(ActionEvent event) {
 
     }
 

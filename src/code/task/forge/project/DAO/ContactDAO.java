@@ -24,7 +24,7 @@ public class ContactDAO {
 
         for (Contact contact: contacts) {
             PreparedStatement stmt = conn.prepareStatement(query);
-
+            System.out.println(contact.getContact());
             stmt.setString(1, client.getNif() );
             stmt.setString(2, contact.getContact());
             stmt.setString(3, contact.getContactType());
