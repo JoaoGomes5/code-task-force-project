@@ -116,8 +116,6 @@ public class ClientsManagerController implements Initializable {
 
     }
 
-
-
     @FXML
     private void returnToMainMenu(ActionEvent event) throws IOException {
         Parent return_to_main_menu_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/MainMenu/MainMenu.fxml"));
@@ -151,11 +149,6 @@ public class ClientsManagerController implements Initializable {
             stage.setTitle(" Editar Perfil");
             stage.setScene(new Scene(parent));
             stage.show();
-
-
-
-
-
         }
 
     }
@@ -197,8 +190,6 @@ public class ClientsManagerController implements Initializable {
 
         contacts = null;
         contacts = contactDao.read(selectedClient.getNif());
-
-
 
     }
 
