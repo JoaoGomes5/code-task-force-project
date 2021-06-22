@@ -1,4 +1,4 @@
-package code.task.forge.project.Controllers;
+package code.task.forge.project.Controllers.ClientsManagerControllers;
 
 import code.task.forge.project.DAO.AddressDAO;
 import code.task.forge.project.DAO.ClientDAO;
@@ -131,6 +131,8 @@ public class ClientsManagerController implements Initializable {
         Parent create_client_controller_parent = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/ClientsManager/CreateClient/CreateClient.fxml"));
         Scene create_client_controller_scene = new Scene(create_client_controller_parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        app_stage.setTitle("Criar cliente");
         app_stage.setScene(create_client_controller_scene);
         app_stage.show();
     }

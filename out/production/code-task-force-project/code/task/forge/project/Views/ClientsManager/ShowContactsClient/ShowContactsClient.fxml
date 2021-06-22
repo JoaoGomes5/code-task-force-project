@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane prefHeight="613.0" prefWidth="888.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.task.forge.project.Controllers.ShowContactsClientController">
+<AnchorPane prefHeight="613.0" prefWidth="888.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.task.forge.project.Controllers.ClientsManagerControllers.ShowContactsClientController">
    <children>
       <TableView fx:id="tbContacts" layoutX="41.0" layoutY="118.0" prefHeight="433.0" prefWidth="806.0">
          <columns>

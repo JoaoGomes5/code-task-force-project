@@ -23,13 +23,14 @@ public class CodeTaskForgeProject extends Application {
     public void start(Stage app_stage) throws SQLException, IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("/code/task/forge/project/Views/MainMenu/MainMenu.fxml"));
-        //app_stage.initStyle(StageStyle.UNDECORATED);
-//        Image appIcon = new Image(getClass().getResourceAsStream("code/task/forge/project/icons/icon.png"));
+
+        Image icon = new Image(getClass().getResourceAsStream("icon.png"));
 
         Scene scene = new Scene(root, 900,600);
 
-//        app_stage.getIcons().add(appIcon);
-        app_stage.setTitle("Code Task Force");
+        app_stage.getIcons().add(icon);
+
+        app_stage.setTitle("Menu principal");
         app_stage.setScene(scene);
         app_stage.setResizable(false);
         app_stage.show();

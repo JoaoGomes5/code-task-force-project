@@ -1,22 +1,15 @@
-package code.task.forge.project.Controllers;
+package code.task.forge.project.Controllers.ClientsManagerControllers;
 
+import code.task.forge.project.Controllers.ClientsManagerControllers.ClientsManagerController;
 import code.task.forge.project.DAO.ClientDAO;
 import code.task.forge.project.Models.Address;
 import code.task.forge.project.Models.Client;
 import code.task.forge.project.Models.Contact;
-import code.task.forge.project.utils.AlertBox;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;

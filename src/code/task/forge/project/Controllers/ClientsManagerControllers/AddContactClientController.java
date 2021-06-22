@@ -3,16 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package code.task.forge.project.Controllers;
+package code.task.forge.project.Controllers.ClientsManagerControllers;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
-import code.task.forge.project.DAO.AddressDAO;
+import code.task.forge.project.Controllers.ClientsManagerControllers.ClientsManagerController;
 import code.task.forge.project.DAO.ContactDAO;
 import code.task.forge.project.Models.Address;
 import code.task.forge.project.Models.Client;

@@ -12,25 +12,25 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="712.0" prefWidth="1036.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.task.forge.project.Controllers.OrdersManagerController">
+<AnchorPane id="AnchorPane" prefHeight="764.0" prefWidth="1097.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.task.forge.project.Controllers.OrdersManagerController">
     <stylesheets>
         <URL value="@ordersmanager.css" />
     </stylesheets>
    <children>
-      <Button fx:id="btn_create_order" layoutX="45.0" layoutY="645.0" mnemonicParsing="false" onAction="#goToCreateOrder" prefHeight="34.0" prefWidth="110.0" text="Criar Encomenda" />
-      <Button fx:id="btn_edit_order" layoutX="187.0" layoutY="645.0" mnemonicParsing="false" onAction="#goToEditOrder" prefHeight="34.0" prefWidth="123.0" text="Editar Encomenda " AnchorPane.rightAnchor="726.0" AnchorPane.topAnchor="645.0" />
+      <Button fx:id="btnCreateOrder" layoutX="47.0" layoutY="693.0" mnemonicParsing="false" onAction="#goToCreateOrder" prefHeight="34.0" prefWidth="110.0" text="Criar Encomenda" />
+      <Button fx:id="btnEditOrder" layoutX="199.0" layoutY="693.0" mnemonicParsing="false" onAction="#goToEditOrder" prefHeight="34.0" prefWidth="123.0" text="Editar Encomenda " AnchorPane.rightAnchor="775.0" AnchorPane.topAnchor="693.0" />
       <Accordion layoutX="47.0" layoutY="114.0" />
       <Accordion layoutX="92.0" layoutY="99.0" />
-      <TableView fx:id="listViewOrder" layoutX="41.0" layoutY="174.0" prefHeight="445.0" prefWidth="965.0">
+      <TableView fx:id="listViewOrder" layoutX="41.0" layoutY="125.0" prefHeight="550.0" prefWidth="1012.0">
         <columns>
-            <TableColumn fx:id="orderDocNum" prefWidth="85.0" text="Nº Doc" />
-          <TableColumn fx:id="orderName" prefWidth="92.0" text="Nome Cliente" />
-            <TableColumn fx:id="orderBillingAddress" prefWidth="135.0" text="Morada Faturação" />
-            <TableColumn fx:id="orderDeliveryAddress" prefWidth="108.0" resizable="false" text="Morada Entrega" />
-            <TableColumn fx:id="orderDocDate" minWidth="0.0" prefWidth="108.0" text="Data" />
-            <TableColumn fx:id="orderState" prefWidth="151.0" text="Estado" />
-            <TableColumn fx:id="orderDiscount" minWidth="0.0" prefWidth="146.0" text="Desconto" />
-            <TableColumn fx:id="orderTotal" prefWidth="137.0" text="Total" />
+            <TableColumn fx:id="clDocNum" prefWidth="81.0" text="Nº Doc" />
+          <TableColumn fx:id="clName" prefWidth="107.0" text="Nome Cliente" />
+            <TableColumn fx:id="clBillingAddress" prefWidth="187.0" text="Morada Faturação" />
+            <TableColumn fx:id="clDeliveryAddress" prefWidth="196.0" resizable="false" text="Morada Entrega" />
+            <TableColumn fx:id="clDocDate" minWidth="0.0" prefWidth="131.0" text="Data" />
+            <TableColumn fx:id="clDiscount" minWidth="0.0" prefWidth="103.0" text="Desconto" />
+            <TableColumn fx:id="clTotal" prefWidth="110.0" text="Total" />
+            <TableColumn fx:id="clState" prefWidth="96.0" text="Estado" />
         </columns>
       </TableView>
       <AnchorPane layoutX="41.0" layoutY="52.0" prefHeight="75.0" prefWidth="900.0" style="-fx-background-color: #DDD;" styleClass="mainFxmlClass" stylesheets="@../ClientsManager/EditClient/editclient.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -51,8 +51,8 @@
             </Button>
          </children>
       </AnchorPane>
-      <TextField fx:id="txtFieldSearch" layoutX="41.0" layoutY="88.0" prefHeight="26.0" prefWidth="854.0" promptText="Fltro de pesquisa" />
-      <Button fx:id="btnRefresh" layoutX="972.0" layoutY="88.0" mnemonicParsing="false" onAction="#updateClients" prefHeight="25.0" prefWidth="19.0">
+      <TextField fx:id="txtFieldSearch" layoutX="41.0" layoutY="88.0" prefHeight="26.0" prefWidth="911.0" promptText="Filtro de pesquisa de encomendas pelo NIF do cliente" />
+      <Button fx:id="btnRefresh" layoutX="1019.0" layoutY="88.0" mnemonicParsing="false" onAction="#updateOrders" prefHeight="25.0" prefWidth="19.0">
          <graphic>
             <ImageView fitHeight="22.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -61,12 +61,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <ImageView fitHeight="22.0" fitWidth="18.0" layoutX="6.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../icons/lupa.png" />
-         </image>
-      </ImageView>
-      <Button fx:id="btnSearch" layoutX="922.0" layoutY="88.0" mnemonicParsing="false" onAction="#filterClients" prefHeight="25.0" prefWidth="19.0">
+      <Button fx:id="btnSearch" layoutX="967.0" layoutY="88.0" mnemonicParsing="false" onAction="#filterOrders" prefHeight="25.0" prefWidth="19.0">
          <graphic>
             <ImageView fitHeight="22.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                <image>

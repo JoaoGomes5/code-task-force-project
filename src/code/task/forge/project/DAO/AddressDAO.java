@@ -44,6 +44,7 @@ public class AddressDAO {
     public List<Address> read(String nif) throws SQLException {
 
         Connection conn = ConnectionFactory.getConnection();
+
         Statement stmt = conn.createStatement();
         List<Address> addresses = new ArrayList();
 

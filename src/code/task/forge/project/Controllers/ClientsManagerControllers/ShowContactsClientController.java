@@ -1,4 +1,4 @@
-package code.task.forge.project.Controllers;
+package code.task.forge.project.Controllers.ClientsManagerControllers;
 
 import code.task.forge.project.DAO.AddressDAO;
 import code.task.forge.project.Models.Address;

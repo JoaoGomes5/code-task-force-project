@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane prefHeight="446.0" prefWidth="395.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.task.forge.project.Controllers.AddContactClientController">
+<AnchorPane prefHeight="446.0" prefWidth="395.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.task.forge.project.Controllers.ClientsManagerControllers.AddContactClientController">
    <children>
       <Label layoutX="165.0" layoutY="46.0" prefHeight="38.0" prefWidth="106.0" text="Adicionar Morada" />
       <Label layoutX="79.0" layoutY="215.0" text="Tipo" />
